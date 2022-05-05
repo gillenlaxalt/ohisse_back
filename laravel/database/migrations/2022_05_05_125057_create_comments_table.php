@@ -18,10 +18,8 @@ class CreateCommentsTable extends Migration
             $table->collation = 'utf8mb4_general_ci';
             $table->increments('id')->unsigned();
             $table->text('content');
-            $table->bigInteger('id_user')->unsigned();
-            $table->foreign('id_user')->references('id')->on('users');
-            $table->bigInteger('id_spot')->unsigned();
-            $table->foreign('id_spot')->references('id')->on('spots');
+            $table->foreignId('id_user')->constrained("users")->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('id_spot')->constrained("spots")->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
