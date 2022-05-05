@@ -16,7 +16,7 @@ class CreateSpotsTable extends Migration
         Schema::create('spots', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->collation = 'utf8mb4_general_ci';
-            $table->increments('id')->unsigned();
+            $table->bigIncrements('id')->unsigned();
             $table->string('name', 64);
             $table->integer('number')->unsigned()->nullable()->length(10);
             $table->string('street', 100)->nullable();

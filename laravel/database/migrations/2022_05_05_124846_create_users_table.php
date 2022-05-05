@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->collation = 'utf8mb4_general_ci';
-            $table->increments('id')->unsigned();
+            $table->bigIncrements('id')->unsigned();
             $table->string('firstname', 64)->nullable();
             $table->string('lastname', 64)->nullable();
             $table->string('pseudo', 64);

@@ -17,9 +17,9 @@ class CreateBookmarksTable extends Migration
             $table->engine = 'InnoDB';
             $table->collation = 'utf8mb4_general_ci';
             $table->increments('id')->unsigned();
-            $table->bigInteger('id_spot')->unsigned()->length(10);;
+            $table->bigInteger('id_spot')->unsigned();
             $table->foreign('id_spot')->references('id')->on('spots');
-            $table->bigInteger('id_comment')->unsigned()->length(10);
+            $table->bigInteger('id_comment')->unsigned();
             $table->foreign('id_comment')->references('id')->on('comments');
             $table->timestamps();
         });
