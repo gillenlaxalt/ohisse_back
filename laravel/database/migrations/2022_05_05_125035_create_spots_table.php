@@ -20,7 +20,7 @@ class CreateSpotsTable extends Migration
             $table->string('name', 64);
             $table->integer('number', 10)->unsigned() ->nullable();
             $table->string('street',100)->unsigned() ->nullable();
-            $table->int('zipcode',10)->unsigned() ->nullable();
+            $table->integer('zipcode',10)->unsigned() ->nullable();
             $table->string('city', 64);
             $table->string('country', 64);
             $table->string('longitude', 64);
