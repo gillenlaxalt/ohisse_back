@@ -18,9 +18,9 @@ class CreateCommentsTable extends Migration
             $table->collation = 'utf8mb4_general_ci';
             $table->increments('id')->unsigned();
             $table->text('content');
-            $table->bigInteger('id_user',10)->unsigned();
+            $table->bigInteger('id_user')->unsigned()->length(10);;
             $table->foreign('id_user')->references('id')->on('users');
-            $table->bigInteger('id_spot',10)->unsigned();
+            $table->bigInteger('id_spot')->unsigned()->length(10);
             $table->foreign('id_spot')->references('id')->on('spots');
             $table->timestamps();
         });
