@@ -14,6 +14,8 @@ class CreateSpotsTable extends Migration
     public function up()
     {
         Schema::create('spots', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->collation = 'utf8mb4_general_ci';
             $table->increments('id')->unsigned();
             $table->string('name', 64);
             $table->integer('number', 10)->unsigned() ->nullable();

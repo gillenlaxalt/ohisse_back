@@ -14,7 +14,11 @@ class CreateBookmarksTable extends Migration
     public function up()
     {
         Schema::create('bookmarks', function (Blueprint $table) {
-            $table->id();
+            $table->engine = 'InnoDB';
+            $table->collation = 'utf8mb4_general_ci';
+            $table->increment('id')->unsigned();
+            $table->integer('id_spot',10)->unsigned();
+            $table->interger('id_comment',10)->unsigned();
             $table->timestamps();
         });
     }
