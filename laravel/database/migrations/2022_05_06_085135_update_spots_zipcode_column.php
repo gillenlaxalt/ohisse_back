@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ChangeSpotsZipcodeColumn extends Migration
+class UpdateSpotsZipcodeColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class ChangeSpotsZipcodeColumn extends Migration
     public function up()
     {
         Schema::table('spots', function (Blueprint $table) {
-
+            $table->string('zipcode', 64)->nullable()->change();
         });
     }
 
@@ -26,7 +26,7 @@ class ChangeSpotsZipcodeColumn extends Migration
     public function down()
     {
         Schema::table('spots', function (Blueprint $table) {
-
+            $table->integer('zipcode', 64)->unsigned()->nullable()->change();
         });
     }
 }
