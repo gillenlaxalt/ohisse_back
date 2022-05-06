@@ -12,4 +12,10 @@ class SpotController extends CoreController {
 
         return response()->json($allSpots);
     }
+
+    public function item($id)
+    {
+      $spotById = Spot::findOrFail($id);
+      return response()->json($spotById);
+    }
 }

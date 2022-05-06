@@ -40,3 +40,10 @@ Route::get(
         SpotController::class, 'list'
     ]
 );
+
+Route::get(
+    '/api/spots/{id}',
+    [
+        SpotController::class, 'item'
+    ]
+);
