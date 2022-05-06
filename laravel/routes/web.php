@@ -24,3 +24,11 @@ Route::get(
     ]
 
 );
+
+Route::get(
+    '/api/user/{id}',
+    [
+        UserController::class, 'item'
+    ]
+
+);

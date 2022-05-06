@@ -12,4 +12,11 @@ class UserController extends CoreController
 
         return response()->json($allUsers);
     }
+
+    public function item($id)
+    {
+        $UserById = User::findOrFail($id);
+
+        return response()->json($UserById);
+    }
 }
