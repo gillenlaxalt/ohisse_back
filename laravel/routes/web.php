@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SpotController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,4 +32,11 @@ Route::get(
         UserController::class, 'item'
     ]
 
+);
+
+Route::get(
+    '/api/spots',
+    [
+        SpotController::class, 'list'
+    ]
 );
