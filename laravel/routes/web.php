@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SpotController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,4 +24,26 @@ Route::get(
         UserController::class, 'list'
     ]
 
+);
+
+Route::get(
+    '/api/user/{id}',
+    [
+        UserController::class, 'item'
+    ]
+
+);
+
+Route::get(
+    '/api/spots',
+    [
+        SpotController::class, 'list'
+    ]
+);
+
+Route::get(
+    '/api/spots/{id}',
+    [
+        SpotController::class, 'item'
+    ]
 );
