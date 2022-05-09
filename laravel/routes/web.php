@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SpotController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\BookmarkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,5 +97,16 @@ Route::delete(
     'api/comments/delete/{id}',
     [
         CommentController::class, 'deleteComment'
+    ]
+);
+
+//=========================================
+// Endpoints de l'entité bookmark
+//=========================================
+
+Route::post(
+    '/api/user/bookmarks/add',
+    [
+        BookmarkController::class, 'addBookmark'
     ]
 );
