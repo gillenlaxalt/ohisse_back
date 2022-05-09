@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SpotController;
+use App\Http\Controllers\CommentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,5 +71,16 @@ Route::post(
     'api/spots/create',
     [
         SpotController::class, 'addSpot'
+    ]
+    );
+
+//=========================================
+// Endpoints de l'entité comment
+//=========================================
+
+Route::post(
+    'api/comments/add',
+    [
+        CommentController::class, 'addComment'
     ]
     );
