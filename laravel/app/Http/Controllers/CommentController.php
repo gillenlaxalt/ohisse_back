@@ -14,7 +14,7 @@ class CommentController extends CoreController
   {
     //We use findOrFail method of the class Comment to retrieve the comments of the spot, by his ID.
     //We store the retrieved data in $commentById
-    $commentById = Comment:: findOrFail($id);
+    $commentById = Comment::findOrFail($id);
 
     //We send the retrieved data in JSON format.
     return response()->json($commentById);
@@ -44,6 +44,19 @@ class CommentController extends CoreController
       return response( "", Response::HTTP_INTERNAL_SERVER_ERROR );
     }
   }
+
+  public function deleteComment ($id)
+{
+    $commentToDelete = Comment::findOrFail( $id );
+
+    $isDeleted = $commentToDelete->delete();
+
+    if (!$isDeleted)
+    {
+        return response( "", Response::HTTP_INTERNAL_SERVER_ERROR );
+    }
+}
+
 }
 
 

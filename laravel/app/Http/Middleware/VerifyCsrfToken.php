@@ -14,6 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //We add an exception to ignore token verification, for this URL only, in order to be able to test our route in insomnia
         "http://0.0.0.0:8080/api/spots/create",
-        "http://0.0.0.0:8080/api/comments/add"
+        "http://0.0.0.0:8080/api/comments/add",
+        "http://0.0.0.0:8080/api/comments/delete/"
     ];
 }

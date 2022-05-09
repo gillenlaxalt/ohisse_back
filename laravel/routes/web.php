@@ -90,4 +90,11 @@ Route::post(
     [
         CommentController::class, 'addComment'
     ]
-    );
+);
+
+Route::delete(
+    'api/comments/delete/{id}',
+    [
+        CommentController::class, 'deleteComment'
+    ]
+);
