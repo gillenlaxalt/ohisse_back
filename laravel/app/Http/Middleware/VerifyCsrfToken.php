@@ -16,6 +16,7 @@ class VerifyCsrfToken extends Middleware
         "http://0.0.0.0:8080/api/spots/create",
         "http://0.0.0.0:8080/api/comments/add",
         "http://0.0.0.0:8080/api/comments/delete/",
-        "http://0.0.0.0:8080/api/user/bookmarks/add"
+        "http://0.0.0.0:8080/api/user/bookmarks/add",
+        "http://0.0.0.0:8080/api/user/bookmarks/delete/"
     ];
 }

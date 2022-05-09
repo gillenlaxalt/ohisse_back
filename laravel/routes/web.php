@@ -110,3 +110,10 @@ Route::post(
         BookmarkController::class, 'addBookmark'
     ]
 );
+
+Route::delete(
+    '/api/user/bookmarks/delete/{id}',
+    [
+        BookmarkController::class, 'deleteBookmark'
+    ]
+);

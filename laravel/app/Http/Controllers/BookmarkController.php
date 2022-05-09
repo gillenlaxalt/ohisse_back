@@ -34,4 +34,16 @@ class BookmarkController extends CoreController
       }
 
   }
+
+  public function deleteBookmark($id)
+  {
+    $deleteBookmark = Bookmark::findOrFail($id);
+
+    $isDeleted = $deleteBookmark->delete();
+
+    if(!$isDeleted)
+    {
+      return response( "", Response::HTTP_INTERNAL_SERVER_ERROR );
+    }
+  }
 }
