@@ -50,6 +50,13 @@ Route::post(
     ]
 );
 
+Route::patch(
+    '/api/user/edit/{id}',
+    [
+        UserController::class, 'editUser'
+    ]
+    );
+
 //=========================================
 // Endpoints de l'entité spot
 //=========================================

@@ -53,4 +53,77 @@ class UserController extends CoreController
             return response( "", Response::HTTP_INTERNAL_SERVER_ERROR );
         }
     }
+
+    public function editUser(Request $request, $id)
+    {
+        // We retrieve the user to update by his ID
+        $userToUpdate = User::find($id);
+
+        //We verify if the user exists. If he doesn't, find returns null
+        if ( $userToUpdate !==null )
+        {
+            // we initialize a variable to check if we have at least 1 data
+            $oneDataAtLeast = false;
+
+            if( $request->filled('firstname') )
+        {
+            $userToUpdate->firstname = $request->input('firstname');
+            $oneDataAtLeast = true;
+        }
+            if( $request->filled('lastname') )
+        {
+            $userToUpdate->lastname = $request->input('lastname');
+            $oneDataAtLeast = true;
+        }
+            if( $request->filled('pseudo') )
+        {
+            $userToUpdate->pseudo = $request->input('pseudo');
+            $oneDataAtLeast = true;
+        }
+            if( $request->filled('email') )
+        {
+            $userToUpdate->email = $request->input('email');
+            $oneDataAtLeast = true;
+        }
+            if( $request->filled('city') )
+        {
+            $userToUpdate->city = $request->input('city');
+            $oneDataAtLeast = true;
+        }
+            if( $request->filled('country') )
+        {
+            $userToUpdate->country = $request->input('country');
+            $oneDataAtLeast = true;
+        }
+            if( $request->filled('description') )
+        {
+            $userToUpdate->description = $request->input('description');
+            $oneDataAtLeast = true;
+        }
+            if( $request->filled('password') )
+        {
+            $userToUpdate->password = $request->input('password');
+            $oneDataAtLeast = true;
+        }
+        }
+        if ( !$oneDataAtLeast )
+        {
+            return response( "", Response::HTTP_BAD_REQUEST );
+        }
+
+        if( $userToUpdate->save() )
+        {
+          // so return a code HTTP 204 "No Content"
+          // https://restfulapi.net/http-methods/#put
+          // without body (not JSON or HTML)
+          return response( "", Response::HTTP_NO_CONTENT );
+        }
+        else
+        {
+          // so return a code HTTP 500 "Internal Server Error"
+          // https://restfulapi.net/http-status-codes/
+          // without body (not JSON or HTML)
+          return response( "", Response::HTTP_INTERNAL_SERVER_ERROR );
+        }
+    }
 }
