@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 // Pour pouvoir utiliser les constantes avec les codes HTTP, on a besoin de Response
 use Symfony\Component\HttpFoundation\Response;
+//use Illuminate\Support\Facades\Hash;
 
 class UserController extends CoreController
 {
@@ -38,6 +39,7 @@ class UserController extends CoreController
         $newUser->country = $request->input('country');
         $newUser->description = $request->input('description');
         $newUser->password = $request->input('password');
+        // $newUser->password = $request->input(Hash::make('password'));
 
         //We save the changes in the database
         $isInserted = $newUser->save();
