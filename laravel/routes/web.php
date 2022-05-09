@@ -14,9 +14,15 @@ use App\Http\Controllers\SpotController;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+//=========================================
+// Endpoints de l'entité user
+//=========================================
 
 Route::get(
     '/api/user',
@@ -33,6 +39,17 @@ Route::get(
     ]
 
 );
+
+Route::post(
+    '/api/register',
+    [
+        UserController::class, 'addUser'
+    ]
+);
+
+//=========================================
+// Endpoints de l'entité spot
+//=========================================
 
 Route::get(
     '/api/spots',
