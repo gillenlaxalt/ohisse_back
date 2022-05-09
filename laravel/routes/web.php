@@ -64,3 +64,10 @@ Route::get(
         SpotController::class, 'item'
     ]
 );
+
+Route::post(
+    'api/spots/create',
+    [
+        SpotController::class, 'addSpot'
+    ]
+    );

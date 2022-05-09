@@ -29,7 +29,7 @@ class UserController extends CoreController
         // We create a new User instance
         $newUser = new User();
 
-        //We enter the values of this new user with the data supplied in the request
+        //We enter the values of the data of this new user with the data supplied in the request
         $newUser->firstname = $request->input('firstname');
         $newUser->lastname = $request->input('lastname');
         $newUser->pseudo = $request->input('pseudo');

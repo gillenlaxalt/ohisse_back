@@ -94,6 +94,25 @@ const spot = [
         min_difficulty: '5a',
         max_difficulty: '9a',
     },
+    {
+        id: 6,
+        name:'Arkose',
+        number: 13,
+        street: 'Rte de Lavaur',
+        zipcode: 31240,
+        city: 'Toulouse',
+        country:'France',
+        longitude: '',
+        latitude: '',
+        discipline: 'rocher',
+        type: 'Salle',
+        rock_type:'synthétique',
+        picture: 'https://toulousesecret.com/wp-content/uploads/2021/12/BLOC-2-Arkose-Toulouse.jpg',
+        various: 'lorem impsum lorem carium',
+        reputation: 5,
+        min_difficulty: '5a',
+        max_difficulty: '9a',
+    },
 
 
 ]
