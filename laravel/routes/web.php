@@ -72,11 +72,18 @@ Route::post(
     [
         SpotController::class, 'addSpot'
     ]
-    );
+);
 
 //=========================================
 // Endpoints de l'entité comment
 //=========================================
+
+Route::get(
+    'api/comment/{id}',
+    [
+        CommentController::class, 'findCommentBySpot'
+    ]
+);
 
 Route::post(
     'api/comments/add',

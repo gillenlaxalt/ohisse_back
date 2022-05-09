@@ -10,6 +10,16 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CommentController extends CoreController
 {
+  public function findCommentBySpot($id)
+  {
+    //We use findOrFail method of the class Comment to retrieve the comments of the spot, by his ID.
+    //We store the retrieved data in $commentById
+    $commentById = Comment:: findOrFail($id);
+
+    //We send the retrieved data in JSON format.
+    return response()->json($commentById);
+  }
+
   public function addComment( Request $request )
   {
     // We create a new Comment instance
