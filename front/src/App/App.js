@@ -21,10 +21,10 @@ function App() {
   return (
     <div className='app' >
       <Header />
-      <Footer />
       {isLogged && (
         <Login />
       )}
+      <Footer />
 
     </div>
   )
