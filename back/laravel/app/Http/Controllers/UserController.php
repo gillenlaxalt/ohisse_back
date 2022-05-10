@@ -128,4 +128,22 @@ class UserController extends CoreController
           return response( "", Response::HTTP_INTERNAL_SERVER_ERROR );
         }
     }
+
+    /**
+     * Method to delete a user by this id
+     *
+     * @param number $id
+     * @return void
+     */
+    public function deleteUser($id)
+    {
+        $userToDelete = User:: findOrFail($id);
+
+        $isDeteletd = $userToDelete->delete();
+
+        if(!$isDeteletd)
+        {
+            return response( "", Response::HTTP_INTERNAL_SERVER_ERROR );
+        }
+    }
 }
