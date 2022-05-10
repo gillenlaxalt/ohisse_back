@@ -34,7 +34,7 @@ class UserController extends CoreController
         $newUser->firstname = $request->input('firstname');
         $newUser->lastname = $request->input('lastname');
         $newUser->pseudo = $request->input('pseudo');
-        $newUser->mail = $request->input('mail');
+        $newUser->email = $request->input('email');
         $newUser->city = $request->input('city');
         $newUser->country = $request->input('country');
         $newUser->description = $request->input('description');
