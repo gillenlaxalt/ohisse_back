@@ -1,0 +1,26 @@
+@use '../../styles/vars';
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: vars.$main-bg-btn-color;
+}
+
+.footer_txt {
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 10px;
+    width: 90%;
+    border-top: 2px solid vars.$color-decoration;
+}
+
+.footer_copyright {
+  font-size: 0.8rem;
+  color: vars.$title-color;
+  margin-bottom: 10px;
+}
