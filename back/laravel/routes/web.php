@@ -159,7 +159,7 @@ Route::delete(
 
 
 //=========================================
-// Endpoints de l'entité user
+// Endpoints de l'entité spots
 //=========================================
 
 Route::get(
@@ -180,5 +180,12 @@ Route::patch(
     '/admin/spots/edit/{id}',
     [
         SpotController::class, 'editSpot'
+    ]
+);
+
+Route::delete(
+    '/admin/spots/delete/{id}',
+    [
+        SpotController::class, 'deleteSpot'
     ]
 );

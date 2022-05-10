@@ -148,4 +148,15 @@ class SpotController extends CoreController
           return response( "", Response::HTTP_INTERNAL_SERVER_ERROR );
         }
     }
+
+    public function deleteSpot($id)
+    {
+        $deleteToSpot = Spot:: findOrFail($id);
+        $isDeleted = $deleteToSpot->delete();
+
+        if (!$isDeleted)
+    {
+        return response( "", Response::HTTP_INTERNAL_SERVER_ERROR );
+    }
+    }
 }
