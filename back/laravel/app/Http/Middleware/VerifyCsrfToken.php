@@ -22,6 +22,7 @@ class VerifyCsrfToken extends Middleware
         "http://0.0.0.0:8080/api/register",
         "http://0.0.0.0:8080/admin/user/delete/3",
         "http://0.0.0.0:8080/admin/spots/create",
-        "http://0.0.0.0:8080/admin/spots/delete/6"
+        "http://0.0.0.0:8080/admin/spots/delete/6",
+        "http://0.0.0.0:8080/admin/comments/delete/7"
     ];
 }

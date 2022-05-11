@@ -10,6 +10,14 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CommentController extends CoreController
 {
+
+  public function list()
+  {
+    $allComments = Comment::all();
+
+    return response()->json($allComments);
+  }
+
   public function findCommentBySpot($id)
   {
     //We use findOrFail method of the class Comment to retrieve the comments of the spot, by his ID.

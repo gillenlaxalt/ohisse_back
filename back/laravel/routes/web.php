@@ -189,3 +189,21 @@ Route::delete(
         SpotController::class, 'deleteSpot'
     ]
 );
+
+//=========================================
+// Endpoints de l'entité comments
+//=========================================
+
+Route::get(
+    '/admin/comments',
+    [
+        CommentController::class, 'list'
+    ]
+);
+
+Route::delete(
+    '/admin/comments/delete/{id}',
+    [
+        CommentController::class, 'deleteComment'
+    ]
+);
