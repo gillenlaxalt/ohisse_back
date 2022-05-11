@@ -21,7 +21,7 @@ function App() {
   return (
     <div className='app' >
       <Header />
-      {isLogged && (
+      {!isLogged && (
         <Login />
       )}
       <Footer />
