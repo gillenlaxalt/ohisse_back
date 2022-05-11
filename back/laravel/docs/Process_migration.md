@@ -10,6 +10,7 @@ Sur Packagist
 ```php
 composer require doctrine/dbal
 ```
+
 [Doctrine](https://packagist.org/packages/doctrine/dbal)
 
 ## Création d'une table
@@ -140,11 +141,18 @@ Doctrine, installé précédemment est la dépendance qui sert à exécuter les 
 
 Il faut générer un nouveau fichier de migration. Mais, ce dernier sert à modifier la table souhaitée. 
 
+_Sur colonne existante_
+
+Permet de modifier le type et les attribues de colonnes existante
 ```php
 php artisan make:migration change_categories_couleur_column --table categories
 ```
 ```php
 php artisan make:migration update_categories_couleur_column --table categories
+```
+_Créer une colonne_
+```php
+php artisan make:migration add_role_to_users_table --table=users
 ```
 ### fichier généré
 
@@ -213,6 +221,7 @@ class ChangeCategorieCouleurColumn extends Migration
 
 }
 ```
+[Laravel](https://laravel.com/docs/7.x/migrations#modifying-columns)
 [Apical.xyz](https://apical.xyz/fiches/creation_de_la_base_de_donnees_et_de_ses_tables/Les_fichiers_de_migration_pour_creer_les_tables)
 ## Exemple concret
 
