@@ -92,6 +92,7 @@ Schema : trois principales méthodes statiques
 
 - create() : pour créer une table
 - dropIfExists (ou drop()) : pour supprimer une table
+- dropColumn();
 - table() : pour modifier une table
 
 ### Pour éxécuter la création de la table (ou des tables)
