@@ -22,7 +22,11 @@ class CommentController extends CoreController
   {
     //We use findOrFail method of the class Comment to retrieve the comments of the spot, by his ID.
     //We store the retrieved data in $commentById
-    $commentById = Comment::findOrFail($id);
+    // We use where() method of Laravel : first arg = name of column we want to search in, and second arg is the id received
+    // by current spot in front. Next, we use orderBy() to organize the display order, and get() is the method to retrieve the datas
+    // from database
+    // https://laravel.com/docs/5.8/eloquent#retrieving-models
+    $commentById = Comment::where('id_spot', $id)->orderBy('created_at', 'desc')->get();
 
     //We send the retrieved data in JSON format.
     return response()->json($commentById);
