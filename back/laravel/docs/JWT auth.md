@@ -54,3 +54,19 @@ JWT_SECRET=foobar
 creation JwtMiddleware
 
 php artisan make:middleware JwtMiddleware
+
+
+
+Protéger les routes 
+
+Route::groupe(['middleware' => ['jwt.verify']], function(){
+
+});
+
+
+'guards' => [
+        'web' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+        ],
+    ],
