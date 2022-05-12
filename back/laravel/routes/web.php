@@ -111,6 +111,13 @@ Route::delete(
 // Endpoints de l'entité bookmark
 //=========================================
 
+Route::get(
+    '/api/user/bookmarks/{id}',
+    [
+        BookmarkController::class, 'findBookmarksByUser'
+    ]
+);
+
 Route::post(
     '/api/user/bookmarks/add',
     [
