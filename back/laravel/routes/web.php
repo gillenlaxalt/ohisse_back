@@ -22,43 +22,49 @@ use App\Http\Controllers\BookmarkController;
 //====================================================================//
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //=========================================
 // Endpoints de l'entité user
 //=========================================
 
-Route::get(
-    '/api/user',
-    [
-        UserController::class, 'list'
-    ]
 
-);
 
-Route::get(
-    '/api/user/{id}',
-    [
-        UserController::class, 'item'
-    ]
+// Route::get(
+//     '/api/user',
+//     [
+//         UserController::class, 'list'
+//     ]
 
-);
+// );
 
-Route::post(
-    '/api/register',
-    [
-        UserController::class, 'addUser'
-    ]
-);
+Route::groupe(['middleware' => ['jwt.verify']], function(){
 
-Route::patch(
-    '/api/user/edit/{id}',
-    [
-        UserController::class, 'editUser'
-    ]
+    Route::get(
+        '/api/user/{id}',
+        [
+            UserController::class, 'item'
+        ]
+
     );
+
+    Route::post(
+        '/api/register',
+        [
+            UserController::class, 'addUser'
+        ]
+    );
+
+    Route::patch(
+        '/api/user/edit/{id}',
+        [
+            UserController::class, 'editUser'
+        ]
+    );
+});
+
 
 //=========================================
 // Endpoints de l'entité spot
@@ -77,13 +83,15 @@ Route::get(
         SpotController::class, 'item'
     ]
 );
+Route::groupe(['middleware' => ['jwt.verify']], function(){
 
-Route::post(
-    'api/spots/create',
-    [
-        SpotController::class, 'addSpot'
-    ]
-);
+    Route::post(
+        'api/spots/create',
+        [
+            SpotController::class, 'addSpot'
+        ]
+    );
+});
 
 //=========================================
 // Endpoints de l'entité comment
@@ -96,44 +104,52 @@ Route::get(
     ]
 );
 
-Route::post(
-    'api/comments/add',
-    [
-        CommentController::class, 'addComment'
-    ]
-);
+Route::groupe(['middleware' => ['jwt.verify']], function(){
 
-Route::delete(
-    'api/comments/delete/{id}',
-    [
-        CommentController::class, 'deleteComment'
-    ]
-);
+    Route::post(
+        'api/comments/add',
+        [
+            CommentController::class, 'addComment'
+        ]
+    );
+
+    Route::delete(
+        'api/comments/delete/{id}',
+        [
+            CommentController::class, 'deleteComment'
+        ]
+    );
+});
+
 
 //=========================================
 // Endpoints de l'entité bookmark
 //=========================================
 
-Route::get(
-    '/api/user/bookmarks/{id}',
-    [
-        BookmarkController::class, 'findBookmarksByUser'
-    ]
-);
+Route::groupe(['middleware' => ['jwt.verify']], function(){
 
-Route::post(
-    '/api/user/bookmarks/add',
-    [
-        BookmarkController::class, 'addBookmark'
-    ]
-);
+    Route::get(
+        '/api/user/bookmarks/{id}',
+        [
+            BookmarkController::class, 'findBookmarksByUser'
+        ]
+    );
 
-Route::delete(
-    '/api/user/bookmarks/delete/{id}',
-    [
-        BookmarkController::class, 'deleteBookmark'
-    ]
-);
+    Route::post(
+        '/api/user/bookmarks/add',
+        [
+            BookmarkController::class, 'addBookmark'
+        ]
+    );
+
+    Route::delete(
+        '/api/user/bookmarks/delete/{id}',
+        [
+            BookmarkController::class, 'deleteBookmark'
+        ]
+    );
+});
+
 
 //====================================================================//
 // !Endpoint for back-office
@@ -143,74 +159,85 @@ Route::delete(
 // Endpoints de l'entité user
 //=========================================
 
-Route::get(
-    '/admin/users',
-    [
-        UserController::class, 'list'
-    ]
-);
+Route::groupe(['middleware' => ['jwt.verify']], function(){
 
-Route::get(
-    '/admin/user/{id}',
-    [
-        UserController::class, 'item'
-    ]
-);
+    Route::get(
+        '/admin/users',
+        [
+            UserController::class, 'list'
+        ]
+    );
 
-Route::delete(
-    '/admin/user/delete/{id}',
-    [
-        UserController::class, 'deleteUser'
-    ]
-);
+    Route::get(
+        '/admin/user/{id}',
+        [
+            UserController::class, 'item'
+        ]
+    );
+
+    Route::delete(
+        '/admin/user/delete/{id}',
+        [
+            UserController::class, 'deleteUser'
+        ]
+    );
+});
 
 
 //=========================================
 // Endpoints de l'entité spots
 //=========================================
 
-Route::get(
-    '/admin/spots',
-    [
-        SpotController::class, 'list'
-    ]
-);
+Route::groupe(['middleware' => ['jwt.verify']], function(){
 
-Route::post(
-    '/admin/spots/create',
-    [
-        SpotController::class, 'addSpot'
-    ]
-);
+    Route::get(
+        '/admin/spots',
+        [
+            SpotController::class, 'list'
+        ]
+    );
 
-Route::patch(
-    '/admin/spots/edit/{id}',
-    [
-        SpotController::class, 'editSpot'
-    ]
-);
+    Route::post(
+        '/admin/spots/create',
+        [
+            SpotController::class, 'addSpot'
+        ]
+    );
 
-Route::delete(
-    '/admin/spots/delete/{id}',
-    [
-        SpotController::class, 'deleteSpot'
-    ]
-);
+    Route::patch(
+        '/admin/spots/edit/{id}',
+        [
+            SpotController::class, 'editSpot'
+        ]
+    );
+
+    Route::delete(
+        '/admin/spots/delete/{id}',
+        [
+            SpotController::class, 'deleteSpot'
+        ]
+    );
+});
+
 
 //=========================================
 // Endpoints de l'entité comments
 //=========================================
 
-Route::get(
-    '/admin/comments',
-    [
-        CommentController::class, 'list'
-    ]
-);
+Route::groupe(['middleware' => ['jwt.verify']], function(){
 
-Route::delete(
-    '/admin/comments/delete/{id}',
-    [
-        CommentController::class, 'deleteComment'
-    ]
-);
+    Route::get(
+        '/admin/comments',
+        [
+            CommentController::class, 'list'
+        ]
+    );
+
+    Route::delete(
+        '/admin/comments/delete/{id}',
+        [
+            CommentController::class, 'deleteComment'
+        ]
+    );
+});
+

@@ -49,3 +49,8 @@ php artisan jwt:secret
 
 doit rajouter une ligne dans le fichier .env 
 JWT_SECRET=foobar
+
+
+creation JwtMiddleware
+
+php artisan make:middleware JwtMiddleware
