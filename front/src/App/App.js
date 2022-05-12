@@ -25,7 +25,9 @@ function App() {
       {!isLogged && (
         <Login />
       )}
-      <Users />
+      {isLogged && (
+        <Users />
+      )}
       <Footer />
 
     </div>

@@ -9,7 +9,7 @@ import { HANDLE_DARK, HANDLE_MENU } from "../actions/settings";
 export const initialState = {
   burgerMenu: false,
   darkMode: false,
-  isLogged:true,
+  isLogged:false,
 };
 
 const settingsReducers = (state = initialState, action = {}) => {
