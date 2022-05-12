@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 // Pour pouvoir utiliser les constantes avec les codes HTTP, on a besoin de Response
 use Symfony\Component\HttpFoundation\Response;
-//use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends CoreController
 {
@@ -38,8 +38,9 @@ class UserController extends CoreController
         $newUser->city = $request->input('city');
         $newUser->country = $request->input('country');
         $newUser->description = $request->input('description');
-        $newUser->password = $request->input('password');
-        // $newUser->password = $request->input(Hash::make('password'));
+        // $newUser->password = $request->input('password');
+        $newUser->password = Hash::make($request->input('password'));
+        $newUser->role = $request->input('role');
 
         //We save the changes in the database
         $isInserted = $newUser->save();
@@ -126,6 +127,24 @@ class UserController extends CoreController
           // https://restfulapi.net/http-status-codes/
           // without body (not JSON or HTML)
           return response( "", Response::HTTP_INTERNAL_SERVER_ERROR );
+        }
+    }
+
+    /**
+     * Method to delete a user by this id
+     *
+     * @param number $id
+     * @return void
+     */
+    public function deleteUser($id)
+    {
+        $userToDelete = User:: findOrFail($id);
+
+        $isDeteletd = $userToDelete->delete();
+
+        if(!$isDeteletd)
+        {
+            return response( "", Response::HTTP_INTERNAL_SERVER_ERROR );
         }
     }
 }

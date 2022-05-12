@@ -17,6 +17,9 @@ use App\Http\Controllers\BookmarkController;
 |
 */
 
+//====================================================================//
+// !Endpoint to API to front-end
+//====================================================================//
 
 
 Route::get('/', function () {
@@ -129,5 +132,85 @@ Route::delete(
     '/api/user/bookmarks/delete/{id}',
     [
         BookmarkController::class, 'deleteBookmark'
+    ]
+);
+
+//====================================================================//
+// !Endpoint for back-office
+//====================================================================//
+
+//=========================================
+// Endpoints de l'entité user
+//=========================================
+
+Route::get(
+    '/admin/users',
+    [
+        UserController::class, 'list'
+    ]
+);
+
+Route::get(
+    '/admin/user/{id}',
+    [
+        UserController::class, 'item'
+    ]
+);
+
+Route::delete(
+    '/admin/user/delete/{id}',
+    [
+        UserController::class, 'deleteUser'
+    ]
+);
+
+
+//=========================================
+// Endpoints de l'entité spots
+//=========================================
+
+Route::get(
+    '/admin/spots',
+    [
+        SpotController::class, 'list'
+    ]
+);
+
+Route::post(
+    '/admin/spots/create',
+    [
+        SpotController::class, 'addSpot'
+    ]
+);
+
+Route::patch(
+    '/admin/spots/edit/{id}',
+    [
+        SpotController::class, 'editSpot'
+    ]
+);
+
+Route::delete(
+    '/admin/spots/delete/{id}',
+    [
+        SpotController::class, 'deleteSpot'
+    ]
+);
+
+//=========================================
+// Endpoints de l'entité comments
+//=========================================
+
+Route::get(
+    '/admin/comments',
+    [
+        CommentController::class, 'list'
+    ]
+);
+
+Route::delete(
+    '/admin/comments/delete/{id}',
+    [
+        CommentController::class, 'deleteComment'
     ]
 );
