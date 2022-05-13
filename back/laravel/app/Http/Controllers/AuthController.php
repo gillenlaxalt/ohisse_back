@@ -12,11 +12,11 @@ class AuthController extends CoreController
      *
      * @return void
      */
-    public function __construct()
+    /* public function __construct()
     {
         $this->middleware('auth:api', ['except' => ['login']]);
     }
-
+    */
     /**
      * Get a JWT via given credentials.
      *
@@ -39,10 +39,10 @@ class AuthController extends CoreController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function me()
-    {
-        return response()->json(auth()->user());
-    }
+    // public function me()
+    // {
+    //     return response()->json(auth()->user());
+    // }
 
     /**
      * Log the user out (Invalidate the token).
@@ -61,10 +61,10 @@ class AuthController extends CoreController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function refresh()
-    {
-        return $this->respondWithToken(auth()->refresh());
-    }
+    // public function refresh()
+    // {
+    //     return $this->respondWithToken(auth()->refresh());
+    // }
 
     /**
      * Get the token array structure.
