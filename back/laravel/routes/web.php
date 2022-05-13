@@ -40,7 +40,7 @@ use App\Http\Controllers\BookmarkController;
 
 // );
 
-Route::groupe(['middleware' => ['jwt.verify']], function(){
+Route::group(['middleware' => ['jwt.verify']], function(){
 
     Route::get(
         '/api/user/{id}',
@@ -83,7 +83,7 @@ Route::get(
         SpotController::class, 'item'
     ]
 );
-Route::groupe(['middleware' => ['jwt.verify']], function(){
+Route::group(['middleware' => ['jwt.verify']], function(){
 
     Route::post(
         'api/spots/create',
@@ -104,7 +104,7 @@ Route::get(
     ]
 );
 
-Route::groupe(['middleware' => ['jwt.verify']], function(){
+Route::group(['middleware' => ['jwt.verify']], function(){
 
     Route::post(
         'api/comments/add',
@@ -126,7 +126,7 @@ Route::groupe(['middleware' => ['jwt.verify']], function(){
 // Endpoints de l'entité bookmark
 //=========================================
 
-Route::groupe(['middleware' => ['jwt.verify']], function(){
+Route::group(['middleware' => ['jwt.verify']], function(){
 
     Route::get(
         '/api/user/bookmarks/{id}',
@@ -159,7 +159,7 @@ Route::groupe(['middleware' => ['jwt.verify']], function(){
 // Endpoints de l'entité user
 //=========================================
 
-Route::groupe(['middleware' => ['jwt.verify']], function(){
+Route::group(['middleware' => ['jwt.verify']], function(){
 
     Route::get(
         '/admin/users',
@@ -188,7 +188,7 @@ Route::groupe(['middleware' => ['jwt.verify']], function(){
 // Endpoints de l'entité spots
 //=========================================
 
-Route::groupe(['middleware' => ['jwt.verify']], function(){
+Route::group(['middleware' => ['jwt.verify']], function(){
 
     Route::get(
         '/admin/spots',
@@ -224,7 +224,7 @@ Route::groupe(['middleware' => ['jwt.verify']], function(){
 // Endpoints de l'entité comments
 //=========================================
 
-Route::groupe(['middleware' => ['jwt.verify']], function(){
+Route::group(['middleware' => ['jwt.verify']], function(){
 
     Route::get(
         '/admin/comments',
