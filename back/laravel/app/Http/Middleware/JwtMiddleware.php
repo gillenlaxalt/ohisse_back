@@ -6,7 +6,7 @@ use Closure;
 use JWTAuth;
 use Exception;
 use Illuminate\Http\Request;
-use Tymon\JWTAuth\src\Http\Middleware\BaseMiddleware;
+use Tymon\JWTAuth\Http\Middleware\BaseMiddleware;
 
 class JwtMiddleware extends BaseMiddleware
 {

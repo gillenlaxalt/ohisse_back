@@ -40,30 +40,7 @@ use App\Http\Controllers\BookmarkController;
 
 // );
 
-Route::group(['middleware' => ['jwt.verify']], function(){
 
-    Route::get(
-        '/api/user/{id}',
-        [
-            UserController::class, 'item'
-        ]
-
-    );
-
-    Route::post(
-        '/api/register',
-        [
-            UserController::class, 'addUser'
-        ]
-    );
-
-    Route::patch(
-        '/api/user/edit/{id}',
-        [
-            UserController::class, 'editUser'
-        ]
-    );
-});
 
 
 //=========================================
