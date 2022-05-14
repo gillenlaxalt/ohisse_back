@@ -2,6 +2,7 @@
 
 // npm
 import { useSelector } from "react-redux";
+import { Routes, Route } from "react-router-dom";
 
 
 // local
@@ -22,12 +23,18 @@ function App() {
   return (
     <div className='app' >
       <Header />
+
       {!isLogged && (
         <Login />
       )}
+
       {isLogged && (
-        <Users />
+        <Routes>
+          <Route path="/tous-les-utilisateurs" element={<Users />} />
+        </Routes>
+        
       )}
+
       <Footer />
 
     </div>
