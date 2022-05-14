@@ -11,15 +11,13 @@ import addUser from '../../img/icons/add-user.png';
 // style
 import './users.scss';
 
-function AllUsers()
+function Users()
 {
   const dispatch = useDispatch();
   const searchValue= useSelector((state) => state.users.search.inputValue);
   const handleChangeField =(value, name) => (
     dispatch(changeField(value, name))
   );
-
-  console.log(changeField);
 
   return(
     <section className='allUser'>
@@ -50,4 +48,4 @@ function AllUsers()
   )
 };
 
-export default AllUsers;
+export default Users;

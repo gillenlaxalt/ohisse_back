@@ -1,6 +1,6 @@
 @use '../../styles/vars';
 
-.allUser{
+.allSpots{
   text-align: center;
   margin: 30px auto 0;
   width: 90%;
@@ -16,7 +16,7 @@
     justify-content: center;
     align-items: center;
 
-    .allUser-form_span-input{
+    .allSpots-form_span-input{
       height: 35px;
       width: 60%;
       border-radius: 10px;
@@ -39,25 +39,15 @@
       height: inherit;
     }
 
-    .add_user{
+    .add_spot{
       margin-left: 10px;
       width: 30px;
       height: 30px;
     }
-    .add_user:hover{
+
+    .add_spot:hover{
       transform:scale(1.2);
     }
   }
 
-}
-
-@media screen and (min-width: 768px){
-  .allUser_form{
-    
-    .allUser-form_span-input{
-        width: 250px;
-      }
-  }
-
-  
 }
