@@ -82,3 +82,21 @@
   }
 
 }
+
+@media screen and (min-width: 768px){
+  .userCard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+  }
+
+  .userCard_identity{
+    width:60%;
+  }
+
+  .userCard_config {
+    align-items: center;
+}
+}

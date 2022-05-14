@@ -47,3 +47,19 @@
   }
 
 }
+
+@media screen and (min-width: 768px){
+  .allUser_form{
+    
+    .allUser-form_span-input{
+        width: 250px;
+      }
+  }
+
+  .userCard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+  }
+}
