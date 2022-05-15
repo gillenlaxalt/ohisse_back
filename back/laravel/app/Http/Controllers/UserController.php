@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 // Pour pouvoir utiliser les constantes avec les codes HTTP, on a besoin de Response
 use Symfony\Component\HttpFoundation\Response;
-//use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends CoreController
 {
@@ -25,7 +25,7 @@ class UserController extends CoreController
         return response()->json($UserById);
     }
 
-    public function addUser( Request $request )
+    public function addUser(Request $request)
     {
         // We create a new User instance
         $newUser = new User();
@@ -38,8 +38,9 @@ class UserController extends CoreController
         $newUser->city = $request->input('city');
         $newUser->country = $request->input('country');
         $newUser->description = $request->input('description');
-        $newUser->password = $request->input('password');
-        // $newUser->password = $request->input(Hash::make('password'));
+        // $newUser->password = $request->input('password');
+        $newUser->password = Hash::make($request->input('password'));
+        $newUser->role = $request->input('role');
 
         //We save the changes in the database
         $isInserted = $newUser->save();
@@ -48,11 +49,9 @@ class UserController extends CoreController
         if ($isInserted) {
             //We send back the data (in JSON) of the user we just created, with a code 201 "created" for RESTful compliance.
             return response()->json($newUser, Response::HTTP_CREATED);
-        }
-        else
-        {
+        } else {
             // we send response with error 500 code if the insertion failed. No need to convert in Json
-            return response( "", Response::HTTP_INTERNAL_SERVER_ERROR );
+            return response("", Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -62,70 +61,61 @@ class UserController extends CoreController
         $userToUpdate = User::find($id);
 
         //We verify if the user exists. If he doesn't, find returns null
-        if ( $userToUpdate !==null )
-        {
+        if ($userToUpdate !== null) {
             // we initialize a variable to check if we have at least 1 data
             $oneDataAtLeast = false;
 
-            if( $request->filled('firstname') )
-        {
-            $userToUpdate->firstname = $request->input('firstname');
-            $oneDataAtLeast = true;
+            if ($request->filled('firstname')) {
+                $userToUpdate->firstname = $request->input('firstname');
+                $oneDataAtLeast = true;
+            }
+            if ($request->filled('lastname')) {
+                $userToUpdate->lastname = $request->input('lastname');
+                $oneDataAtLeast = true;
+            }
+            if ($request->filled('pseudo')) {
+                $userToUpdate->pseudo = $request->input('pseudo');
+                $oneDataAtLeast = true;
+            }
+            if ($request->filled('email')) {
+                $userToUpdate->email = $request->input('email');
+                $oneDataAtLeast = true;
+            }
+            if ($request->filled('city')) {
+                $userToUpdate->city = $request->input('city');
+                $oneDataAtLeast = true;
+            }
+            if ($request->filled('country')) {
+                $userToUpdate->country = $request->input('country');
+                $oneDataAtLeast = true;
+            }
+            if ($request->filled('description')) {
+                $userToUpdate->description = $request->input('description');
+                $oneDataAtLeast = true;
+            }
+            if ($request->filled('password')) {
+                $userToUpdate->password = $request->input('password');
+                $oneDataAtLeast = true;
+            }
+            if ($request->filled('role')) {
+                $userToUpdate->role = $request->input('role');
+                $oneDataAtLeast = true;
+            }
         }
-            if( $request->filled('lastname') )
-        {
-            $userToUpdate->lastname = $request->input('lastname');
-            $oneDataAtLeast = true;
-        }
-            if( $request->filled('pseudo') )
-        {
-            $userToUpdate->pseudo = $request->input('pseudo');
-            $oneDataAtLeast = true;
-        }
-            if( $request->filled('email') )
-        {
-            $userToUpdate->email = $request->input('email');
-            $oneDataAtLeast = true;
-        }
-            if( $request->filled('city') )
-        {
-            $userToUpdate->city = $request->input('city');
-            $oneDataAtLeast = true;
-        }
-            if( $request->filled('country') )
-        {
-            $userToUpdate->country = $request->input('country');
-            $oneDataAtLeast = true;
-        }
-            if( $request->filled('description') )
-        {
-            $userToUpdate->description = $request->input('description');
-            $oneDataAtLeast = true;
-        }
-            if( $request->filled('password') )
-        {
-            $userToUpdate->password = $request->input('password');
-            $oneDataAtLeast = true;
-        }
-        }
-        if ( !$oneDataAtLeast )
-        {
-            return response( "", Response::HTTP_BAD_REQUEST );
+        if (!$oneDataAtLeast) {
+            return response("", Response::HTTP_BAD_REQUEST);
         }
 
-        if( $userToUpdate->save() )
-        {
-          // so return a code HTTP 204 "No Content"
-          // https://restfulapi.net/http-methods/#put
-          // without body (not JSON or HTML)
-          return response( "", Response::HTTP_NO_CONTENT );
-        }
-        else
-        {
-          // so return a code HTTP 500 "Internal Server Error"
-          // https://restfulapi.net/http-status-codes/
-          // without body (not JSON or HTML)
-          return response( "", Response::HTTP_INTERNAL_SERVER_ERROR );
+        if ($userToUpdate->save()) {
+            // so return a code HTTP 204 "No Content"
+            // https://restfulapi.net/http-methods/#put
+            // without body (not JSON or HTML)
+            return response("", Response::HTTP_NO_CONTENT);
+        } else {
+            // so return a code HTTP 500 "Internal Server Error"
+            // https://restfulapi.net/http-status-codes/
+            // without body (not JSON or HTML)
+            return response("", Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -137,13 +127,12 @@ class UserController extends CoreController
      */
     public function deleteUser($id)
     {
-        $userToDelete = User:: findOrFail($id);
+        $userToDelete = User::findOrFail($id);
 
         $isDeteletd = $userToDelete->delete();
 
-        if(!$isDeteletd)
-        {
-            return response( "", Response::HTTP_INTERNAL_SERVER_ERROR );
+        if (!$isDeteletd) {
+            return response("", Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 }
