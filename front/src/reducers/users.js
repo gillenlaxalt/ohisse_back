@@ -4,17 +4,23 @@
 
 // local
 
+import { CHANGE_FIELD } from "../actions/users";
+
 export const initialState = {
-  state: 'users state',
+  search: [
+    {
+    inputValue: '',
+    },
+  ],
 };
 
 const usersReducer = ( state = initialState, action = {}) => {
   switch (action.type) {
-    // case SAVE_RECIPES:
-    //   return {
-    //     ...state,
-    //     list: action.recipes,
-    //   };
+    case CHANGE_FIELD:
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
     default:
       return state;
   }
