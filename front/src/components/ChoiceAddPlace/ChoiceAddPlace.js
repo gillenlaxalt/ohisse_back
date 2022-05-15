@@ -5,6 +5,7 @@
 // local
 
 // style
+// import './choiceAddPlace.scss';
 
 function ChoiceAddPlace() {
   return(

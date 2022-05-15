@@ -11,6 +11,7 @@ import Footer from "../components/footer/Footer"
 import Login from "../components/login/Login";
 import Users from "../components/users/Users";
 import Spots from "../components/spots/Spots";
+import ChoiceAddPlace from "../components/ChoiceAddPlace/ChoiceAddPlace";
 
 // style
 
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           <Route path="/tous-les-utilisateurs" element={<Users />} />
           <Route patch="/tous-les-spots" element={<Spots />} />
+          <Route patch="/choix-type-spot" element={<ChoiceAddPlace />} />
         </Routes>
         
       )}
