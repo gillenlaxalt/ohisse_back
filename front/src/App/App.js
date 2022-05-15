@@ -37,6 +37,7 @@ function App() {
           <Route patch="/choix-type-spot" element={<ChoiceAddPlace />} />
         </Routes>
         
+        
       )}
 
       <Footer />
