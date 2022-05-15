@@ -32,7 +32,7 @@ function App() {
       {isLogged && (
         <Routes>
           <Route path="/tous-les-utilisateurs" element={<Users />} />
-          <Route patch="/tous-les-spots" element={<Spots />} />
+          <Route path="/tous-les-spots" element={<Spots />} />
         </Routes>
         
       )}
