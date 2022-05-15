@@ -92,16 +92,32 @@
 
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
 
-  .allSpots-form_span-input {
-    width: 250px;
-}
+
   .spotCard {
-    display: flex;
-    align-items: center;
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .allSpots-form_span-input {
+      width: 250px;
+    }
+
+    .spotCard-identity_name {
+      width: 300px;
+    }
+
+    .spotCard-identity_city {
+      width: 250px;
+    }
+
+    .spotCard-config-btn {
+      margin-top: 0px;
   }
 
-  
+
+  }
+
 }
