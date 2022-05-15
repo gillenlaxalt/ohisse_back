@@ -1,27 +1,56 @@
 @use '../../styles/vars';
 
 .choiceAddPlace{
-  &_h1{
+  height: 100%;
 
+  &_h1{
+    margin: 20px auto;
+    text-align: center;
+    font-size: 1.5rem;
+    color: vars.$title-color;
   }
   &_div-choice{
-    .div-choice_exterieur{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 450px;
+    justify-content: center;
 
+    .div-choice_exterieur{
+      width: 250px;
+      height: 205px;
+      margin: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .div-choice-exterieur_h2{
-
+     
     }
     .div-choice-exterieur_img{
-
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px vars.$second-bg-color;
+      margin: 10px;
     }
     .div-choice_interieur{
-
+      width: 250px;
+      height: 205px;
+      margin: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .div-choice-interieur_h2{
-
+      
     }
     .div-choice-interieur_img{
-      
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px vars.$second-bg-color;
+      margin: 10px;
     }
   }
 }
