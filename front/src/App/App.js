@@ -33,13 +33,13 @@ function App() {
       {isLogged && (
         <Routes>
           <Route path="/tous-les-utilisateurs" element={<Users />} />
-          <Route patch="/tous-les-spots" element={<Spots />} />
-          <Route patch="/choix-type-spot" element={<ChoiceAddPlace />} />
+          <Route path="/tous-les-spots" element={<Spots />} />
+          <Route path="/choix-type-spot" element={<ChoiceAddPlace />} />
         </Routes>
         
         
       )}
-    <ChoiceAddPlace />
+    {/* <ChoiceAddPlace /> */}
       <Footer />
 
     </div>
