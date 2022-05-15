@@ -10,6 +10,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 class BookmarkController extends CoreController
 {
+
+  public function findBookmarksByUser($id)
+  {
+      // Please to refer to comment on CommentController on findCommentBySpot($id) method
+      $bookmarksByUser = Bookmark::where('id_user', $id)->orderBy('created_at', 'desc')->get();
+
+      return response()->json($bookmarksByUser);
+  }
+
   public function addBookmark( Request $request)
   {
       // We create a new Bookmark instance
