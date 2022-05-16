@@ -19,6 +19,8 @@ function Users()
   const handleChangeField =(value, name) => (
     dispatch(changeField(value, name))
   );
+  const userData = useSelector((state) => state.users.usersList);
+  console.log(userData);
   useEffect(() => {
     // load all user from API
     dispatch(fetchUsers());
