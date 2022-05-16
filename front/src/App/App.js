@@ -10,6 +10,8 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer"
 import Login from "../components/login/Login";
 import Users from "../components/users/Users";
+import Spots from "../components/spots/Spots";
+import ChoiceAddPlace from "../components/ChoiceAddPlace/ChoiceAddPlace";
 
 // style
 
@@ -31,10 +33,11 @@ function App() {
       {isLogged && (
         <Routes>
           <Route path="/tous-les-utilisateurs" element={<Users />} />
-        </Routes>
+          <Route path="/tous-les-spots" element={<Spots />} />
+          <Route path="/choix-type-spot" element={<ChoiceAddPlace />} />
+        </Routes>        
         
       )}
-
       <Footer />
 
     </div>
