@@ -1,4 +1,5 @@
 // == import
+import { useDispatch, useSelector } from 'react-redux';
 
 // npm
 
@@ -8,6 +9,9 @@
 import './login.scss';
 
 function Login() {
+
+  const mail = useSelector((state) => state.settings.login.mail);
+  const password = useSelector((state) => state.settings.login.password);
   return (
     <section className="login">
       <h2 className="login_h2">Bienvenue</h2>
