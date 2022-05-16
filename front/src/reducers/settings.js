@@ -11,8 +11,8 @@ export const initialState = {
   darkMode: false,
   isLogged:false,
   login : [{
-    mail:'',
-    password:'',
+    mail:'stateloginmail',
+    password:'stateloginpassword',
   }]
 };
 

@@ -10,8 +10,9 @@ import './login.scss';
 
 function Login() {
 
-  const mail = useSelector((state) => state.settings.login.mail);
-  const password = useSelector((state) => state.settings.login.password);
+  const mail = useSelector((state) => state.settings.login[0].mail);
+  const password = useSelector((state) => state.settings.login[0].password);
+  // console.log(mail, password)
   return (
     <section className="login">
       <h2 className="login_h2">Bienvenue</h2>
@@ -26,6 +27,7 @@ function Login() {
         type='email'
         placeholder="Ton e-mail"
         className="login-form_input"
+        value={mail}
         />
         <label
         htmlFor="Password"
@@ -36,6 +38,7 @@ function Login() {
         type='Password'
         placeholder="Ton mot de passe"
         className="login-form_input"
+        value={password}
         />
         <button
         type='submit'
