@@ -9,7 +9,7 @@ const composeEnhencers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // To combined few api middleware 
 const enhancers = composeEnhencers(
-  applyMiddleware(usersApi.js)
+  applyMiddleware(usersApi)
 );
 // using 'legacy_createStore', because 'createStore' depriced.
 const store = legacy_createStore(reducer, enhancers);

@@ -25,7 +25,7 @@ const settingsReducers = (state = initialState, action = {}) => {
           darkMode: !state.darkMode,
         }
     default:
-      console.log(state);
+      // console.log(state);
       return state;
   }
 };
