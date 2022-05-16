@@ -35,8 +35,7 @@ function App() {
           <Route path="/tous-les-utilisateurs" element={<Users />} />
           <Route path="/tous-les-spots" element={<Spots />} />
           <Route path="/choix-type-spot" element={<ChoiceAddPlace />} />
-        </Routes>
-        
+        </Routes>        
         
       )}
       <Footer />
