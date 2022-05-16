@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+
 
 class AuthController extends CoreController
 {
@@ -26,12 +29,15 @@ class AuthController extends CoreController
     {
         $credentials = request(['email', 'password']);
 
-
         if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        return $this->respondWithToken($token);
+        $user=Auth::user();
+        // var_dump($user);
+        $Token= $this->respondWithToken($token);
+
+        return response()->json(['user' => $user, 'token' => $Token]);
     }
 
     /**
