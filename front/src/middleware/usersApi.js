@@ -3,9 +3,10 @@
 import axios from 'axios';
 
 // local
-import { FETCH_USERS, saveUsers } from '../actions/users';
+import { FETCH_USERS, LOGIN, saveUsers } from '../actions/users';
+import { isLogged } from '../actions/settings';
 
-const axiosIntance = axios.create({
+const axiosInstance = axios.create({
    // API url
    baseURL: 'http://0.0.0.0:8080/',
 });
@@ -13,7 +14,7 @@ const axiosIntance = axios.create({
 const userApiMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_USERS:
-      axiosIntance
+      axiosInstance
         .get('api/admin/users')
         .then(
           (resp) => {
@@ -26,6 +27,45 @@ const userApiMiddleware = (store) => (next) => (action) => {
         );
       next(action);
       break;
+    case LOGIN: {
+      const state = store.getState();
+      const {mail, password } = state.settings.login;
+      console.log(mail, password);
+      // we send to API password and email
+      axiosInstance
+        .post(
+          '/api/login',
+          {
+            email: mail,
+            password: password
+          },
+        )
+        // we recive information about user and token
+        .then((response) => {
+          // const { data: accès_token } = response;
+          console.log(response.data.access_token);
+          const token = response.data.access_token;
+
+          // we save token to axios
+          axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
+
+          // we modify the state to inform that the use is connected
+          store.dispatch(isLogged());
+
+          // we save the user to the state user-> currentUser
+          // store.dispatch(saveUser(user));
+
+          // we fetch all favorite spots
+          // store.dispatch(fetchFavorites());
+        })
+        .catch(() => {
+          console.log('oups...');
+        });
+      next(action);
+      break;
+      
+
+    };
 
       default:
       next(action);

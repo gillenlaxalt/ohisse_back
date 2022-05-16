@@ -22,3 +22,10 @@ export const saveUsers = (data) => ({
   type : SAVE_USERS,
   data,
 });
+
+// action type login
+export const LOGIN = 'LOGIN';
+
+export const login = () => ({
+  type: LOGIN,
+})
