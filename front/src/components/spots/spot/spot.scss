@@ -1,0 +1,123 @@
+@use '../../../styles/vars';
+
+.spotCard {
+  margin-top: 20px;
+  background-color: vars.$second-bg-color;
+  border-radius: 10px;
+  padding: 15px 5px 5px;
+
+  &_identity {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .spotCard-identity_img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      border: 1px solid;
+      margin-right: 10px;
+    }
+
+    .spotCard-identity_name {
+      width: 100%;
+      height: 35px;
+      margin: 0;
+      padding: 10px;
+      background-color: #f2f4f3;
+      border: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+
+    .spotCard-identity_city {
+      width: 50%;
+      height: 35px;
+      margin-left: 10px;
+      padding: 10px;
+      background-color: #f2f4f3;
+      border: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+  }
+
+  &-config-btn {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    justify-content: end;
+
+
+    .spotCard-config_update {
+      background-color: vars.$bg-color-btn-update;
+      color: vars.$main-bg-color;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .spotCard-config_delete {
+      background-color: vars.$bg-color-btn-delete;
+      color: vars.$main-bg-color;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .spotCard-config-btn {
+      display: flex;
+      flex-direction: row;
+      justify-content: end;
+      width: 100%;
+    }
+
+    .spotCard-config_btn {
+      margin-left: 10px;
+      height: 30px;
+      border-radius: 10px;
+      border: none;
+      width: 90px;
+    }
+
+    .spotCard-config_btn:hover {
+      transform: scale(1.1);
+    }
+  }
+
+
+}
+
+@media screen and (min-width: 768px) {
+
+
+  .spotCard {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .allSpots-form_span-input {
+      width: 250px;
+    }
+
+    .spotCard-identity_name {
+      width: 300px;
+    }
+
+    .spotCard-identity_city {
+      width: 250px;
+    }
+
+    .spotCard-config-btn {
+      margin-top: 0px;
+  }
+
+
+  }
+
+}

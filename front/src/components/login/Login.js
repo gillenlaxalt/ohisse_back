@@ -1,6 +1,7 @@
 // == import
 import { useDispatch, useSelector } from 'react-redux';
 import { changeLoginField } from '../../actions/settings';
+import { login } from '../../actions/users';
 
 // npm
 
@@ -25,6 +26,7 @@ function Login() {
   const handleSubmitLogin = (evt) => {
     evt.preventDefault();
     console.log('handleSubmitLogin');
+    dispatch(login())
 }
   
   

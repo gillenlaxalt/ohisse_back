@@ -39,7 +39,7 @@ const settingsReducers = (state = initialState, action = {}) => {
           
         }
     default:
-      console.log(state);
+      // console.log(state);
       return state;
   }
 };
