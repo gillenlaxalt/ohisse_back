@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 // local
-import { FETCH_USERS, LOGIN, saveUsers } from '../actions/users';
+import { FETCH_USERS, LOGIN, saveCurrentUser, saveUsers } from '../actions/users';
 import { isLogged } from '../actions/settings';
 
 const axiosInstance = axios.create({
@@ -43,9 +43,10 @@ const userApiMiddleware = (store) => (next) => (action) => {
         // we recive information about user and token
         .then((response) => {
           // const { data: accès_token } = response;
-          console.log(response.data.access_token);
-          const token = response.data.access_token;
-
+          console.log(response.data.user);
+          console.log(response.data.token.original.access_token);
+          const token = response.data.token.original.access_token;
+          const user = response.data.user;
           // we save token to axios
           axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
 
@@ -53,7 +54,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
           store.dispatch(isLogged());
 
           // we save the user to the state user-> currentUser
-          // store.dispatch(saveUser(user));
+          store.dispatch(saveCurrentUser(user));
 
           // we fetch all favorite spots
           // store.dispatch(fetchFavorites());
