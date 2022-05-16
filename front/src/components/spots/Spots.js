@@ -1,20 +1,24 @@
 // == import 
 
 // npm
-import { useDispatch, useSeletor } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // local
+import { changeField } from '../../actions/spots';
+import Spot from './spot/Spot';
 import search_symbol from '../../img/icons/search.png';
 import addMap from '../../img/icons/addLocation.png';
-
-import Spot from './spot/Spot';
 
 // style
 import './spots.scss';
 
 function Spots()
 {
-  
+  const dispatch = useDispatch();
+  const searchValue= useSelector((state) => state.spots.search.inputValue);
+  const handleChangeField =(value, name) => (
+    dispatch(changeField(value, name))
+  );
 
   return(
     <section className='allUser'>
@@ -30,8 +34,8 @@ function Spots()
         type='search'
         className='form_span-input_input'
         placeholder='Rechercher'
-        // value={searchValue}
-        // onChange={(evt)=> handleChangeField(evt.target.value, 'search.inputValue')}
+        value={searchValue}
+        onChange={(evt)=> handleChangeField(evt.target.value, 'search.inputValue')}
         />
         </span>
         <img
