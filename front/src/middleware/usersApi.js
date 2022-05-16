@@ -4,6 +4,7 @@ import axios from 'axios';
 
 // local
 import { FETCH_USERS, LOGIN, saveUsers } from '../actions/users';
+import { isLogged } from '../actions/settings';
 
 const axiosInstance = axios.create({
    // API url
@@ -49,7 +50,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
           axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
 
           // we modify the state to inform that the use is connected
-          // store.dispatch(isLogged());
+          store.dispatch(isLogged());
 
           // we save the user to the state user-> currentUser
           // store.dispatch(saveUser(user));

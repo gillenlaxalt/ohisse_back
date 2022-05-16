@@ -15,3 +15,9 @@ export const changeLoginField = (value, name) => ({
   name
 });
 
+// action type isLogged
+export const IS_LOGGED = 'IS_LOGGED'; 
+export const isLogged = () => ({
+  type: IS_LOGGED,
+})
+
