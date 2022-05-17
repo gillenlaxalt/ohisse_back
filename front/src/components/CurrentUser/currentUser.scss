@@ -1,0 +1,135 @@
+@use '../../styles/vars';
+
+.current-user{
+  display: flex;
+  flex-wrap: wrap;
+
+  &_profil{
+    height: 80vh;
+    width: 100%;
+
+    .current-user-profil_hello{
+      margin: 15px;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+  }
+  &-profil_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: max-content;
+    margin: 0 auto;
+    background-color: vars.$second-bg-color;
+    border-radius: 10px;
+    padding: 10px;
+   
+
+    .profil-form_identity{
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      flex-wrap: wrap;
+
+      .form-identity_name{
+
+      }
+      .form-identity_pseudo-mail{
+  
+      }
+
+      .span-identity{
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+      }
+    }
+    .profil-form_info{
+      align-self: baseline;
+    }
+    .profil-form_descrip{
+      align-self: baseline;
+      width: 250px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 5px;
+    }
+
+    .profil-form_btn{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    
+
+      .profil-form-btn{
+        margin-left: 10px;
+        height: 30px;
+        border-radius: 10px;
+        border: none;
+        width: 90px;
+      }
+
+      .profil-form_update{
+        background-color: vars.$bg-color-btn-update;
+        color:vars.$main-bg-color;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+  
+      .profil-form_delete{
+        background-color:vars.$bg-color-btn-delete;
+        color:vars.$main-bg-color;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+  
+      
+    }
+    .profil-form_btn:hover{
+      transform: scale(1.1);
+     }
+  }
+
+  .current-user_map{
+    background-color: lavender;
+  }
+
+  &_map {
+    // background-color: lavender;
+    height: 188px;
+    width: 100%;
+    // margin: 30px 0;
+}
+}
+
+label{
+  margin: 5px 0;
+}
+
+input[type='text']{
+  height: 35px;
+  border-radius: 10px;
+  background-color: vars.$main-bg-btn-color;
+  border: none;
+  margin-bottom: 10px;
+} 
+
+input[type='email']{
+  height: 35px;
+  border-radius: 10px;
+  background-color: vars.$main-bg-btn-color;
+  border: none;
+  margin-bottom: 10px;
+} 
+
+input[type='textarea']{
+  height: 100px;
+  border-radius: 10px;
+  background-color: vars.$main-bg-btn-color;
+  border: none;
+  margin-bottom: 10px;
+}
