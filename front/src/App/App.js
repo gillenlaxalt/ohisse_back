@@ -12,6 +12,7 @@ import Login from "../components/login/Login";
 import Users from "../components/users/Users";
 import Spots from "../components/spots/Spots";
 import ChoiceAddPlace from "../components/ChoiceAddPlace/ChoiceAddPlace";
+import CurrentUser from "../components/CurrentUser/CurrentUser";
 
 // style
 
@@ -35,9 +36,11 @@ function App() {
           <Route path="/tous-les-utilisateurs" element={<Users />} />
           <Route path="/tous-les-spots" element={<Spots />} />
           <Route path="/choix-type-spot" element={<ChoiceAddPlace />} />
+          <Route path="/utilisateur/:slug" element={<CurrentUser />} />
         </Routes>        
         
       )}
+      <CurrentUser />
       <Footer />
 
     </div>
