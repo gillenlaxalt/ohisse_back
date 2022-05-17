@@ -52,7 +52,11 @@ function Spots()
         className='allSpots-form_img add_spot'
         />
       </form>
-      <Spot />
+      {spotsData.map((item) => {
+        return (
+          <Spot {...item} key={item.id} />
+        )
+        })}
       </section>
   )
 };
