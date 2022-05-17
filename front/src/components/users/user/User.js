@@ -19,7 +19,7 @@ function User({id, firstname, lastname, role}) {
       <div className="userCard_config">
         <p className="userCard-config_role">{role}</p>
         <div className="userCard-config-btn" >
-          <button className="userCard-config_update userCard-config_btn">Modifier</button>
+          <button className="userCard-config_update userCard-config_btn">Afficher</button>
           <button className="userCard-config_delete userCard-config_btn">Supprimer</button>
         </div>
       </div>
