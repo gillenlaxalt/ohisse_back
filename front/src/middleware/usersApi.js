@@ -19,7 +19,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
         .then(
           (resp) => {
             console.log(resp.data)
-            store.dispatch(saveUsers())
+            store.dispatch(saveUsers(resp.data))
           }
         )
         .catch(
@@ -43,7 +43,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
         // we recive information about user and token
         .then((response) => {
           // const { data: accès_token } = response;
-          console.log(response.data.access_token);
+          // console.log(response.data.access_token);
           const token = response.data.access_token;
 
           // we save token to axios

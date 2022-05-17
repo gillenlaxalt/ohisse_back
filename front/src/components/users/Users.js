@@ -50,7 +50,11 @@ function Users()
         className='allUser-form_img add_user'
         />
       </form>
-      <User />
+      {userData.map((item) => {
+        return (
+          <User {...item} key={item.id} />
+        )
+        })}
     </section>
   )
 };
