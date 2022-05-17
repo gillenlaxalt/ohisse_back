@@ -9,7 +9,7 @@ export const changeField = (value, name) => ({
 // call FETCH_USERS in axios that saveUsers if return ok
 export const FETCH_USERS = 'FETCH_USERS';
 
-// action creator : call FETCH_USER
+// action creator : call FETCH_USER to usersAPI
 export const fetchUsers = () => ({
   type: FETCH_USERS,
 })

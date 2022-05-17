@@ -7,13 +7,16 @@
 import { CHANGE_FIELD, SAVE_CURRENT_TOKEN, SAVE_CURRENT_USER } from "../actions/users";
 
 export const initialState = {
+
   currentUser: [],
   tokenCurrentUser:"",
-  search: [
+
+  usersList: [],
+  search: 
+
     {
     inputValue: '',
     },
-  ],
 };
 console.log(initialState);
 const usersReducer = ( state = initialState, action = {}) => {
