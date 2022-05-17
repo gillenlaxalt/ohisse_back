@@ -12,7 +12,7 @@ function Spot( {id, name, city, picture} )
   return(
     <div className="spotCard" key={id}>
       <div className="spotCard_identity">
-        <img src={`${picture}`} alt='' className="spotCard-identity_img" />
+        <img src={`${picture}`} alt='logo' className="spotCard-identity_img" />
         <p className="spotCard-identity_name">{`${name}`}</p>
         <p className="spotCard-identity_city">{`${city}`}</p>
       </div>
