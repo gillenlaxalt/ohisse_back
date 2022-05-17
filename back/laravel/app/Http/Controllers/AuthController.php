@@ -35,9 +35,34 @@ class AuthController extends CoreController
 
         $user=Auth::user();
         // var_dump($user);
+
+
+        $userId = Auth::user()->id;
+        $userFirstname = Auth::user()->firstname;
+        $userLastname = Auth::user()->lastname;
+        $userPseudo = Auth::user()->pseudo;
+        $userCity = Auth::user()->city;
+        $userCountry = Auth::user()->country;
+        $userDescription = Auth::user()->description;
+        $userRole = Auth::user()->role;
+
+        $userData = [
+            "id" => $userId,
+            "firstname" => $userFirstname,
+            "lastname" => $userLastname,
+            "pseudo" => $userPseudo,
+            "city" => $userCity,
+            "country" => $userCountry,
+            "description" => $userDescription,
+            "role" => $userRole
+        ];
+
         $Token= $this->respondWithToken($token);
 
-        return response()->json(['user' => $user, 'token' => $Token]);
+        return response()->json(['user' => $userData, 'token' => $Token]);
+
+       
+
     }
 
     /**
