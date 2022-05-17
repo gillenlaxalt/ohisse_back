@@ -37,3 +37,10 @@ export const saveCurrentUser = (dataCurrentUser) => ({
   type: SAVE_CURRENT_USER,
   data : dataCurrentUser,
 })
+
+// action type current token
+export const SAVE_CURRENT_TOKEN ='SAVE_CURRENT_TOKEN';
+export const saveCurrentToken = (dataCurrentToken) => ({
+  type : SAVE_CURRENT_TOKEN,
+  data: dataCurrentToken,
+})

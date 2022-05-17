@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 // local
-import { FETCH_USERS, LOGIN, saveCurrentUser, saveUsers } from '../actions/users';
+import { FETCH_USERS, LOGIN, saveCurrentToken, saveCurrentUser, saveUsers } from '../actions/users';
 import { isLogged } from '../actions/settings';
 
 const axiosInstance = axios.create({
@@ -55,6 +55,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
 
           // we save the user to the state user-> currentUser
           store.dispatch(saveCurrentUser(user));
+          store.dispatch(saveCurrentToken(token))
 
           // we fetch all favorite spots
           // store.dispatch(fetchFavorites());
