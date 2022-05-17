@@ -29,3 +29,18 @@ export const LOGIN = 'LOGIN';
 export const login = () => ({
   type: LOGIN,
 })
+
+// action type to saveCurrentUser login
+export const SAVE_CURRENT_USER ='SAVE_CURENT_USER';
+// action creator to save current user login
+export const saveCurrentUser = (dataCurrentUser) => ({
+  type: SAVE_CURRENT_USER,
+  data : dataCurrentUser,
+})
+
+// action type current token
+export const SAVE_CURRENT_TOKEN ='SAVE_CURRENT_TOKEN';
+export const saveCurrentToken = (dataCurrentToken) => ({
+  type : SAVE_CURRENT_TOKEN,
+  data: dataCurrentToken,
+})
