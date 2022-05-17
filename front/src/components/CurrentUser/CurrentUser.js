@@ -46,7 +46,6 @@ function CurrentUser() {
 
       </section>
       <section className='current-user_map'>
-
       </section>
     </section>
   )
