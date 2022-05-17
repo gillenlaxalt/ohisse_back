@@ -2,13 +2,14 @@
 
 // npm
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 // local
-import { changeField } from '../../actions/spots';
+import { changeField, fetchSpots } from '../../actions/spots';
 import Spot from './spot/Spot';
+
 import search_symbol from '../../img/icons/search.png';
 import addMap from '../../img/icons/addLocation.png';
-
 // style
 import './spots.scss';
 
@@ -19,6 +20,13 @@ function Spots()
   const handleChangeField =(value, name) => (
     dispatch(changeField(value, name))
   );
+
+  const spotsData = useSelector((state) => state.spots.spotsList);
+  console.log(spotsData);
+  useEffect(() => {
+    // load all spots from API
+    dispatch(fetchSpots());
+  }, []);
 
   return(
     <section className='allUser'>
