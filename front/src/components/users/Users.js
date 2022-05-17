@@ -2,9 +2,10 @@
 
 // npm
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 // local
 import User from './user/User';
-import { changeField } from '../../actions/users';
+import { changeField, fetchUsers } from '../../actions/users';
 
 import search_symbol from '../../img/icons/search.png';
 import addUser from '../../img/icons/add-user.png';
@@ -18,6 +19,12 @@ function Users()
   const handleChangeField =(value, name) => (
     dispatch(changeField(value, name))
   );
+  const userData = useSelector((state) => state.users.usersList);
+  console.log(userData);
+  useEffect(() => {
+    // load all user from API
+    dispatch(fetchUsers());
+  }, []);
 
   return(
     <section className='allUser'>
@@ -43,7 +50,11 @@ function Users()
         className='allUser-form_img add_user'
         />
       </form>
-      <User />
+      {userData.map((item) => {
+        return (
+          <User {...item} key={item.id} />
+        )
+        })}
     </section>
   )
 };
