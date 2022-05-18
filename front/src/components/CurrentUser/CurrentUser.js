@@ -1,7 +1,8 @@
 // == import
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-
 // npm
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { useSelector } from 'react-redux';
+
 
 // local
 
@@ -9,17 +10,24 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import './currentUser.scss';
 
 function CurrentUser() {
+
+  const firstname= useSelector((state)=> state.users.inputCurrentUser );
+  const lastname= useSelector((state)=> state.users.inputCurrentUser );
   return (
     <section className='current-user'>
       <section className='current-user_profil'>
         <div className='current-user-profil_hello'>
-          <p>Utilisateur personnalisé</p>
+          <p>`${firstname} ${lastname}`</p>
         </div>
         <form className='current-user-profil_form'>
           <div className='profil-form_identity'>
             <span className='form-identity_name span-identity'>
               <label id='firstname'>Prénom</label>
-              <input type='text' htmlFor='firstname'></input>
+              <input
+              type='text'
+              htmlFor='firstname'
+              value={firstname}
+              ></input>
               <label id='lastname'>Nom</label>
               <input type='text' htmlFor='lastname'></input>
             </span>

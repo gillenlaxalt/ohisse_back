@@ -13,6 +13,15 @@ export const initialState = {
     inputValue: '',
     },
   ],
+  inputCurrentUser:
+    {
+      firstname: 'a',
+      lastname: 'b',
+      pseudo: 'c',
+      mail: '@',
+      descrption: 'e',
+    }
+  
 };
 
 const usersReducer = ( state = initialState, action = {}) => {
