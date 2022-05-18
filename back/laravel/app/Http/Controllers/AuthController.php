@@ -36,6 +36,7 @@ class AuthController extends CoreController
         $user=Auth::user();
         // var_dump($user);
 
+
         $userId = Auth::user()->id;
         $userFirstname = Auth::user()->firstname;
         $userLastname = Auth::user()->lastname;
@@ -59,6 +60,9 @@ class AuthController extends CoreController
         $Token= $this->respondWithToken($token);
 
         return response()->json(['user' => $userData, 'token' => $Token]);
+
+       
+
     }
 
     /**
