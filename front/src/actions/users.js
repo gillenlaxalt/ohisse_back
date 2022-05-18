@@ -5,6 +5,13 @@ export const changeField = (value, name) => ({
   name
 })
 
+export const CHANGE_INPUT = 'CHANGE_INPUT';
+export const changeInput = (value, name) => ({
+  type : CHANGE_INPUT,
+  value,
+  name
+})
+
 // action type FETCH_USERS
 // call FETCH_USERS in axios that saveUsers if return ok
 export const FETCH_USERS = 'FETCH_USERS';
