@@ -89,7 +89,7 @@
   
       
     }
-    .profil-form_btn:hover{
+    .profil-form-btn:hover{
       transform: scale(1.1);
      }
   }
@@ -174,13 +174,6 @@ input[type='textarea']{
         justify-content: space-evenly;
         flex-wrap: nowrap;
   
-        .form-identity_name{
-  
-        }
-        .form-identity_pseudo-mail{
-    
-        }
-  
         .span-identity{
           display: flex;
           flex-direction: column;
@@ -196,26 +189,9 @@ input[type='textarea']{
   
       .profil-form_btn{
   
-          margin: 20px 0;
-      
-  
-        .profil-form-btn{
-          
-        }
-  
-        .profil-form_update{
-          
-        }
-    
-        .profil-form_delete{
-          
-        }
-    
+          margin: 20px 0;    
         
       }
-      .profil-form_btn:hover{
-        
-       }
     }
   
     .current-user_map{
@@ -223,10 +199,6 @@ input[type='textarea']{
       z-index: 0;
       width: 40%;
     }
-  
-    .leaflet-container {
-      
-  }
   }
   
   label{
@@ -236,12 +208,4 @@ input[type='textarea']{
   input[type='text']{
     margin-bottom: 50px;
   } 
-  
-  input[type='email']{
-    
-  } 
-  
-  input[type='textarea']{
-    
-  }
 }

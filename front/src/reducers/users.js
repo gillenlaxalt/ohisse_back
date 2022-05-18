@@ -4,7 +4,7 @@
 
 // local
 
-import { CHANGE_FIELD, SAVE_CURRENT_TOKEN, SAVE_CURRENT_USER } from "../actions/users";
+import { CHANGE_FIELD, SAVE_CURRENT_TOKEN, SAVE_CURRENT_USER, CHANGE_INPUT } from "../actions/users";
 
 export const initialState = {
   usersList: [],
@@ -14,12 +14,13 @@ export const initialState = {
     },
   inputCurrentUser:
     {
-      firstname: '',
-      lastname: '',
-      pseudo: '',
-      mail: '',
-      descrption: '',
-    }
+      firstname:'a',
+      lastname:'b',
+      pseudo:'c',
+      mail:'@',
+      description:'d',
+      role:'user',
+    },
 };
 console.log(initialState);
 const usersReducer = ( state = initialState, action = {}) => {
@@ -38,6 +39,14 @@ const usersReducer = ( state = initialState, action = {}) => {
         return {
           ...state,
           tokenCurrentUser: action.data,
+        }
+      case CHANGE_INPUT:
+        return {
+          ...state,
+          inputCurrentUser:{
+            ...state.inputCurrentUser,
+            [action.name] : action.value
+          }
         }
     default:
       return state;

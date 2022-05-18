@@ -1,7 +1,8 @@
 // == import
 // npm
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeInput } from '../../actions/users';
 
 
 // local
@@ -11,13 +12,24 @@ import './currentUser.scss';
 
 function CurrentUser() {
 
-  const firstname= useSelector((state)=> state.users.inputCurrentUser );
-  const lastname= useSelector((state)=> state.users.inputCurrentUser );
+  const dispatch = useDispatch();
+
+  const firstname= useSelector((state)=> state.users.inputCurrentUser.firstname );
+  const lastname= useSelector((state)=> state.users.inputCurrentUser.lastname );
+  const pseudo= useSelector((state)=> state.users.inputCurrentUser.pseudo );
+  const mail= useSelector((state)=> state.users.inputCurrentUser.mail );
+  const description= useSelector((state)=> state.users.inputCurrentUser.description );
+  const role= useSelector((state)=> state.users.inputCurrentUser.role );
+
+  const handleChangeInput = (value, name) => (
+    dispatch(changeInput(value, name))
+  );
+
   return (
     <section className='current-user'>
       <section className='current-user_profil'>
         <div className='current-user-profil_hello'>
-          <p>`${firstname} ${lastname}`</p>
+          <p>{firstname} {lastname}</p>
         </div>
         <form className='current-user-profil_form'>
           <div className='profil-form_identity'>
@@ -27,28 +39,52 @@ function CurrentUser() {
               type='text'
               htmlFor='firstname'
               value={firstname}
+              onChange={(evt) => handleChangeInput(evt.target.value, 'firstname')}
               ></input>
               <label id='lastname'>Nom</label>
-              <input type='text' htmlFor='lastname'></input>
+              <input
+              type='text'
+              htmlFor='lastname'
+              value={lastname}
+              onChange={(evt) => handleChangeInput(evt.target.value, 'lastname')}
+              ></input>
             </span>
             <span className='form-identity_pseudo-mail span-identity'>
               <label id='pseudo'>Pseudo</label>
-              <input type='text' htmlFor='pseudo'></input>
+              <input
+              type='text'
+              htmlFor='pseudo'
+              value={pseudo}
+              onChange={(evt) => handleChangeInput(evt.target.value, 'pseudo')}
+              ></input>
               <label id='email'>E-mail</label>
-              <input type='email' htmlFor='email'></input>
+              <input
+              type='email'
+              htmlFor='email'
+              value={mail}
+              onChange={(evt) => handleChangeInput(evt.target.value, 'mail')}
+              ></input>
             </span>
           </div>
           <div className='profil-form_info'>
             <label id='city'>Ville</label>
-            <select htmlFor='city'>
-              <option value='role'>role</option>
+            <select
+            htmlFor='city'
+            value={role}
+            onChange={(evt) => handleChangeInput(evt.target.value, 'role')}
+            >
+              <option value="">{role}</option>
               <option value='admin'>admin</option>
               <option value='user'>user</option>
             </select>
           </div>
           <div className='profil-form_descrip'>
             <label htmlFor='decrip'>Description</label>
-            <input type='textarea'></input>
+            <input
+            type='textarea'
+            value={description}
+            onChange={(evt) => handleChangeInput(evt.target.value, 'description')}
+            ></input>
           </div>
           <div className='profil-form_btn'>
             <button
