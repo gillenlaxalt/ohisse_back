@@ -8,22 +8,20 @@ import { CHANGE_FIELD, SAVE_USERS } from "../actions/users";
 
 export const initialState = {
   usersList: [],
-  search: [
+  search: 
     {
     inputValue: '',
     },
-  ],
   inputCurrentUser:
     {
-      firstname: 'a',
-      lastname: 'b',
-      pseudo: 'c',
-      mail: '@',
-      descrption: 'e',
+      firstname: '',
+      lastname: '',
+      pseudo: '',
+      mail: '',
+      descrption: '',
     }
-  
 };
-
+console.log(initialState);
 const usersReducer = ( state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_FIELD:
