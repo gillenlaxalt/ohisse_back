@@ -4,7 +4,7 @@
 
 // local
 
-import { CHANGE_FIELD, SAVE_CURRENT_TOKEN, SAVE_CURRENT_USER } from "../actions/users";
+import { CHANGE_FIELD, SAVE_CURRENT_TOKEN, SAVE_CURRENT_USER, SAVE_USERS } from "../actions/users";
 
 export const initialState = {
 
@@ -26,6 +26,12 @@ const usersReducer = ( state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
+      case SAVE_USERS:
+          return {
+            ...state,
+            usersList: action.data,
+          };
+
       case SAVE_CURRENT_USER:
         return {
           ...state,
