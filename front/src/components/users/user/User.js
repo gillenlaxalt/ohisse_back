@@ -1,5 +1,6 @@
 //== import
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 // npm
 
@@ -9,7 +10,7 @@ import PropTypes from 'prop-types';
 import './user.scss';
 
 function User({id, firstname, lastname, role}) {
-  console.log(firstname);
+  // console.log(firstname);
   return (
     <div className="userCard" key={id}>
       <div className="userCard_identity">
@@ -19,7 +20,7 @@ function User({id, firstname, lastname, role}) {
       <div className="userCard_config">
         <p className="userCard-config_role">{role}</p>
         <div className="userCard-config-btn" >
-          <button className="userCard-config_update userCard-config_btn">Afficher</button>
+          <Link to={`/utilisateur/${id}`}><button className="userCard-config_update userCard-config_btn"> Afficher</button></Link>
           <button className="userCard-config_delete userCard-config_btn">Supprimer</button>
         </div>
       </div>

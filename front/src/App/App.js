@@ -36,7 +36,7 @@ function App() {
           <Route path="/tous-les-utilisateurs" element={<Users />} />
           <Route path="/tous-les-spots" element={<Spots />} />
           <Route path="/choix-type-spot" element={<ChoiceAddPlace />} />
-          <Route path="/utilisateur/:slug" element={<CurrentUser />} />
+          <Route path="/utilisateur/:id" element={<CurrentUser />} />
         </Routes>        
         
       )}
