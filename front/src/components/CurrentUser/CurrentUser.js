@@ -34,42 +34,42 @@ function CurrentUser() {
         <form className='current-user-profil_form'>
           <div className='profil-form_identity'>
             <span className='form-identity_name span-identity'>
-              <label id='firstname'>Prénom</label>
+              <label htmlFor='firstname'>Prénom</label>
               <input
               type='text'
-              htmlFor='firstname'
+              name='firstname'
               value={firstname}
               onChange={(evt) => handleChangeInput(evt.target.value, 'firstname')}
               ></input>
-              <label id='lastname'>Nom</label>
+              <label htmlFor='lastname'>Nom</label>
               <input
               type='text'
-              htmlFor='lastname'
+              name='lastname'
               value={lastname}
               onChange={(evt) => handleChangeInput(evt.target.value, 'lastname')}
               ></input>
             </span>
             <span className='form-identity_pseudo-mail span-identity'>
-              <label id='pseudo'>Pseudo</label>
+              <label htmlFor='pseudo'>Pseudo</label>
               <input
               type='text'
-              htmlFor='pseudo'
+              name='pseudo'
               value={pseudo}
               onChange={(evt) => handleChangeInput(evt.target.value, 'pseudo')}
               ></input>
-              <label id='email'>E-mail</label>
+              <label htmlFor='email'>E-mail</label>
               <input
               type='email'
-              htmlFor='email'
+              name='email'
               value={mail}
               onChange={(evt) => handleChangeInput(evt.target.value, 'mail')}
               ></input>
             </span>
           </div>
           <div className='profil-form_info'>
-            <label id='city'>Ville</label>
+            <label htmlFor='city'>Ville</label>
             <select
-            htmlFor='city'
+            name='city'
             value={role}
             onChange={(evt) => handleChangeInput(evt.target.value, 'role')}
             >
@@ -82,6 +82,7 @@ function CurrentUser() {
             <label htmlFor='decrip'>Description</label>
             <input
             type='textarea'
+            name='descrip'
             value={description}
             onChange={(evt) => handleChangeInput(evt.target.value, 'description')}
             ></input>

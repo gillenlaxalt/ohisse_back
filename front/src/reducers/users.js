@@ -14,12 +14,12 @@ export const initialState = {
     },
   inputCurrentUser:
     {
-      firstname:'a',
-      lastname:'b',
-      pseudo:'c',
-      mail:'@',
-      description:'d',
-      role:'user',
+      firstname:'',
+      lastname:'',
+      pseudo:'',
+      mail:'',
+      description:'',
+      role:'',
     },
 };
 console.log(initialState);
