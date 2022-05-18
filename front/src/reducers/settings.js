@@ -9,7 +9,7 @@ import { HANDLE_DARK, HANDLE_MENU, CHANGE_LOGIN_FIELD, IS_LOGGED } from "../acti
 export const initialState = {
   burgerMenu: false,
   darkMode: false,
-  isLogged:false,
+  isLogged:true,
   login :
     {
     mail:'',
