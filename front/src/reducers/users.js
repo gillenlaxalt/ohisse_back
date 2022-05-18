@@ -56,10 +56,6 @@ const usersReducer = ( state = initialState, action = {}) => {
         return {
           ...state,
           tokenCurrentUser: action.data,
-
-        return {
-          ...state,
-          tokenCurrentUser: action.data,
         }
       case CHANGE_INPUT:
         return {
