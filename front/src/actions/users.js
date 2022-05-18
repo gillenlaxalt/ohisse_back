@@ -51,3 +51,10 @@ export const saveCurrentToken = (dataCurrentToken) => ({
   type : SAVE_CURRENT_TOKEN,
   data: dataCurrentToken,
 })
+
+//action type fetchUserById
+export const FETCH_USER_BY_ID = 'FETCH_USER_BY_ID';
+export const fetchUserById = (dataUserByID) => ({
+  type : FETCH_USER_BY_ID,
+  data : dataUserByID,
+})

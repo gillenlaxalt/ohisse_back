@@ -2,7 +2,9 @@
 // npm
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeInput } from '../../actions/users';
+import { useParams } from 'react-router-dom';
+import { changeInput, fetchUserById } from '../../actions/users';
+import { useEffect } from 'react';
 
 
 // local
@@ -13,6 +15,21 @@ import './currentUser.scss';
 function CurrentUser() {
 
   const dispatch = useDispatch();
+
+  const {id} = useParams();
+  //console.log(id);
+
+  const usersListData = useSelector((state) => state.users.usersList);
+  console.log(usersListData);
+
+  const userById = usersListData.find((user) => user.id == id);
+  console.log(userById);
+
+  // useEffect(
+  //   () => {
+  //     dispatch(fetchUserById(userById));
+  //   }, [],
+  // );
 
   const firstname= useSelector((state)=> state.users.inputCurrentUser.firstname );
   const lastname= useSelector((state)=> state.users.inputCurrentUser.lastname );
@@ -38,7 +55,7 @@ function CurrentUser() {
               <input
               type='text'
               name='firstname'
-              value={firstname}
+              value={ firstname || userById.firstname  }
               onChange={(evt) => handleChangeInput(evt.target.value, 'firstname')}
               ></input>
               <label htmlFor='lastname'>Nom</label>
