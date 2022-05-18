@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import './user.scss';
 
 function User({id, firstname, lastname, role}) {
-  console.log(firstname);
+  // console.log(firstname);
   return (
     <div className="userCard" key={id}>
       <div className="userCard_identity">
