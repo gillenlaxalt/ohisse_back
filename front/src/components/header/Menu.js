@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 
 // local
 import logo from '../../img/logo-complet-bleu.png';
-import outLogo from '../../img/logo-simple-bleu.png'
+import LogoutLogo from '../../img/icons/logout.png'
 import { handleMenu, handleDark } from '../../actions/settings';
 // style
 import './menu.scss';
@@ -61,7 +61,7 @@ function Menu() {
           </span>
           <span className='header-content-menu_log'>
             <img
-              src={outLogo}
+              src={LogoutLogo}
               alt='déconnexion'
               className='menu-log_img'
             />
