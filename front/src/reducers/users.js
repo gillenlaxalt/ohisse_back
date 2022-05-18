@@ -4,11 +4,18 @@
 
 // local
 
-import { CHANGE_FIELD, SAVE_CURRENT_TOKEN, SAVE_CURRENT_USER, CHANGE_INPUT } from "../actions/users";
+
+import { CHANGE_FIELD, SAVE_CURRENT_TOKEN, SAVE_CURRENT_USER, CHANGE_INPUT, SAVE_USERS } from "../actions/users";
+
 
 export const initialState = {
+
+  currentUser: [],
+  tokenCurrentUser:"",
+
   usersList: [],
   search: 
+
     {
     inputValue: '',
     },
@@ -30,12 +37,26 @@ const usersReducer = ( state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
+
+      case SAVE_USERS:
+          return {
+            ...state,
+            usersList: action.data,
+          };
+
+
+
       case SAVE_CURRENT_USER:
         return {
           ...state,
           currentUser: action.data,
         }
       case SAVE_CURRENT_TOKEN:
+
+        return {
+          ...state,
+          tokenCurrentUser: action.data,
+
         return {
           ...state,
           tokenCurrentUser: action.data,
@@ -47,6 +68,7 @@ const usersReducer = ( state = initialState, action = {}) => {
             ...state.inputCurrentUser,
             [action.name] : action.value
           }
+
         }
     default:
       return state;
