@@ -43,18 +43,18 @@ function CurrentUser() {
   );
 
   function handleNameSubmit(submitName){
-    return submitName
+    console.log(submitName)
   }
 
-  const handleUpdateSubmit = (evt) => {
-    evt.preventDefault();
-    console.log('je suis update submit');
-  }
+  // const handleUpdateSubmit = (evt) => {
+    
+  //   console.log('je suis update submit');
+  // }
 
-  const handleDeleteSubmit = (evt) => {
-    evt.preventDefault();
-    console.log('je suis delete submit');
-  }
+  // const handleDeleteSubmit = (evt) => {
+    
+  //   console.log('je suis delete submit');
+  // }
  
 
   return (
@@ -63,7 +63,7 @@ function CurrentUser() {
         <div className='current-user-profil_hello'>
           <p>{firstname} {lastname}</p>
         </div>
-        <form className='current-user-profil_form' onSubmit={handleNameSubmit()}>
+        <form className='current-user-profil_form' onSubmit={handleNameSubmit}>
           <div className='profil-form_identity'>
             <span className='form-identity_name span-identity'>
               <label htmlFor='firstname'>Prénom</label>
@@ -127,16 +127,12 @@ function CurrentUser() {
           </div>
           <div className='profil-form_btn'>
             <button
-              onClick={handleNameSubmit((evt)=>{ 
-                evt.preventDefault()
-              return(
-                handleUpdateSubmit()
-              )})}
+              onClick={() => handleNameSubmit(handleUpdateSubmit)}
               type='submit'
               className="profil-form_update profil-form-btn"
             >Modifier</button>
             <button
-              onClick={handleNameSubmit(()=>(handleDeleteSubmit))}
+              onClick={() => handleNameSubmit(handleDeleteSubmit)}
               type='submit'
               className="profil-form_delete profil-form-btn"
             >Supprimer</button>
