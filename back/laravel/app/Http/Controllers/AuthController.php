@@ -32,10 +32,11 @@ class AuthController extends CoreController
         if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
-
-        $user=Auth::user();
+        // to retrieve all informations about the user
+        // $user=Auth::user();
         // var_dump($user);
 
+        // to retrieve each information about the user
         $userId = Auth::user()->id;
         $userFirstname = Auth::user()->firstname;
         $userLastname = Auth::user()->lastname;
@@ -43,6 +44,7 @@ class AuthController extends CoreController
         $userCity = Auth::user()->city;
         $userCountry = Auth::user()->country;
         $userDescription = Auth::user()->description;
+        $userEmail = Auth::user()->email;
         $userRole = Auth::user()->role;
 
         $userData = [
@@ -53,6 +55,7 @@ class AuthController extends CoreController
             "city" => $userCity,
             "country" => $userCountry,
             "description" => $userDescription,
+            "email" => $userEmail,
             "role" => $userRole
         ];
 
