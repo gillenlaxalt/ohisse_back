@@ -11,7 +11,8 @@ import {
   SAVE_CURRENT_USER,
   CHANGE_INPUT,
   SAVE_USERS,
-  FETCH_USER_BY_ID
+  FETCH_USER_BY_ID,
+  EMPTY_FIELD_DELETE
 } from "../actions/users";
 
 
@@ -81,6 +82,20 @@ const usersReducer = (state = initialState, action = {}) => {
               [action.name]: action.value
             }
           }
+    case EMPTY_FIELD_DELETE:
+      return {
+        ...state,
+        inputCurrentUser: {
+          ...state.inputCurrentUser,
+            id:'',
+            firstname: '',
+            lastname: '',
+            pseudo: '',
+            mail: '',
+            description: '',
+            role: '',
+          }
+      }
           default:
             return state;
   }

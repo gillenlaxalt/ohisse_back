@@ -2,8 +2,8 @@
 // npm
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Navigate } from 'react-router-dom';
-import { changeInput, fetchUserById, updateUser } from '../../actions/users';
+import { useParams, useNavigate } from 'react-router-dom';
+import { changeInput, deleteUser, fetchUserById, updateUser } from '../../actions/users';
 import { useEffect } from 'react';
 
 
@@ -15,6 +15,7 @@ import './currentUser.scss';
 function CurrentUser() {
 
   const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
   const {id} = useParams();
   //console.log(id);
@@ -24,10 +25,6 @@ function CurrentUser() {
   
   const userById = usersListData.find((user) => user.id == id);
   console.log(userById);
-  
-  if(!userById){
-    return <Navigate to="/" replace />;
-  }
   
   useEffect(
     () => {
@@ -48,9 +45,15 @@ function CurrentUser() {
   );
 
   function handleUpdateSubmit(evt){
-    evt.preventDefault()
-    dispatch(updateUser())
-    // console.log('submit update')
+    evt.preventDefault();
+    dispatch(updateUser());
+    // console.log('submit update');
+  }
+
+  function handleDeleteSubmit(evt){
+    evt.preventDefault();
+    dispatch(deleteUser());
+    console.log('click to delete user');
   }
 
   // const handleUpdateSubmit = (evt) => {
@@ -139,7 +142,7 @@ function CurrentUser() {
               className="profil-form_update profil-form-btn"
             >Modifier</button>
             <button
-              // onClick={() => handleNameSubmit(handleDeleteSubmit)}
+              onClick={handleDeleteSubmit}
               type='submit'
               className="profil-form_delete profil-form-btn"
             >Supprimer</button>
