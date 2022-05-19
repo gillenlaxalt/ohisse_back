@@ -58,3 +58,10 @@ export const fetchUserById = (dataUserByID) => ({
   type : FETCH_USER_BY_ID,
   data : dataUserByID,
 })
+
+// action type updateUser 
+export const UPDATE_USER ='UPDATE_USER';
+// action creator updateUser
+export const updateUser = () => ({
+  type: UPDATE_USER,
+})

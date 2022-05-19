@@ -63,12 +63,12 @@ const usersReducer = (state = initialState, action = {}) => {
           ...state,
           inputCurrentUser: {
             ...state.inputCurrentUser,
-            firstname: action.firstname,
-            lastname: action.lastname,
-            pseudo: action.pseudo,
-            mail: action.email,
-            description: action.description,
-            role: action.role,
+            firstname: action.data.firstname,
+            lastname: action.data.lastname,
+            pseudo: action.data.pseudo,
+            mail: action.data.email,
+            description: action.data.description,
+            role: action.data.role,
           } 
         }
     case CHANGE_INPUT:

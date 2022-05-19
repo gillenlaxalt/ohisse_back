@@ -3,7 +3,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { changeInput, fetchUserById } from '../../actions/users';
+import { changeInput, fetchUserById, updateUser } from '../../actions/users';
 import { useEffect } from 'react';
 
 
@@ -31,19 +31,21 @@ function CurrentUser() {
     }, [],
   );
 
-  const firstname= useSelector((state)=> state.users.inputCurrentUser.firstname );
-  const lastname= useSelector((state)=> state.users.inputCurrentUser.lastname );
-  const pseudo= useSelector((state)=> state.users.inputCurrentUser.pseudo );
-  const mail= useSelector((state)=> state.users.inputCurrentUser.mail );
-  const description= useSelector((state)=> state.users.inputCurrentUser.description );
-  const role= useSelector((state)=> state.users.inputCurrentUser.role );
+  // const firstname= useSelector((state)=> state.users.inputCurrentUser.firstname );
+  // const lastname= useSelector((state)=> state.users.inputCurrentUser.lastname );
+  // const pseudo= useSelector((state)=> state.users.inputCurrentUser.pseudo );
+  // const mail= useSelector((state)=> state.users.inputCurrentUser.mail );
+  // const description= useSelector((state)=> state.users.inputCurrentUser.description );
+  // const role= useSelector((state)=> state.users.inputCurrentUser.role );
 
   const handleChangeInput = (value, name) => (
     dispatch(changeInput(value, name))
   );
 
-  function handleNameSubmit(submitName){
-    console.log(submitName)
+  function handleUpdateSubmit(evt){
+    evt.preventDefault()
+    // dispatch(updateUser)
+    console.log('submit update')
   }
 
   // const handleUpdateSubmit = (evt) => {
@@ -61,9 +63,9 @@ function CurrentUser() {
     <section className='current-user'>
       <section className='current-user_profil'>
         <div className='current-user-profil_hello'>
-          <p>{firstname} {lastname}</p>
+          <p>{userById.firstname} {userById.lastname}</p>
         </div>
-        <form className='current-user-profil_form' onSubmit={handleNameSubmit}>
+        <form className='current-user-profil_form' onSubmit={handleUpdateSubmit}>
           <div className='profil-form_identity'>
             <span className='form-identity_name span-identity'>
               <label htmlFor='firstname'>Prénom</label>
@@ -110,7 +112,7 @@ function CurrentUser() {
             defaultValue={userById.role}
             onChange={(evt) => handleChangeInput(evt.target.value, 'role')}
             >
-              <option value="">{role}</option>
+              <option value="">{userById.role}</option>
               <option value='admin'>admin</option>
               <option value='user'>user</option>
             </select>
@@ -127,12 +129,12 @@ function CurrentUser() {
           </div>
           <div className='profil-form_btn'>
             <button
-              onClick={() => handleNameSubmit(handleUpdateSubmit)}
+              onClick={handleUpdateSubmit}
               type='submit'
               className="profil-form_update profil-form-btn"
             >Modifier</button>
             <button
-              onClick={() => handleNameSubmit(handleDeleteSubmit)}
+              // onClick={() => handleNameSubmit(handleDeleteSubmit)}
               type='submit'
               className="profil-form_delete profil-form-btn"
             >Supprimer</button>
