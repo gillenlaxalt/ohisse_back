@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 // local
-import { FETCH_USERS, LOGIN, saveCurrentToken, saveCurrentUser, saveUsers } from '../actions/users';
+import { FETCH_USERS, LOGIN, saveCurrentToken, saveCurrentUser, saveUsers, UPDATE_USER } from '../actions/users';
 import { isLogged } from '../actions/settings';
 
 const axiosInstance = axios.create({
@@ -67,9 +67,14 @@ const userApiMiddleware = (store) => (next) => (action) => {
         });
       next(action);
       break;
-      
-
     };
+    case UPDATE_USER:{
+      axiosInstance
+        .patch(
+          `/api/admin/spots/edit/${id}`
+        )
+    }
+      
 
       default:
       next(action);

@@ -44,8 +44,8 @@ function CurrentUser() {
 
   function handleUpdateSubmit(evt){
     evt.preventDefault()
-    // dispatch(updateUser)
-    console.log('submit update')
+    dispatch(updateUser)
+    // console.log('submit update')
   }
 
   // const handleUpdateSubmit = (evt) => {
