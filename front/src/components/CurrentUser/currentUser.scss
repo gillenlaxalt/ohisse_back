@@ -1,0 +1,211 @@
+@use '../../styles/vars';
+
+.current-user{
+  display: flex;
+  flex-wrap: wrap;
+
+  &_profil{
+    height: 80vh;
+    width: 100%;
+
+    .current-user-profil_hello{
+      margin: 15px;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+  }
+  &-profil_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: max-content;
+    margin: 0 auto;
+    background-color: vars.$second-bg-color;
+    border-radius: 10px;
+    padding: 10px;
+   
+
+    .profil-form_identity{
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      flex-wrap: wrap;
+
+      .form-identity_name{
+
+      }
+      .form-identity_pseudo-mail{
+  
+      }
+
+      .span-identity{
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+      }
+    }
+    .profil-form_info{
+      align-self: baseline;
+    }
+    .profil-form_descrip{
+      align-self: baseline;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin-top: 5px;
+    }
+
+    .profil-form_btn{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    
+
+      .profil-form-btn{
+        margin-left: 10px;
+        height: 30px;
+        border-radius: 10px;
+        border: none;
+        width: 90px;
+      }
+
+      .profil-form_update{
+        background-color: vars.$bg-color-btn-update;
+        color:vars.$main-bg-color;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+  
+      .profil-form_delete{
+        background-color:vars.$bg-color-btn-delete;
+        color:vars.$main-bg-color;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+  
+      
+    }
+    .profil-form-btn:hover{
+      transform: scale(1.1);
+     }
+  }
+
+  .current-user_map{
+    height: 100px;
+    z-index: 0;
+    width: 100%;
+  }
+
+  .leaflet-container {
+    height: 100%;
+    width: 100%;
+}
+}
+
+label{
+  margin: 5px 0;
+}
+
+input[type='text']{
+  height: 35px;
+  border-radius: 10px;
+  background-color: vars.$main-bg-btn-color;
+  border: none;
+  margin-bottom: 10px;
+  padding-left: 10px;
+} 
+
+input[type='email']{
+  height: 35px;
+  border-radius: 10px;
+  background-color: vars.$main-bg-btn-color;
+  border: none;
+  margin-bottom: 10px;
+  padding-left: 10px;
+} 
+
+input[type='textarea']{
+  height: 100px;
+  border-radius: 10px;
+  background-color: vars.$main-bg-btn-color;
+  border: none;
+  margin: 15px 0;
+  padding-left: 10px;
+}
+
+@media screen and (min-width:768px){
+  .current-user{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+    &_profil{
+      // height: 80vh;
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+  
+      .current-user-profil_hello{
+        margin: 20px;
+        // text-align: center;
+        font-size: 2rem;
+      }
+    }
+    &-profil_form{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+      height: max-content;
+      margin: 0 auto;
+      background-color: vars.$second-bg-color;
+      border-radius: 10px;
+      padding: 10px;
+     
+  
+      .profil-form_identity{
+        width: 100%;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+  
+        .span-identity{
+          display: flex;
+          flex-direction: column;
+          width: 250px;
+        }
+      }
+      .profil-form_info{
+        margin: 20px;
+      }
+      .profil-form_descrip{
+        margin: 20px 0;
+      }
+  
+      .profil-form_btn{
+  
+          margin: 20px 0;    
+        
+      }
+    }
+  
+    .current-user_map{
+      height: 83vh;
+      z-index: 0;
+      width: 40%;
+    }
+  }
+  
+  label{
+    margin: 5px 0;
+  }
+  
+  input[type='text']{
+    margin-bottom: 50px;
+  } 
+}

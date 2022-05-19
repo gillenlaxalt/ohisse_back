@@ -1,19 +1,25 @@
 @use '../../styles/vars';
 
+.header-header{
+  height: 50px;
+}
+
 .header{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   height: 50px;
   background-color: vars.$second-bg-color;
   padding: 10px;
   position: fixed;
-  width: 100%;
+  top:0px;
+  
 
   &_logo{
     width: 70px;
-    height: 25px;
+    height: auto;
   }
 
   &_backOffice-txt{
@@ -85,7 +91,7 @@
 
     .header-content-menu_dark-mode{
       width: 50px;
-      height: 25px;
+      height: 20px;
       border-radius: 500px;
       background-color: vars.$main-bg-btn-color;
       margin-top: 15px;
@@ -100,7 +106,7 @@
         width: 25px;
         height: 25px;
         border-radius: 50%;
-        border: 1px solid vars.$border-btn-color;
+        box-shadow: 0 0 4px vars.$border-btn-color;
         background-color: vars.$main-bg-color;
         position: relative;
         left: 0px;
@@ -187,7 +193,7 @@
   
       .header-content-menu_dark-mode{
         width:40px;
-        height:20px;
+        height:15px;
         margin: 0px;
         margin-left: 10px;
         

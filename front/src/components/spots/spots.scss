@@ -1,0 +1,53 @@
+@use '../../styles/vars';
+
+.allSpots{
+  text-align: center;
+  margin: 30px auto 0;
+  width: 90%;
+  &_h1{
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: vars.$title-color;
+  }
+
+  &_form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .allSpots-form_span-input{
+      height: 35px;
+      width: 60%;
+      border-radius: 10px;
+      box-shadow: 0 0 5px 1px vars.$border-btn-color;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .form_span-input_img{
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+    .form_span-input_input{
+      padding-left: 10px;
+      border: none;
+      width: 100%;
+      height: inherit;
+    }
+
+    .add_spot{
+      margin-left: 10px;
+      width: 30px;
+      height: 30px;
+    }
+
+    .add_spot:hover{
+      transform:scale(1.2);
+    }
+  }
+
+}
