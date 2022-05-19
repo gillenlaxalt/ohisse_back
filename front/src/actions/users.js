@@ -15,7 +15,6 @@ export const changeInput = (value, name) => ({
 // action type FETCH_USERS
 // call FETCH_USERS in axios that saveUsers if return ok
 export const FETCH_USERS = 'FETCH_USERS';
-
 // action creator : call FETCH_USER to usersAPI
 export const fetchUsers = () => ({
   type: FETCH_USERS,
@@ -23,7 +22,6 @@ export const fetchUsers = () => ({
 
 // action type SAVE_USERS
 export const SAVE_USERS = 'SAVE_USERS';
-
 // action creator call in axios to received user list. In store users
 export const saveUsers = (data) => ({
   type : SAVE_USERS,
@@ -32,7 +30,6 @@ export const saveUsers = (data) => ({
 
 // action type login
 export const LOGIN = 'LOGIN';
-
 export const login = () => ({
   type: LOGIN,
 })
@@ -51,3 +48,33 @@ export const saveCurrentToken = (dataCurrentToken) => ({
   type : SAVE_CURRENT_TOKEN,
   data: dataCurrentToken,
 })
+
+//action type fetchUserById
+export const FETCH_USER_BY_ID = 'FETCH_USER_BY_ID';
+export const fetchUserById = (dataUserByID) => ({
+  type : FETCH_USER_BY_ID,
+  data : dataUserByID,
+})
+
+// action type updateUser 
+export const UPDATE_USER ='UPDATE_USER';
+// action creator updateUser
+export const updateUser = () => ({
+  type: UPDATE_USER,
+})
+
+// action type updateUser 
+export const DELETE_USER ='DELETE_USER';
+// action creator updateUser
+export const deleteUser = () => ({
+  type: DELETE_USER,
+})
+
+// action type emptyFieldDelete
+export const EMPTY_FIELD_DELETE = 'EMPTY_FIELD_DELETE';
+// action creator emptyFieldDelete
+export const emptyFieldDelete = () => ({
+  type: EMPTY_FIELD_DELETE,
+})
+
+

@@ -39,6 +39,7 @@ class CommentController extends CoreController
 
     //We enter the values of the data of this new Comment with the data supplied in the request
     $newComment->content = $request->input('content');
+    $newComment->pseudo = $request->input('pseudo');
     $newComment->id_user = $request->input('userId');
     $newComment->id_spot = $request->input('spotId');
 

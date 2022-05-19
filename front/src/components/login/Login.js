@@ -19,9 +19,10 @@ function Login() {
   const password = useSelector((state) => state.settings.login.password);
   console.log(mail, password)
 
-  const handleChangeFieldLogin = (value, name) => (
+  const handleChangeFieldLogin = (value, name) => {
+    console.log(value, name);
     dispatch(changeLoginField(value, name))
-  );
+  };
 
   const handleSubmitLogin = (evt) => {
     evt.preventDefault();
