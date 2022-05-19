@@ -69,10 +69,38 @@ const userApiMiddleware = (store) => (next) => (action) => {
       break;
     };
     case UPDATE_USER:{
+      const {
+        users: {
+          inputCurrentUser: {
+            id,
+            firstname,
+            lastname,
+            pseudo,
+            mail,
+            description,
+            role,
+          },
+        }
+    } = store.getState();
+    console.log(id, firstname, lastname);
       axiosInstance
         .patch(
-          `/api/admin/spots/edit/${id}`
+          `/api/admin/users/edit/${id}`,
+          {
+          firstname,
+          lastname,
+          pseudo,
+          mail,
+          description,
+          role,
+          }
         )
+        .then((resp) => {
+          console.log(resp)
+        })
+        .catch((resp) => {
+          console.log(resp, 'error');
+        })
     }
       
 

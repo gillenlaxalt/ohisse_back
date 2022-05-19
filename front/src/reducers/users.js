@@ -27,6 +27,7 @@ export const initialState = {
     inputValue: '',
   },
   inputCurrentUser: {
+    id:'',
     firstname: '',
     lastname: '',
     pseudo: '',
@@ -63,6 +64,7 @@ const usersReducer = (state = initialState, action = {}) => {
           ...state,
           inputCurrentUser: {
             ...state.inputCurrentUser,
+            id:action.data.id,
             firstname: action.data.firstname,
             lastname: action.data.lastname,
             pseudo: action.data.pseudo,
