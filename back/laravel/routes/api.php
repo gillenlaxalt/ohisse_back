@@ -183,7 +183,7 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     );
 
     Route::patch(
-        '/admin/edit/{id}',
+        '/admin/user/edit/{id}',
         [
             UserController::class, 'editUser'
         ]
