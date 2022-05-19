@@ -85,7 +85,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
     console.log(id, firstname, lastname);
       axiosInstance
         .patch(
-          `/api/admin/users/edit/${id}`,
+          `/api/admin/user/edit/${id}`,
           {
           firstname,
           lastname,
@@ -97,13 +97,13 @@ const userApiMiddleware = (store) => (next) => (action) => {
         )
         .then((resp) => {
           console.log(resp)
+          window.confirm(`Vous avez bien mis à jour le profil de ${firstname} ${lastname}`);
         })
         .catch((resp) => {
           console.log(resp, 'error');
+          window.alert('Erreur : la mise à jour a echoué');
         })
     }
-      
-
       default:
       next(action);
   }
