@@ -45,17 +45,17 @@ const usersReducer = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
-    case SAVE_USERS:
-      return {
-        ...state,
-        usersList: action.data,
-      };
-    case SAVE_CURRENT_USER:
-      return {
-        ...state,
-        currentUser: action.data,
-      }
-    case SAVE_CURRENT_TOKEN:
+      case SAVE_USERS:
+          return {
+            ...state,
+            usersList: action.data,
+          };
+      case SAVE_CURRENT_USER:
+        return {
+          ...state,
+          currentUser: action.data,
+        }
+      case SAVE_CURRENT_TOKEN:
         return {
           ...state,
           tokenCurrentUser: action.data,
