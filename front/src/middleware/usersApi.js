@@ -1,6 +1,7 @@
 //= import 
 // npm
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 // local
 import { FETCH_USERS, LOGIN, saveCurrentToken, saveCurrentUser, saveUsers, UPDATE_USER } from '../actions/users';
@@ -39,11 +40,11 @@ const userApiMiddleware = (store) => (next) => (action) => {
             email: mail,
             password: password
           },
-        )
-        // we recive information about user and token
-        .then((response) => {
+          )
+          // we recive information about user and token
+          .then((response) => {
+          
           // const { data: accès_token } = response;
-
           console.log(response.data.user);
           console.log(response.data.token.original.access_token);
           const token = response.data.token.original.access_token;
@@ -65,6 +66,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
         .catch(() => {
           console.log('oups...');
         });
+        
       next(action);
       break;
     };

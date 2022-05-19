@@ -2,7 +2,7 @@
 // npm
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import { changeInput, fetchUserById, updateUser } from '../../actions/users';
 import { useEffect } from 'react';
 
@@ -21,15 +21,20 @@ function CurrentUser() {
 
   const usersListData = useSelector((state) => state.users.usersList);
   console.log(usersListData);
-
+  
   const userById = usersListData.find((user) => user.id == id);
   console.log(userById);
-
+  
+  if(!userById){
+    return <Navigate to="/" replace />;
+  }
+  
   useEffect(
     () => {
       dispatch(fetchUserById(userById));
     }, [],
-  );
+    );
+    
 
   // const firstname= useSelector((state)=> state.users.inputCurrentUser.firstname );
   // const lastname= useSelector((state)=> state.users.inputCurrentUser.lastname );
