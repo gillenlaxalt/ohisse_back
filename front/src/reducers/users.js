@@ -15,6 +15,8 @@ import {
   EMPTY_FIELD_DELETE
 } from "../actions/users";
 
+import { LOGOUT } from '../actions/settings';
+
 
 export const initialState = {
 
@@ -96,6 +98,11 @@ const usersReducer = (state = initialState, action = {}) => {
             role: '',
           }
       }
+      case LOGOUT:
+        return {
+          ...state,
+          tokenCurrentUser: "",        
+        }
           default:
             return state;
   }
