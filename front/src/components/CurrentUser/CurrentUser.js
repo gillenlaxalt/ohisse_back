@@ -26,7 +26,7 @@ function CurrentUser() {
   const userById = usersListData.find((user) => user.id == id);
   console.log(userById);
 
-  const isEmpty = useSelector((state) => state.users.isEmpty);
+  // const isEmpty = useSelector((state) => state.users.isEmpty);
   
   useEffect(
     () => {
@@ -71,13 +71,10 @@ function CurrentUser() {
 
   return (
 
-    
     <section className='current-user'>
       <section className='current-user_profil'>
         <div className='current-user-profil_hello'>
-          <p>
-            {isEmpty && ('')}
-            {!isEmpty && (`${userById.firstname} ${userById.lastname}`)}
+          <p>{userById.firstname} {userById.lastname}
           </p>
         </div>
         <form className='current-user-profil_form' onSubmit={handleUpdateSubmit}>
@@ -86,7 +83,6 @@ function CurrentUser() {
 
               <label htmlFor='firstname'>Prénom</label>
 
-              {!isEmpty && (
                 <input
                   type='text'
                   name='firstname'
@@ -94,20 +90,9 @@ function CurrentUser() {
                   defaultValue={userById.firstname}
                   onChange={(evt) => handleChangeInput(evt.target.value, 'firstname')}
                 ></input>
-              )}
-              {isEmpty && (
-                <input
-                  type='text'
-                  name='firstname'
-                  // value={ firstname }
-                  defaultValue={''}
-                  onChange={(evt) => handleChangeInput(evt.target.value, 'firstname')}
-                ></input>
-              )}
 
               <label htmlFor='lastname'>Nom</label>
               
-              {!isEmpty && (
                 <input
                   type='text'
                   name='lastname'
@@ -115,23 +100,10 @@ function CurrentUser() {
                   defaultValue={userById.lastname}
                   onChange={(evt) => handleChangeInput(evt.target.value, 'lastname')}
                 ></input>
-              )}
-              {isEmpty && (
-                <input
-                type='text'
-                name='lastname'
-                // value={lastname}
-                defaultValue={''}
-                onChange={(evt) => handleChangeInput(evt.target.value, 'lastname')}
-                ></input>
-              )}
-            </span>
 
             <span className='form-identity_pseudo-mail span-identity'>
 
               <label htmlFor='pseudo'>Pseudo</label>
-
-              {!isEmpty && (
                 <input
                   type='text'
                   name='pseudo'
@@ -139,20 +111,8 @@ function CurrentUser() {
                   defaultValue={userById.pseudo}
                   onChange={(evt) => handleChangeInput(evt.target.value, 'pseudo')}
                 ></input>
-              )}
-              {isEmpty && (
-                <input
-                  type='text'
-                  name='pseudo'
-                  // value={pseudo}
-                  defaultValue={''}
-                  onChange={(evt) => handleChangeInput(evt.target.value, 'pseudo')}
-                ></input>
-              )}
 
               <label htmlFor='email'>E-mail</label>
-
-              {!isEmpty && (
                 <input
                   type='email'
                   name='email'
@@ -160,24 +120,21 @@ function CurrentUser() {
                   defaultValue={userById.email}
                   onChange={(evt) => handleChangeInput(evt.target.value, 'mail')}
                 ></input>
-              )}
-              {isEmpty && (
-                <input
-                  type='email'
-                  name='email'
-                  // value={mail}
-                  defaultValue={''}
-                  onChange={(evt) => handleChangeInput(evt.target.value, 'mail')}
-                ></input>
-              )}
-
+            
             </span>
           </div>
           <div className='profil-form_info'>
 
-            <label htmlFor='city'>Ville</label>
+          <label htmlFor='city'>Ville</label>
+                <input
+                  type='text'
+                  name='city'
+                  // value={mail}
+                  defaultValue={userById.city}
+                  onChange={(evt) => handleChangeInput(evt.target.value, 'city')}
+                ></input>
 
-            {!isEmpty && (
+            <label htmlFor='city'>Role</label>         
               <select
               name='city'
               // value={role}
@@ -185,33 +142,17 @@ function CurrentUser() {
               onChange={(evt) => handleChangeInput(evt.target.value, 'role')}
               >
                 <option value="">
-                  {isEmpty && ('')}
-                  {!isEmpty && (`${userById.role}`)}
+                  {userById.role}
                 </option>
                 <option value='admin'>admin</option>
                 <option value='user'>user</option>
               </select>
-            )}
-            {isEmpty && (
-              <select
-                name='city'
-                // value={role}
-                defaultValue={''}
-                onChange={(evt) => handleChangeInput(evt.target.value, 'role')}
-              >
-                <option value="">
-                  {('')}
-                </option>
-                <option value='admin'>admin</option>
-                <option value='user'>user</option>
-              </select>
-            )}
+         
+            
           </div>
           <div className='profil-form_descrip'>
 
             <label htmlFor='decrip'>Description</label>
-
-            {!isEmpty && (
               <input
                 type='textarea'
                 name='descrip'
@@ -219,16 +160,7 @@ function CurrentUser() {
                 defaultValue={userById.description}
                 onChange={(evt) => handleChangeInput(evt.target.value, 'description')}
               ></input>
-            )}
-            {isEmpty && (
-              <input
-                type='textarea'
-                name='descrip'
-                // value={description}
-                defaultValue={''}
-                onChange={(evt) => handleChangeInput(evt.target.value, 'description')}
-              ></input>
-            )}
+            
           </div>
           <div className='profil-form_btn'>
             <button
