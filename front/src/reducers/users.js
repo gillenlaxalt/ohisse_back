@@ -12,7 +12,8 @@ import {
   CHANGE_INPUT,
   SAVE_USERS,
   FETCH_USER_BY_ID,
-  EMPTY_AFTER_DELETE
+  EMPTY_AFTER_DELETE,
+  IS_EMPTY_IN_FALSE
 } from "../actions/users";
 
 
@@ -85,7 +86,22 @@ const usersReducer = (state = initialState, action = {}) => {
     case EMPTY_AFTER_DELETE:
       return {
         ...state,
-        isEmpty: !state.isEmpty,
+        isEmpty: true,
+        inputCurrentUser: {
+          ...state.inputCurrentUser,
+          id:'',
+          firstname:'',
+          lastname:'',
+          pseudo:'',
+          mail:'',
+          description:'',
+          role:'',
+        } 
+      }
+    case IS_EMPTY_IN_FALSE:
+      return {
+        ...state,
+        isEmpty:false
       }
           default:
             return state;

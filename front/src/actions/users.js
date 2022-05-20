@@ -80,4 +80,11 @@ export const emptytAfterDelete = () => ({
   type: EMPTY_AFTER_DELETE,
 })
 
+// action type isEmptyInFalse
+export const IS_EMPTY_IN_FALSE = 'IS_EMPTY_IN_FALSE';
+// action creator isEmptyInFalse
+export const isEmptyInFalse = () => ({
+  type: IS_EMPTY_IN_FALSE,
+})
+
 
