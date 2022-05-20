@@ -16,6 +16,8 @@ import {
   IS_EMPTY_IN_FALSE
 } from "../actions/users";
 
+import { LOGOUT } from '../actions/settings';
+
 
 export const initialState = {
 
@@ -103,6 +105,11 @@ const usersReducer = (state = initialState, action = {}) => {
         ...state,
         isEmpty:false
       }
+      case LOGOUT:
+        return {
+          ...state,
+          tokenCurrentUser: "",        
+        }
           default:
             return state;
   }
