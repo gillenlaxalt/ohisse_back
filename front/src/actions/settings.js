@@ -22,5 +22,11 @@ export const changeLoginField = (value, name) => {
 export const IS_LOGGED = 'IS_LOGGED'; 
 export const isLogged = () => ({
   type: IS_LOGGED,
-})
+});
+
+// action type logout
+export const LOGOUT = 'LOGOUT'; 
+export const logout = () => ({
+  type: LOGOUT,
+});
 

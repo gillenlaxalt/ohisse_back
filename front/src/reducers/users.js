@@ -12,21 +12,24 @@ import {
   CHANGE_INPUT,
   SAVE_USERS,
   FETCH_USER_BY_ID,
-  EMPTY_FIELD_DELETE
+  EMPTY_AFTER_DELETE,
+  IS_EMPTY_IN_FALSE
 } from "../actions/users";
+
+import { LOGOUT } from '../actions/settings';
 
 
 export const initialState = {
 
   currentUser: [],
   tokenCurrentUser: "",
-
+  isEmpty:false,
   usersList: [],
   search:
-
   {
     inputValue: '',
   },
+
   inputCurrentUser: {
     id:'',
     firstname: '',
@@ -45,17 +48,17 @@ const usersReducer = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
-    case SAVE_USERS:
-      return {
-        ...state,
-        usersList: action.data,
-      };
-    case SAVE_CURRENT_USER:
-      return {
-        ...state,
-        currentUser: action.data,
-      }
-    case SAVE_CURRENT_TOKEN:
+      case SAVE_USERS:
+          return {
+            ...state,
+            usersList: action.data,
+          };
+      case SAVE_CURRENT_USER:
+        return {
+          ...state,
+          currentUser: action.data,
+        }
+      case SAVE_CURRENT_TOKEN:
         return {
           ...state,
           tokenCurrentUser: action.data,
@@ -82,20 +85,31 @@ const usersReducer = (state = initialState, action = {}) => {
               [action.name]: action.value
             }
           }
-    case EMPTY_FIELD_DELETE:
+    case EMPTY_AFTER_DELETE:
       return {
         ...state,
+        isEmpty: true,
         inputCurrentUser: {
           ...state.inputCurrentUser,
-            id:'',
-            firstname: '',
-            lastname: '',
-            pseudo: '',
-            mail: '',
-            description: '',
-            role: '',
-          }
+          id:'',
+          firstname:'',
+          lastname:'',
+          pseudo:'',
+          mail:'',
+          description:'',
+          role:'',
+        } 
       }
+    case IS_EMPTY_IN_FALSE:
+      return {
+        ...state,
+        isEmpty:false
+      }
+      case LOGOUT:
+        return {
+          ...state,
+          tokenCurrentUser: "",        
+        }
           default:
             return state;
   }

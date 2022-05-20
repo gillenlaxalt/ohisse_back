@@ -1,24 +1,25 @@
 @use '../../../styles/vars';
 
-.userCard{
-      margin-top: 20px;
-      background-color: vars.$second-bg-color;
-      border-radius: 10px;
-      padding: 15px 5px 5px;
+.userCard {
+  margin-top: 20px;
+  background-color: vars.$second-bg-color;
+  border-radius: 10px;
+  padding: 15px 5px 5px;
 
-  &_identity{
+  &_identity {
     display: flex;
     align-items: center;
     width: 100%;
 
-    .userCard-identity_img{
+    .userCard-identity_img {
       width: 35px;
       height: 35px;
       border-radius: 50%;
       border: 1px solid;
       margin-right: 10px;
     }
-    .userCard-identity_name{
+
+    .userCard-identity_name {
       width: 100%;
       height: 35px;
       margin: 0;
@@ -33,46 +34,46 @@
     }
   }
 
-  &_config{
+  &_config {
     display: flex;
     flex-direction: row;
     margin-top: 5px;
 
-    .userCard-config_role{
+    .userCard-config_role {
       width: 50px;
       height: 35px;
       margin: 0;
       padding: 5px;
       background-color: #f2f4f3;
       border: 0;
-      border-radius: 10px;     
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .userCard-config_update{
+    .userCard-config_update {
       background-color: vars.$bg-color-btn-update;
-      color:vars.$main-bg-color;
+      color: vars.$main-bg-color;
       font-weight: bold;
       text-transform: uppercase;
     }
 
-    .userCard-config_delete{
-      background-color:vars.$bg-color-btn-delete;
-      color:vars.$main-bg-color;
+    .userCard-config_delete {
+      background-color: vars.$bg-color-btn-delete;
+      color: vars.$main-bg-color;
       font-weight: bold;
       text-transform: uppercase;
     }
 
-    .userCard-config-btn{
+    .userCard-config-btn {
       display: flex;
       flex-direction: row;
       justify-content: end;
       width: 100%;
     }
 
-    .userCard-config_btn{
+    .userCard-config_btn {
       margin-left: 10px;
       height: 30px;
       border-radius: 10px;
@@ -80,27 +81,35 @@
       width: 90px;
     }
 
-    .userCard-config_btn:hover{
-     transform: scale(1.1);
+    .userCard-config_btn:hover {
+      transform: scale(1.1);
     }
   }
 
 }
 
-@media screen and (min-width: 768px){
-  .userCard{
+@media screen and (min-width: 768px) {
+  .userCard {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 10px;
     justify-content: space-between;
-  }
 
-  .userCard_identity{
-    width:60%;
-  }
+    &_identity {
 
-  .userCard_config {
-    align-items: center;
-}
+      .userCard-identity_name {
+        width: 50%;
+        padding-left: 10px;
+      }
+    }
+
+    .userCard_identity {
+      width: 60%;
+    }
+
+    .userCard_config {
+      align-items: center;
+    }
+  }
 }

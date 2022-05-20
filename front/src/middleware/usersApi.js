@@ -3,8 +3,9 @@
 import axios from 'axios';
 
 // local
-import { DELETE_USER, emptyFieldDelete, FETCH_USERS, LOGIN, saveCurrentToken, saveCurrentUser, saveUsers, UPDATE_USER } from '../actions/users';
-import { isLogged } from '../actions/settings';
+
+import { DELETE_USER, emptyAfterDelete, FETCH_USERS, LOGIN, saveCurrentToken, saveCurrentUser, saveUsers, UPDATE_USER } from '../actions/users';
+import { isLogged, LOGOUT } from '../actions/settings';
 
 const axiosInstance = axios.create({
    // API url
@@ -73,7 +74,11 @@ const userApiMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
-    
+    case LOGOUT: {
+      delete axiosInstance.defaults.headers.common.Authorization;
+      next(action);
+      break;
+    }
     case UPDATE_USER:{
       const {
         users: {
@@ -114,34 +119,26 @@ const userApiMiddleware = (store) => (next) => (action) => {
       }
 
       case DELETE_USER: {
-        const { users : {
-          inputCurrentUser :{
-            id,
-            firstname,
-            lastname,
-          },
-        }
-      } = store.getState();
         axiosInstance
         .delete(
-          `api/admin/user/delete/${id}`
+          `api/admin/user/delete/${action.id}`
         )
         .then((resp) => {
           console.log(resp);
           window.confirm(`Vous avez bien supprimé l'utilisateur`);
-          store.dispatch(emptyFieldDelete());
+          store.dispatch(emptyAfterDelete());
         })
         .catch((resp) => {
           console.log(resp)
-          window.alert(`${firstname} ${lastname} n'a pas été supprimé`);
+          window.alert(`${action.firstname} ${action.lastname} n'a pas été supprimé`);
         })
         next(action);
         break;
       }
-
       default:
       next(action);
   }
+
 };
 
 export default userApiMiddleware;
