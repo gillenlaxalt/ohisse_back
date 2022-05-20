@@ -3,17 +3,21 @@
 import axios from 'axios';
 
 // local
-import { FETCH_USERS, LOGIN, saveCurrentToken, saveCurrentUser, saveUsers } from '../actions/users';
+
+import { DELETE_USER, emptyFieldDelete, FETCH_USERS, LOGIN, saveCurrentToken, saveCurrentUser, saveUsers, UPDATE_USER } from '../actions/users';
 import { isLogged, LOGOUT } from '../actions/settings';
+
 
 const axiosInstance = axios.create({
    // API url
    baseURL: 'http://0.0.0.0:8080/',
 });
 
+
 const userApiMiddleware = (store) => (next) => (action) => {
+  
   switch (action.type) {
-    case FETCH_USERS:
+    case FETCH_USERS: {
       axiosInstance
         .get('api/admin/users')
         .then(
@@ -23,10 +27,12 @@ const userApiMiddleware = (store) => (next) => (action) => {
           }
         )
         .catch(
-          () => console.log('error api'),
+          () => {console.log('error api')},
         );
       next(action);
-      break;
+      break
+    }
+      
     case LOGIN: {
       const state = store.getState();
       const {mail, password } = state.settings.login;
@@ -39,11 +45,10 @@ const userApiMiddleware = (store) => (next) => (action) => {
             email: mail,
             password: password
           },
-        )
-        // we recive information about user and token
-        .then((response) => {
+          )
+          // we recive information about user and token
+          .then((response) => {
           // const { data: accès_token } = response;
-
           console.log(response.data.user);
           console.log(response.data.token.original.access_token);
           const token = response.data.token.original.access_token;
@@ -61,18 +66,90 @@ const userApiMiddleware = (store) => (next) => (action) => {
 
           // we fetch all favorite spots
           // store.dispatch(fetchFavorites());
+          // return <Navigate to="/" replace />
         })
         .catch(() => {
           console.log('oups...');
         });
+        
       next(action);
       break;
+
     };
     case LOGOUT: {
       delete axiosInstance.defaults.headers.common.Authorization;
       next(action);
       break;
     }
+
+    }
+    
+    case UPDATE_USER:{
+      const {
+        users: {
+          inputCurrentUser: {
+            id,
+            firstname,
+            lastname,
+            pseudo,
+            mail,
+            description,
+            role,
+          },
+        }
+    } = store.getState();
+    console.log(id, firstname, lastname);
+      axiosInstance
+        .patch(
+          `/api/admin/user/edit/${id}`,
+          {
+          firstname,
+          lastname,
+          pseudo,
+          mail,
+          description,
+          role,
+          }
+        )
+        .then((resp) => {
+          // console.log(resp)
+          window.confirm(`Vous avez bien mis à jour le profil de ${firstname} ${lastname}`);
+        })
+        .catch((resp) => {
+          // console.log(resp, 'error');
+          window.alert('Erreur : la mise à jour a echoué');
+        })
+        next(action);
+        break
+      }
+
+      case DELETE_USER: {
+        const { users : {
+          inputCurrentUser :{
+            id,
+            firstname,
+            lastname,
+          },
+        }
+      } = store.getState();
+        axiosInstance
+        .delete(
+          `api/admin/user/delete/${id}`
+        )
+        .then((resp) => {
+          console.log(resp);
+          window.confirm(`Vous avez bien supprimé l'utilisateur`);
+          store.dispatch(emptyFieldDelete());
+        })
+        .catch((resp) => {
+          console.log(resp)
+          window.alert(`${firstname} ${lastname} n'a pas été supprimé`);
+        })
+        next(action);
+        break;
+      }
+
+
       default:
       next(action);
   }
