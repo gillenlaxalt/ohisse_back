@@ -74,16 +74,12 @@ const userApiMiddleware = (store) => (next) => (action) => {
         
       next(action);
       break;
-
-    };
+    }
     case LOGOUT: {
       delete axiosInstance.defaults.headers.common.Authorization;
       next(action);
       break;
     }
-
-    }
-    
     case UPDATE_USER:{
       const {
         users: {
@@ -148,11 +144,10 @@ const userApiMiddleware = (store) => (next) => (action) => {
         next(action);
         break;
       }
-
-
       default:
       next(action);
   }
+
 };
 
 export default userApiMiddleware;
