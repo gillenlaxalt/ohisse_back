@@ -1,6 +1,11 @@
 // == import
 
-import { HANDLE_DARK, HANDLE_MENU, CHANGE_LOGIN_FIELD, IS_LOGGED, LOGOUT } from "../actions/settings";
+import {
+  HANDLE_DARK,
+  HANDLE_MENU,
+  CHANGE_LOGIN_FIELD,
+  IS_LOGGED,
+  LOGOUT } from "../actions/settings";
 
 // npm
 
