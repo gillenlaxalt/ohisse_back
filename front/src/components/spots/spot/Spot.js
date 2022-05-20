@@ -1,6 +1,7 @@
 // == import 
 import PropTypes from 'prop-types';
 // npm
+import { Link } from 'react-router-dom'
 
 // local
 
@@ -17,7 +18,10 @@ function Spot( {id, name, city, picture} )
         <p className="spotCard-identity_city">{`${city}`}</p>
       </div>
         <div className="spotCard-config-btn" >
-          <button className="spotCard-config_update spotCard-config_btn">Afficher</button>
+          <Link to={`/spot/${id}`} >
+          <button className="spotCard-config_update spotCard-config_btn">
+            Afficher</button>
+          </Link>
           <button className="spotCard-config_delete spotCard-config_btn">Supprimer</button>
         </div>
     </div>
