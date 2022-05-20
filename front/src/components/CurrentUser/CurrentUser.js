@@ -75,7 +75,7 @@ function CurrentUser() {
   if (userById == undefined) {
     return (
       navigate('/tous-les-utilisateurs', { replace :true }),
-      <Navigate to="/tous-les-utilisateurs" />,
+      // <Navigate to="/tous-les-utilisateurs" />, It is navigate that can redirection
       console.log('je ne charge pas plus')
     );
   } else {
@@ -110,7 +110,7 @@ function CurrentUser() {
                   type='text'
                   name='lastname'
                   // value={lastname}
-                  defaultValue={''}
+                  defaultValue={userById.lastname}
                   onChange={(evt) => handleChangeInput(evt.target.value, 'lastname')}
 
                 ></input>
