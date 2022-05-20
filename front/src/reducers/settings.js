@@ -1,6 +1,6 @@
 // == import
 
-import { HANDLE_DARK, HANDLE_MENU, CHANGE_LOGIN_FIELD, IS_LOGGED } from "../actions/settings";
+import { HANDLE_DARK, HANDLE_MENU, CHANGE_LOGIN_FIELD, IS_LOGGED, LOGOUT } from "../actions/settings";
 
 // npm
 
@@ -41,6 +41,11 @@ const settingsReducers = (state = initialState, action = {}) => {
         return {
           ...state,
           isLogged:!state.isLogged,
+        }
+      case LOGOUT:
+        return {
+          ...state,
+          isLogged: false
         }
     default:
       // console.log(state);
