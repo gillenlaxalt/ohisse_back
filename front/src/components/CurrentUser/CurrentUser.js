@@ -176,7 +176,28 @@ function CurrentUser() {
           </div>
           <div className='profil-form_info'>
 
-            <label htmlFor='city'>Ville</label>
+          <label htmlFor='city'>Ville</label>
+
+              {!isEmpty && (
+                <input
+                  type='city'
+                  name='city'
+                  // value={mail}
+                  defaultValue={userById.city}
+                  onChange={(evt) => handleChangeInput(evt.target.value, 'city')}
+                ></input>
+              )}
+              {isEmpty && (
+                <input
+                  type='city'
+                  name='city'
+                  // value={mail}
+                  defaultValue={''}
+                  onChange={(evt) => handleChangeInput(evt.target.value, 'city')}
+                ></input>
+              )}
+
+            <label htmlFor='city'>Role</label>
 
             {!isEmpty && (
               <select
