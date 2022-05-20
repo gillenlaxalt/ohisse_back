@@ -135,7 +135,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
         .then((resp) => {
           console.log(resp);
           window.confirm(`Vous avez bien supprimé l'utilisateur`);
-          store.dispatch(emptytAfterDelete());
+          // store.dispatch(emptytAfterDelete());
           store.dispatch(fetchUsers());
         })
         .catch((resp) => {
