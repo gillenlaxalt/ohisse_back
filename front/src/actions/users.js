@@ -73,10 +73,10 @@ export const deleteUser = (id, firstname, lastname) => ({
   lastname
 })
 
-// action type emptyFieldDelete
+// action type emptyAfterDelete
 export const EMPTY_AFTER_DELETE = 'EMPTY_AFTER_DELETE';
-// action creator emptyFieldDelete
-export const emptytAfterDelete = () => ({
+// action creator emptyAfterDelete
+export const emptyAfterDelete = () => ({
   type: EMPTY_AFTER_DELETE,
 })
 

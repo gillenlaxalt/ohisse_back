@@ -15,6 +15,7 @@ export const initialState = {
   burgerMenu: false,
   darkMode: false,
   isLogged:false,
+  currentUser:[],
   login :
     {
     mail:'',
@@ -46,11 +47,16 @@ const settingsReducers = (state = initialState, action = {}) => {
         return {
           ...state,
           isLogged:!state.isLogged,
+          login :{
+            ...state.login,
+            password:'',
+          }
         }
       case LOGOUT:
         return {
           ...state,
-          isLogged: false
+          isLogged: false,
+          currentUser:[],          
         }
     default:
       // console.log(state);

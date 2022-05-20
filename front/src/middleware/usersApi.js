@@ -4,6 +4,7 @@ import axios from 'axios';
 
 // local
 
+
 import { 
   DELETE_USER,
   emptyFieldDelete,
@@ -14,6 +15,7 @@ import {
   saveCurrentUser,
   saveUsers,
   UPDATE_USER } from '../actions/users';
+
 import { isLogged, LOGOUT } from '../actions/settings';
 
 const axiosInstance = axios.create({
@@ -135,8 +137,10 @@ const userApiMiddleware = (store) => (next) => (action) => {
         .then((resp) => {
           console.log(resp);
           window.confirm(`Vous avez bien supprimé l'utilisateur`);
+
           // store.dispatch(emptytAfterDelete());
           store.dispatch(fetchUsers());
+
         })
         .catch((resp) => {
           console.log(resp)

@@ -1,4 +1,5 @@
 // == import
+
 // npm
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,10 +7,10 @@ import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import { changeInput, deleteUser, fetchUserById, updateUser } from '../../actions/users';
 import { useEffect } from 'react';
 
-
 // local
 
 // style
+
 import './currentUser.scss';
 
 function CurrentUser() {
@@ -70,6 +71,7 @@ function CurrentUser() {
   //   console.log('je suis delete submit');
   // }
 
+
   if (userById == undefined) {
     return (
       navigate('/tous-les-utilisateurs', { replace :true }),
@@ -77,6 +79,7 @@ function CurrentUser() {
       console.log('je ne charge pas plus')
     );
   } else {
+
 
     return (
 
@@ -89,6 +92,7 @@ function CurrentUser() {
           <form className='current-user-profil_form' onSubmit={handleUpdateSubmit}>
             <div className='profil-form_identity'>
               <span className='form-identity_name span-identity'>
+
 
                 <label htmlFor='firstname'>Prénom</label>
 
@@ -106,8 +110,9 @@ function CurrentUser() {
                   type='text'
                   name='lastname'
                   // value={lastname}
-                  defaultValue={userById.lastname}
+                  defaultValue={''}
                   onChange={(evt) => handleChangeInput(evt.target.value, 'lastname')}
+
                 ></input>
               </span>
               <span className='form-identity_pseudo-mail span-identity'>
@@ -123,12 +128,13 @@ function CurrentUser() {
 
                 <label htmlFor='email'>E-mail</label>
                 <input
-                  type='email'
-                  name='email'
-                  // value={mail}
-                  defaultValue={userById.email}
-                  onChange={(evt) => handleChangeInput(evt.target.value, 'mail')}
+                  type='textarea'
+                  name='descrip'
+                  // value={description}
+                  defaultValue={userById.description}
+                  onChange={(evt) => handleChangeInput(evt.target.value, 'description')}
                 ></input>
+
 
               </span>
             </div>
