@@ -1,4 +1,5 @@
 // == import
+
 // npm
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,10 +7,10 @@ import { useParams } from 'react-router-dom';
 import { changeInput, deleteUser, fetchUserById, isEmptyInFalse, updateUser } from '../../actions/users';
 import { useEffect } from 'react';
 
-
 // local
 
 // style
+
 import './currentUser.scss';
 
 function CurrentUser() {
@@ -245,7 +246,7 @@ function CurrentUser() {
         </form>
 
       </section>
-      
+
       <section className='current-user_map'>
         <MapContainer center={[47, 2]} zoom={5} scrollWheelZoom>
           <TileLayer

@@ -1,20 +1,32 @@
 // == import 
 
 // npm
-import { useDispatch, useSeletor } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 // local
-import search_symbol from '../../img/icons/search.png';
-import addMap from '../../img/icons/addLocation.png';
-
+import { changeField, fetchSpots } from '../../actions/spots';
 import Spot from './spot/Spot';
 
+import search_symbol from '../../img/icons/search.png';
+import addMap from '../../img/icons/addLocation.png';
 // style
 import './spots.scss';
 
 function Spots()
 {
-  
+  const dispatch = useDispatch();
+  const searchValue= useSelector((state) => state.spots.search.inputValue);
+  const handleChangeField =(value, name) => (
+    dispatch(changeField(value, name))
+  );
+
+  const spotsData = useSelector((state) => state.spots.spotsList);
+  console.log(spotsData);
+  useEffect(() => {
+    // load all spots from API
+    dispatch(fetchSpots());
+  }, []);
 
   return(
     <section className='allUser'>
@@ -30,8 +42,8 @@ function Spots()
         type='search'
         className='form_span-input_input'
         placeholder='Rechercher'
-        // value={searchValue}
-        // onChange={(evt)=> handleChangeField(evt.target.value, 'search.inputValue')}
+        value={searchValue}
+        onChange={(evt)=> handleChangeField(evt.target.value, 'search.inputValue')}
         />
         </span>
         <img
@@ -40,7 +52,11 @@ function Spots()
         className='allSpots-form_img add_spot'
         />
       </form>
-      <Spot />
+      {spotsData.map((item) => {
+        return (
+          <Spot {...item} key={item.id} />
+        )
+        })}
       </section>
   )
 };
