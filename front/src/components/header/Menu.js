@@ -28,10 +28,10 @@ function Menu() {
   const onDark = useSelector((state) => state.settings.darkMode);
   const isLogged = useSelector((state) => state.settings.isLogged);
   // console.log(isLogged);
-
+ 
   const handleLogout = () => {
     dispatch(logout());
-  };
+  }
 
   return (
     <section className={onDark ? 'header dark' : 'header'}>
