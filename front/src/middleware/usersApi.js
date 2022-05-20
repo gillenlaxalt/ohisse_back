@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 // local
-import { DELETE_USER, emptyFieldDelete, FETCH_USERS, LOGIN, saveCurrentToken, saveCurrentUser, saveUsers, UPDATE_USER } from '../actions/users';
+import { DELETE_USER, emptytAfterDelete, FETCH_USERS, LOGIN, saveCurrentToken, saveCurrentUser, saveUsers, UPDATE_USER } from '../actions/users';
 import { isLogged } from '../actions/settings';
 
 const axiosInstance = axios.create({
@@ -114,14 +114,6 @@ const userApiMiddleware = (store) => (next) => (action) => {
       }
 
       case DELETE_USER: {
-      //   const { users : {
-      //     inputCurrentUser :{
-      //       id,
-      //       firstname,
-      //       lastname,
-      //     },
-      //   }
-      // } = store.getState();
         axiosInstance
         .delete(
           `api/admin/user/delete/${action.id}`
@@ -129,7 +121,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
         .then((resp) => {
           console.log(resp);
           window.confirm(`Vous avez bien supprimé l'utilisateur`);
-          store.dispatch(emptyFieldDelete());
+          store.dispatch(emptytAfterDelete());
         })
         .catch((resp) => {
           console.log(resp)

@@ -2,7 +2,7 @@
 // npm
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { changeInput, deleteUser, fetchUserById, updateUser } from '../../actions/users';
 import { useEffect } from 'react';
 
@@ -25,6 +25,8 @@ function CurrentUser() {
   
   const userById = usersListData.find((user) => user.id == id);
   console.log(userById);
+
+  const isEmpty = useSelector((state) => state.users.isEmpty);
   
   useEffect(
     () => {
@@ -52,7 +54,7 @@ function CurrentUser() {
 
   function handleDeleteSubmit(evt){
     evt.preventDefault();
-    dispatch(deleteUser(userById.id, userById.firstname, userById.lastname ));
+    dispatch(deleteUser(userById.id, userById.firstname, userById.lastname));
     console.log('click to delete user');
   }
 
@@ -68,10 +70,15 @@ function CurrentUser() {
  
 
   return (
+
+    
     <section className='current-user'>
       <section className='current-user_profil'>
         <div className='current-user-profil_hello'>
-          <p>{userById.firstname} {userById.lastname}</p>
+          <p>
+            {isEmpty && ('')}
+            {!isEmpty && (`${userById.firstname} ${userById.lastname}`)}
+          </p>
         </div>
         <form className='current-user-profil_form' onSubmit={handleUpdateSubmit}>
           <div className='profil-form_identity'>
@@ -81,7 +88,10 @@ function CurrentUser() {
               type='text'
               name='firstname'
               // value={ firstname }
-              defaultValue={userById.firstname}
+              defaultValue={
+                  (isEmpty && ('') ||
+                  !isEmpty && (`${userById.firstname}`))
+              }
               onChange={(evt) => handleChangeInput(evt.target.value, 'firstname')}
               ></input>
               <label htmlFor='lastname'>Nom</label>
@@ -89,7 +99,12 @@ function CurrentUser() {
               type='text'
               name='lastname'
               // value={lastname}
-              defaultValue={userById.lastname}
+              defaultValue={
+                <>
+                  {isEmpty && ('')} 
+                  {!isEmpty && (`${userById.lastname}`)}
+                </>
+              }
               onChange={(evt) => handleChangeInput(evt.target.value, 'lastname')}
               ></input>
             </span>
@@ -99,7 +114,12 @@ function CurrentUser() {
               type='text'
               name='pseudo'
               // value={pseudo}
-              defaultValue={userById.pseudo}
+              defaultValue={
+                <>
+                  {isEmpty && ('')} 
+                  {!isEmpty && (`${userById.pseudo}`)}
+                </>
+              }
               onChange={(evt) => handleChangeInput(evt.target.value, 'pseudo')}
               ></input>
               <label htmlFor='email'>E-mail</label>
@@ -107,7 +127,12 @@ function CurrentUser() {
               type='email'
               name='email'
               // value={mail}
-              defaultValue={userById.email}
+              defaultValue={
+                <>
+                  {isEmpty && ('')} 
+                  {!isEmpty && (`${userById.email}`)}
+                </>
+              }
               onChange={(evt) => handleChangeInput(evt.target.value, 'mail')}
               ></input>
             </span>
@@ -117,10 +142,18 @@ function CurrentUser() {
             <select
             name='city'
             // value={role}
-            defaultValue={userById.role}
+            defaultValue={
+                <>
+                  {isEmpty && ('')} 
+                  {!isEmpty && (`${userById.role}`)}
+                </>
+              }
             onChange={(evt) => handleChangeInput(evt.target.value, 'role')}
             >
-              <option value="">{userById.role}</option>
+              <option value="">
+                {isEmpty && ('')}
+                {!isEmpty && (`${userById.role}`)}
+              </option>
               <option value='admin'>admin</option>
               <option value='user'>user</option>
             </select>
