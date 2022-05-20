@@ -3,7 +3,7 @@
 // npm
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { changeInput, deleteUser, fetchUserById, isEmptyInFalse, updateUser } from '../../actions/users';
 import { useEffect } from 'react';
 
@@ -72,6 +72,8 @@ function CurrentUser() {
   // }
   if(usersListData.length === 0){
     return(
+      // navigate('/tous-les-utilisateurs', { replace :true }),
+      <Navigate to="/tous-les-utilisateurs" />,
       console.log('je ne charge pas plus')
     );
   } else {
