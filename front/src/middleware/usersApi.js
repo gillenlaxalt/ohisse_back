@@ -114,17 +114,17 @@ const userApiMiddleware = (store) => (next) => (action) => {
       }
 
       case DELETE_USER: {
-        const { users : {
-          inputCurrentUser :{
-            id,
-            firstname,
-            lastname,
-          },
-        }
-      } = store.getState();
+      //   const { users : {
+      //     inputCurrentUser :{
+      //       id,
+      //       firstname,
+      //       lastname,
+      //     },
+      //   }
+      // } = store.getState();
         axiosInstance
         .delete(
-          `api/admin/user/delete/${id}`
+          `api/admin/user/delete/${action.id}`
         )
         .then((resp) => {
           console.log(resp);
@@ -133,7 +133,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
         })
         .catch((resp) => {
           console.log(resp)
-          window.alert(`${firstname} ${lastname} n'a pas été supprimé`);
+          window.alert(`${action.firstname} ${action.lastname} n'a pas été supprimé`);
         })
         next(action);
         break;

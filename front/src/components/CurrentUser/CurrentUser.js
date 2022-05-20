@@ -52,7 +52,7 @@ function CurrentUser() {
 
   function handleDeleteSubmit(evt){
     evt.preventDefault();
-    dispatch(deleteUser());
+    dispatch(deleteUser(userById.id, userById.firstname, userById.lastname ));
     console.log('click to delete user');
   }
 

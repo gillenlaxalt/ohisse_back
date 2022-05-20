@@ -66,8 +66,11 @@ export const updateUser = () => ({
 // action type updateUser 
 export const DELETE_USER ='DELETE_USER';
 // action creator updateUser
-export const deleteUser = () => ({
+export const deleteUser = (id, firstname, lastname) => ({
   type: DELETE_USER,
+  id,
+  firstname,
+  lastname
 })
 
 // action type emptyFieldDelete
