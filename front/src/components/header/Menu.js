@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 // local
 import logo from '../../img/logo-complet-bleu.png';
 import LogoutLogo from '../../img/icons/logout.png'
-import { handleMenu, handleDark } from '../../actions/settings';
+import { handleMenu, handleDark, logout } from '../../actions/settings';
 // style
 import './menu.scss';
 
@@ -28,6 +28,10 @@ function Menu() {
   const onDark = useSelector((state) => state.settings.darkMode);
   const isLogged = useSelector((state) => state.settings.isLogged);
   // console.log(isLogged);
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   return (
     <section className={onDark ? 'header dark' : 'header'}>
@@ -60,12 +64,14 @@ function Menu() {
 
           </span>
           <span className='header-content-menu_log'>
+          <NavLink to='/login' onClick={handleLogout}>
             <img
               src={LogoutLogo}
               alt='déconnexion'
               className='menu-log_img'
             />
-            <p className='menu-log_txt menu-txt'>Déconnexion</p>
+            <p className='menu-log_txt menu-txt'> Déconnexion</p>
+          </NavLink>
           </span>
         </div>
       )}

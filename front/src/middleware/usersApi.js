@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // local
 import { FETCH_USERS, LOGIN, saveCurrentToken, saveCurrentUser, saveUsers } from '../actions/users';
-import { isLogged } from '../actions/settings';
+import { isLogged, LOGOUT } from '../actions/settings';
 
 const axiosInstance = axios.create({
    // API url
@@ -67,10 +67,12 @@ const userApiMiddleware = (store) => (next) => (action) => {
         });
       next(action);
       break;
-      
-
     };
-
+    case LOGOUT: {
+      delete axiosInstance.defaults.headers.common.Authorization;
+      next(action);
+      break;
+    }
       default:
       next(action);
   }
