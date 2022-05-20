@@ -66,15 +66,25 @@ export const updateUser = () => ({
 // action type updateUser 
 export const DELETE_USER ='DELETE_USER';
 // action creator updateUser
-export const deleteUser = () => ({
+export const deleteUser = (id, firstname, lastname) => ({
   type: DELETE_USER,
+  id,
+  firstname,
+  lastname
 })
 
 // action type emptyFieldDelete
-export const EMPTY_FIELD_DELETE = 'EMPTY_FIELD_DELETE';
+export const EMPTY_AFTER_DELETE = 'EMPTY_AFTER_DELETE';
 // action creator emptyFieldDelete
-export const emptyFieldDelete = () => ({
-  type: EMPTY_FIELD_DELETE,
+export const emptytAfterDelete = () => ({
+  type: EMPTY_AFTER_DELETE,
+})
+
+// action type isEmptyInFalse
+export const IS_EMPTY_IN_FALSE = 'IS_EMPTY_IN_FALSE';
+// action creator isEmptyInFalse
+export const isEmptyInFalse = () => ({
+  type: IS_EMPTY_IN_FALSE,
 })
 
 
