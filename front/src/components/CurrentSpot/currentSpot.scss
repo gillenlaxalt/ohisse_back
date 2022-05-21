@@ -338,7 +338,15 @@
         }
   
         .info-form_disc-type-rep{
-  
+          
+          .form_flex-span {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+          }
+          .flex-span-margin-right{
+            margin-right: 10px;
+          }
   
         }
   

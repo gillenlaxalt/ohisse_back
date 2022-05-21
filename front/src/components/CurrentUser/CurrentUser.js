@@ -22,10 +22,10 @@ function CurrentUser() {
   //console.log(id);
 
   const usersListData = useSelector((state) => state.users.usersList);
-  console.log(usersListData);
+  // console.log(usersListData);
 
   const userById = usersListData.find((user) => user.id == id);
-  console.log(userById);
+  // console.log(userById);
 
   // const isEmpty = useSelector((state) => state.users.isEmpty);
   // conditional fixe error if userById does not had a id
