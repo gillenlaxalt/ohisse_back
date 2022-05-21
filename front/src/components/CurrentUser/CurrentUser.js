@@ -128,10 +128,10 @@ function CurrentUser() {
 
                 <label htmlFor='email'>E-mail</label>
                 <input
-                  type='textarea'
+                  type='email'
                   name='descrip'
                   // value={description}
-                  defaultValue={userById.description}
+                  defaultValue={userById.email}
                   onChange={(evt) => handleChangeInput(evt.target.value, 'description')}
                 ></input>
 
@@ -140,29 +140,31 @@ function CurrentUser() {
             </div>
             <div className='profil-form_info'>
 
-              <label htmlFor='city'>Ville</label>
-              <input
-                type='text'
-                name='city'
-                // value={mail}
-                defaultValue={userById.city}
-                onChange={(evt) => handleChangeInput(evt.target.value, 'city')}
-              ></input>
-
-              <label htmlFor='city'>Role</label>
-              <select
-                name='city'
-                // value={role}
-                defaultValue={userById.role}
-                onChange={(evt) => handleChangeInput(evt.target.value, 'role')}
-              >
-                <option value="">
-                  {userById.role}
-                </option>
-                <option value='admin'>admin</option>
-                <option value='user'>user</option>
-              </select>
-
+              <span className='form_flex-span flex-span-margin-right'>
+                <label htmlFor='city'>Ville</label>
+                <input
+                  type='text'
+                  name='city'
+                  // value={mail}
+                  defaultValue={userById.city}
+                  onChange={(evt) => handleChangeInput(evt.target.value, 'city')}
+                ></input>
+              </span>
+              <span className='form_flex-span flex-span-margin-right'>
+                <label htmlFor='city'>Role</label>
+                <select
+                  name='city'
+                  // value={role}
+                  defaultValue={userById.role}
+                  onChange={(evt) => handleChangeInput(evt.target.value, 'role')}
+                >
+                  <option value="">
+                    {userById.role}
+                  </option>
+                  <option value='admin'>admin</option>
+                  <option value='user'>user</option>
+                </select>
+              </span>
 
             </div>
             <div className='profil-form_descrip'>

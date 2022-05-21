@@ -36,7 +36,7 @@ function Menu() {
   return (
     <section className={onDark ? 'header dark' : 'header'}>
       <img src={logo} alt='logo' className='header_logo' />
-      <p className='header_backOffice-txt'> Back office</p>
+      <h1 className='header_backOffice-txt'> Back office</h1>
 
       <span
         className='header-burger'
@@ -65,12 +65,14 @@ function Menu() {
           </span>
           <span className='header-content-menu_log'>
           <NavLink to='/login' onClick={handleLogout}>
-            <img
-              src={LogoutLogo}
-              alt='déconnexion'
-              className='menu-log_img'
-            />
-            <p className='menu-log_txt menu-txt'> Déconnexion</p>
+            <span className='header-content-menu_log'>
+              <img
+                src={LogoutLogo}
+                alt='déconnexion'
+                className='menu-log_img'
+              />
+              <p className='menu-log_txt menu-txt'> Déconnexion</p>
+            </span>
           </NavLink>
           </span>
         </div>

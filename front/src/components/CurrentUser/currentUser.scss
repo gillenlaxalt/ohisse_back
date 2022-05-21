@@ -1,8 +1,8 @@
 @use '../../styles/vars';
 
 .current-user{
-  display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  height: 85vh;
 
   &_profil{
     // height: 80vh;
@@ -48,6 +48,16 @@
     }
     .profil-form_info{
       align-self: baseline;
+      display: flex;
+      flex-direction: column;
+      width: 250px;
+      margin: 0 auto;
+    }
+
+    .form_flex-span {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
     }
     .profil-form_descrip{
       align-self: baseline;
@@ -94,11 +104,11 @@
     
   }
 
-  .current-user_map{
-    height: 100px;
-    z-index: 0;
+  &_map{
     width: 100%;
-    margin-top: 10px;
+    height: 150px;
+    margin: 20px auto 0;
+    z-index: -1;
   }
 
   .leaflet-container {
@@ -138,6 +148,15 @@ input[type='textarea']{
   padding-left: 10px;
 }
 
+select{
+  height: 35px;
+  border-radius: 10px;
+  background-color: vars.$main-bg-btn-color;
+  border: none;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
 @media screen and (min-width:768px){
   .current-user{
     display: flex;
@@ -150,7 +169,7 @@ input[type='textarea']{
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-evenly;
+      justify-content: center;
   
       .current-user-profil_hello{
         margin: 20px;
@@ -171,7 +190,7 @@ input[type='textarea']{
      
   
       .profil-form_identity{
-        width: 100%;
+        width: 600px;
         justify-content: space-evenly;
         flex-wrap: nowrap;
   
@@ -182,10 +201,21 @@ input[type='textarea']{
         }
       }
       .profil-form_info{
-        margin: 20px;
+        margin: 20px auto;
+        width: 600px;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+      }
+      .form_flex-span {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
       }
       .profil-form_descrip{
-        margin: 20px 0;
+        margin: 20px auto;
+        flex-direction: column;
+        width: 600px;
       }
   
       .profil-form_btn{
@@ -195,11 +225,11 @@ input[type='textarea']{
       }
     }
   
-    .current-user_map{
-      height: 83vh;
-      z-index: 0;
+    &_map{
       width: 40%;
-      margin: 0;
+      height: auto;
+      margin: 0 auto;
+      z-index: -1;
     }
   }
   
@@ -208,6 +238,6 @@ input[type='textarea']{
   }
   
   input[type='text']{
-    margin-bottom: 50px;
+    // margin-bottom: 50px;
   } 
 }
