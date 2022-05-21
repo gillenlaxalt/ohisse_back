@@ -2,64 +2,112 @@
 
 //npm
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 // local
 
 // style
 import './currentSpot.scss'
 
 function CurrentSpot() {
+
+  const spotsListData = useSelector((state) => state.spots.spotsList)
+  console.log(spotsListData);
+
+  const { id } = useParams();
+  console.log(id);
+
+  const spotById = spotsListData.find((spot) => spot.id == id);
+  console.log(spotById);
+
   return(
     <section className='currentSpot'>
       <section className='currentSpot_info'>
-        <h1 className='currentSpot-info_h1'>Nom du spot</h1>
+        <h1 className='currentSpot-info_h1'>{spotById.name}</h1>
         <form className='currentSpot-info_form'>
           <div className='info-form_img-url form_flex-div'>
-            <img src='https://img.lemde.fr/2021/10/22/0/0/6016/4016/664/0/75/0/e2b0bed_673149149-arkose-didot-3-arkose-3.jpg' alt='' className='info-form-img' />
+            <img src={spotById.picture} alt='' className='info-form-img' />
             <span className='info-form_url'>
               <label htmlFor='spot' className='info-form-url'>Nom du spot</label>
-              <input type='text' name='spot'></input>
+              <input
+                type='text'
+                name='spot'
+                defaultValue={spotById.name}
+              ></input>
               <label htmlFor='url'>URL de l'image</label>
-              <input type='url' name='url'></input>
+              <input
+                type='url'
+                name='url'
+                defaultValue={spotById.picture}
+              ></input>
             </span>
           </div>
           <div className='info-form_num-street form_flex-div'>
             <span className='form_flex-span flex-span-margin-right'>
               <label htmlFor='number' className='info-form-num'>Numéro</label>
-              <input type='text' name='number'></input>
+              <input
+                type='text'
+                name='number'
+                defaultValue={spotById.number}
+              ></input>
             </span>
             <span className='info-form-street form_flex-span'>
               <label htmlFor='street' className='info-form-street'>Rue</label>
-              <input type='text' name='street'></input>
+              <input
+              type='text'
+              name='street'
+              defaultValue={spotById.street}
+              ></input>
             </span>
           </div>
           <div className='info-form_zip-city form_flex-div'>
             <span className='form_flex-span flex-span-margin-right'>
               <label htmlFor='zipcode' className='info-form-zip'>Code Postal</label>
-              <input type='number' name='zipcode'></input>
+              <input
+                type='number'
+                name='zipcode'
+                defaultValue={spotById.zipcode}
+              ></input>
             </span>
             <span className='form_flex-span'>
               <label htmlFor='city' className='info-form-city'>Ville</label>
-              <input type='text' name='city'></input>
+              <input
+                type='text'
+                name='city'
+                defaultValue={spotById.city}
+              ></input>
             </span>
           </div>
           <div className='info-form_country-long-lat form_flex-div'>
             <span className='form_flex-span flex-span-margin-right'>
               <label htmlFor='country'className='info-form-country'>Pays</label>
-              <input type='text' name='country'></input>
+              <input
+                type='text'
+                name='country'
+                defaultValue={spotById.country}
+              ></input>
             </span>
             <span className='form_flex-span flex-span-margin-right'>
               <label htmlFor='longitude' className='info-form-long'>Longitude</label>
-              <input type='text' name='longitude'></input>
+              <input
+              type='text'
+              name='longitude'
+              defaultValue={spotById.longitude}
+              ></input>
             </span>
             <span className='form_flex-span'>
               <label htmlFor='latitude' className='info-form-lat'>Latitude</label>
-              <input type='text' name='latitude'></input>
+              <input
+              type='text'
+              name='latitude'
+              defaultValue={spotById.latitude}
+              ></input>
             </span>
           </div>
           <div className='info-form_disc-type-rep form_flex-div'>
             <label htmlFor='discipline'>Discipline</label>
             <select name='discipline'>
-              <option value="">discipline</option>
+              <option value="">{spotById.type}</option>
               <option value='d1'>d1</option>
               <option value='d2'>d2</option>
               <option value='d3'>d3</option>
@@ -73,7 +121,7 @@ function CurrentSpot() {
             </select>
             <label htmlFor='reputation'>Réputation</label>
             <select name='reputation'>
-              <option value="">reputation</option>
+              <option value="">{spotById.reputation}</option>
               <option value='r1'>r1</option>
               <option value='r2'>r2</option>
               <option value='r3'>r3</option>
@@ -83,7 +131,7 @@ function CurrentSpot() {
             <span className='form_flex-span flex-span-margin-right'>
               <label htmlFor='minDiff'>Difficulté minimale</label>
                 <select name='minDiff'>
-                  <option value="">minDiff</option>
+                  <option value="">{spotById.min_difficulty}</option>
                   <option value='mid1'>mid1</option>
                   <option value='mid2'>mid2</option>
                   <option value='mid3'>mid3</option>
@@ -92,7 +140,7 @@ function CurrentSpot() {
             <span className='form_flex-span'>
               <label htmlFor='maxDiff'>Difficulté maximale</label>
               <select name='maxDiff'>
-                <option value="">maxDiff</option>
+                <option value="">{spotById.max_difficulty}</option>
                 <option value='mad1'>mad1</option>
                 <option value='mad2'>mad2</option>
                 <option value='mad3'>mad3</option>
@@ -105,8 +153,7 @@ function CurrentSpot() {
               <input
                 type='textarea'
                 name='descrip'
-                // value={description}
-                // defaultValue={userById.description}
+                defaultValue={spotById.various}
                 // onChange={(evt) => handleChangeInput(evt.target.value, 'description')}
               ></input>
 
