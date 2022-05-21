@@ -5,7 +5,7 @@
   flex-wrap: wrap;
 
   &_profil{
-    height: 80vh;
+    // height: 80vh;
     width: 100%;
 
     .current-user-profil_hello{
@@ -98,6 +98,7 @@
     height: 100px;
     z-index: 0;
     width: 100%;
+    margin-top: 10px;
   }
 
   .leaflet-container {
@@ -198,6 +199,7 @@ input[type='textarea']{
       height: 83vh;
       z-index: 0;
       width: 40%;
+      margin: 0;
     }
   }
   

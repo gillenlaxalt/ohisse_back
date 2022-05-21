@@ -237,13 +237,16 @@
 
 @media screen and (min-width:768px){
   .currentSpot{
+    flex-wrap: nowrap;
     &_info{
+      width: 60%;
   
       .currentSpot-info_h1{
         font-size: 3rem;
       }
   
       .currentSpot-info_form{
+        margin-bottom:20px;
   
         .form_flex-div{
 
@@ -255,7 +258,7 @@
     
           .info-form-img{
             margin: 0 10px 0 0;
-            width: 500px;
+            width: 50%;
     
           }
     
@@ -393,7 +396,14 @@
   
     input[type='url']{
       width: 100%;
-    } 
+    }
+
+    &_map{
+      width: 40%;
+      height: auto;
+      margin: 0 auto;
+      z-index: -1;
+    }
   }
 
 }
