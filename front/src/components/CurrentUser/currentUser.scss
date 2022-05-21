@@ -23,6 +23,7 @@
     margin: 0 auto;
     background-color: vars.$second-bg-color;
     border-radius: 10px;
+    box-shadow: 0px 0px 6px 1px;
     padding: 10px;
    
 
@@ -57,14 +58,12 @@
     }
 
     .profil-form_btn{
-
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         width: 100%;
     
-
       .profil-form-btn{
         margin-left: 10px;
         height: 30px;
@@ -72,6 +71,9 @@
         border: none;
         width: 90px;
       }
+      .profil-form-btn:hover{
+        transform: scale(1.1);
+       }
 
       .profil-form_update{
         background-color: vars.$bg-color-btn-update;
@@ -89,9 +91,7 @@
   
       
     }
-    .profil-form-btn:hover{
-      transform: scale(1.1);
-     }
+    
   }
 
   .current-user_map{

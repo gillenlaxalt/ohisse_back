@@ -5,6 +5,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 // local
 
 // style
+import './currentSpot.scss'
 
 function CurrentSpot() {
   return(
@@ -12,26 +13,26 @@ function CurrentSpot() {
       <section className='currentSpot_info'>
         <h1 className='currentSpot-info_h1'>Nom du spot</h1>
         <form className='currentSpot-info_form'>
-          <div className='info-form_img-url'>
+          <div className='info-form_img-url form_flex-div'>
             <img src='' alt='' className='info-form-img' />
             <label htmlFor='url'>URL de l'image</label>
             <input type='url' name='url'></input>
             <label htmlFor='spot' className='info-form-url'>Nom du spot</label>
             <input type='text' name='spot'></input>
           </div>
-          <div className='info-form_num-street'>
+          <div className='info-form_num-street form_flex-div'>
             <label htmlFor='number' className='info-form-num'>Numéro</label>
             <input type='text' name='number'></input>
             <label htmlFor='street' className='info-form-street'>Rue</label>
             <input type='text' name='street'></input>
           </div>
-          <div className='info-form_zip-city'>
+          <div className='info-form_zip-city form_flex-div'>
             <label htmlFor='zipcode' className='info-form-zip'>Code Postal</label>
             <input type='number' name='zipcode'></input>
             <label htmlFor='city' className='info-form-city'>Ville</label>
             <input type='text' name='city'></input>
           </div>
-          <div className='info-form_country-long-lat'>
+          <div className='info-form_country-long-lat form_flex-div'>
             <label htmlFor='country'className='info-form-country'>Pays</label>
             <input type='text' name='country'></input>
             <label htmlFor='longitude' className='info-form-long'>Longitude</label>
@@ -39,7 +40,7 @@ function CurrentSpot() {
             <label htmlFor='latitude' className='info-form-lat'>Latitude</label>
             <input type='text' name='latitude'></input>
           </div>
-          <div className='info-form_disc-type-rep'>
+          <div className='info-form_disc-type-rep form_flex-div'>
             <label htmlFor='discipline'>Discipline</label>
             <select name='discipline'>
               <option value="">discipline</option>
@@ -62,7 +63,7 @@ function CurrentSpot() {
               <option value='r3'>r3</option>
             </select>
           </div>
-          <div className='info-form_diffMin-diffMax'>
+          <div className='info-form_diffMin-diffMax form_flex-div'>
             <label htmlFor='minDiff'>Difficulté minimale</label>
               <select name='minDiff'>
                 <option value="">minDiff</option>
@@ -78,6 +79,18 @@ function CurrentSpot() {
                 <option value='mad3'>mad3</option>
               </select>
           </div>
+          <div className='spot-form_btn'>
+              <button
+                // onClick={handleUpdateSubmit}
+                type='submit'
+                className="spot-form_update spot-form-btn"
+              >Modifier</button>
+              <button
+                // onClick={handleDeleteSubmit}
+                type='submit'
+                className="spot-form_delete spot-form-btn"
+              >Supprimer</button>
+            </div>
         </form>
 
       </section>
