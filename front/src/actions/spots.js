@@ -43,3 +43,12 @@ export const UPDATE_SPOT = 'UPDATE_SPOT';
 export const updateSpot = () => ({
   type: UPDATE_SPOT,
 })
+
+// action type deleteSpot
+export const DELETE_SPOT = 'DELETE_SPOT';
+// action creator deleteSpot
+export const deleteSpot = (id, city) => ({
+  type: DELETE_SPOT,
+  id : id,
+  city : city
+})

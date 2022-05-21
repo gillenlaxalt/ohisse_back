@@ -5,7 +5,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { changeInputSpot, fetchSpotById, updateSpot } from '../../actions/spots';
+import { changeInputSpot, deleteSpot, fetchSpotById, updateSpot } from '../../actions/spots';
 // local
 
 // style
@@ -25,6 +25,11 @@ function CurrentSpot() {
   const handleChangeInput = (value, name) => (
     dispatch(changeInputSpot(value, name))
   )
+
+  function handleDeleteSubmit (evt) {
+    evt.preventDefault();
+    dispatch(deleteSpot(spotById.id, spotById.name))
+  }
 
   function handleUpdateSubmit(evt) {
     evt.preventDefault();
@@ -228,7 +233,7 @@ function CurrentSpot() {
                   className="spot-form_update spot-form-btn"
                 >Modifier</button>
                 <button
-                  //onClick={handleDeleteSubmit}
+                  onClick={handleDeleteSubmit}
                   type='submit'
                   className="spot-form_delete spot-form-btn"
                 >Supprimer</button>

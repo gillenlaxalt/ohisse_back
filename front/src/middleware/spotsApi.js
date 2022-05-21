@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 
 // local
-import { FETCH_SPOTS, saveSpots, UPDATE_SPOT } from '../actions/spots';
+import { DELETE_SPOT, fetchSpots, FETCH_SPOTS, saveSpots, UPDATE_SPOT } from '../actions/spots';
 
 
 const axiosInstance = axios.create({
@@ -96,6 +96,23 @@ const spotApiMiddleware = (store) => (next) => (action) => {
           })
           next(action);
           break
+    }
+    case DELETE_SPOT: {
+      axiosInstance
+      .delete(
+        `api/admin/spots/delete/${action.id}`
+      )
+      .then((resp) => {
+        console.log(resp);
+        window.confirm(`Vous avez bien supprimé le spot`);
+        store.dispatch(fetchSpots());
+      })
+      .catch((resp) => {
+        console.log(resp);
+        window.alert(`${action.city} n'a pas été supprimé`);
+      })
+      next(action)
+      break
     }
     
       default:
