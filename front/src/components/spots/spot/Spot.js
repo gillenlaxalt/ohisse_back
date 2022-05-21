@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 
 // local
+// import defaultImage from '../../../img/logo-simple-bleu.png'
 
 // style
 import './spot.scss';
@@ -32,8 +33,12 @@ Spot.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
-  picture: PropTypes.string.isRequired
+  picture: PropTypes.string,
 }
+
+// Spot.defaultProps = {
+//   picture: defaultImage,
+// };
 
 
 export default Spot;

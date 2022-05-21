@@ -36,3 +36,10 @@ export const changeInputSpot = (value, name) => ({
   value,
   name,
 })
+
+//action type updateSpot
+export const UPDATE_SPOT = 'UPDATE_SPOT';
+//action creator updateSpot
+export const updateSpot = () => ({
+  type: UPDATE_SPOT,
+})

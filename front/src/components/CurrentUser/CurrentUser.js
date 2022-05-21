@@ -3,7 +3,7 @@
 // npm
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Navigate, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { changeInput, deleteUser, fetchUserById, updateUser } from '../../actions/users';
 import { useEffect } from 'react';
 
