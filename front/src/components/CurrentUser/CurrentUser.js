@@ -3,7 +3,7 @@
 // npm
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Navigate, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { changeInput, deleteUser, fetchUserById, updateUser } from '../../actions/users';
 import { useEffect } from 'react';
 
@@ -22,10 +22,10 @@ function CurrentUser() {
   //console.log(id);
 
   const usersListData = useSelector((state) => state.users.usersList);
-  console.log(usersListData);
+  // console.log(usersListData);
 
   const userById = usersListData.find((user) => user.id == id);
-  console.log(userById);
+  // console.log(userById);
 
   // const isEmpty = useSelector((state) => state.users.isEmpty);
   // conditional fixe error if userById does not had a id

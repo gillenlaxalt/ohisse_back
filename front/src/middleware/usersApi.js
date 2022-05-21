@@ -7,7 +7,6 @@ import axios from 'axios';
 
 import { 
   DELETE_USER,
-  emptyFieldDelete,
   fetchUsers,
   FETCH_USERS,
   LOGIN,

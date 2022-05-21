@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 
 // local
-import { FETCH_SPOTS, saveSpots } from '../actions/spots';
+import { DELETE_SPOT, fetchSpots, FETCH_SPOTS, saveSpots, UPDATE_SPOT } from '../actions/spots';
 
 
 const axiosInstance = axios.create({
@@ -37,6 +37,83 @@ const spotApiMiddleware = (store) => (next) => (action) => {
         );
       next(action);
       break;
+
+    case UPDATE_SPOT:{
+      const {
+        spots: {
+          inputCurrentSpot: {
+            id,
+            name,
+            number,
+            street,
+            zipcode,
+            city,
+            country,
+            type,
+            rock_type,
+            discipline,
+            latitude,
+            longitude,
+            min_difficulty,
+            max_difficulty,
+            various,
+            reputation,
+            picture,
+          },
+        }
+    } =store.getState();
+      console.log(id, name);
+        axiosInstance
+          .patch(
+            `/api/admin/spots/edit/${id}`,
+            {
+              id,
+              name,
+              number,
+              street,
+              zipcode,
+              city,
+              country,
+              type,
+              rock_type,
+              discipline,
+              latitude,
+              longitude,
+              min_difficulty,
+              max_difficulty,
+              various,
+              reputation,
+              picture,
+            }
+          )
+          .then((resp) => {
+            // console.log(resp)
+            window.confirm(`Vous avez bien mis à jour le spot ${name} à ${city}`);
+          })
+          .catch((resp) =>{
+            // console.log(resp, 'error');
+            window.alert('Erreur : la mise à jour a echoué');
+          })
+          next(action);
+          break
+    }
+    case DELETE_SPOT: {
+      axiosInstance
+      .delete(
+        `api/admin/spots/delete/${action.id}`
+      )
+      .then((resp) => {
+        console.log(resp);
+        window.confirm(`Vous avez bien supprimé le spot`);
+        store.dispatch(fetchSpots());
+      })
+      .catch((resp) => {
+        console.log(resp);
+        window.alert(`${action.city} n'a pas été supprimé`);
+      })
+      next(action)
+      break
+    }
     
       default:
       next(action);
