@@ -101,7 +101,7 @@ function CurrentSpot() {
           </div>
           <div className='spot-form_descrip'>
 
-              <label htmlFor='decrip'>Description</label>
+              <label htmlFor='decrip' id='label-descrip'>Description</label>
               <input
                 type='textarea'
                 name='descrip'

@@ -40,7 +40,7 @@
           border-radius: 10px;
           margin: 0 auto;
           object-fit: cover;
-  
+          margin-bottom: 15px;
         }
   
         .info-form-url{
@@ -91,6 +91,15 @@
       }
 
       .info-form_diffMin-diffMax{
+
+        .form_flex-span {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+        }
+        .flex-span-margin-right{
+          margin-right: 10px;
+        }
 
       }
       .spot-form_descrip{
@@ -143,6 +152,11 @@
   label{
     margin: 5px 0;
   }
+
+  #label-descrip{
+    align-self: baseline;
+    margin: 10px 0 0 0;
+  }
   
   input[type='text']{
     height: 35px;
@@ -151,6 +165,7 @@
     border: none;
     margin-bottom: 10px;
     padding-left: 10px;
+    width:100%;
   } 
 
   input[type='url']{
@@ -160,6 +175,7 @@
     border: none;
     margin-bottom: 10px;
     padding-left: 10px;
+    width:100%;
   } 
   
   input[type='email']{
@@ -169,6 +185,7 @@
     border: none;
     margin-bottom: 10px;
     padding-left: 10px;
+    width:100%;
   }
 
   input[type='number']{
@@ -178,6 +195,7 @@
     border: none;
     margin-bottom: 10px;
     padding-left: 10px;
+    width:100%;
   }
   
   input[type='textarea']{
@@ -214,6 +232,8 @@
   }
   }
 }
+
+
 
 @media screen and (min-width:768px){
   .currentSpot{
@@ -321,15 +341,6 @@
   
         .info-form_diffMin-diffMax{
           flex-direction: row;
-
-          .form_flex-span {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-          }
-          .flex-span-margin-right{
-            margin-right: 10px;
-          }
   
         }
   
@@ -374,6 +385,7 @@
       margin: 10px 0;
       font-size: 1.4rem;
     }
+
 
     input[type='text']{
       width: 100%;
