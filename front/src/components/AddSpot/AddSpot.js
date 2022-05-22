@@ -2,12 +2,13 @@
 
 // npm
 import { useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMapEvents, Popup } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addInputSpot, addSpot } from '../../actions/spots';
 
 // local
+import ohisseIcon from './icon';
 
 // style
 
@@ -24,16 +25,27 @@ function AddSpot() {
   const handleChangeInput = (value, name) => {
     // console.log('bonjour');
     (
-        dispatch(addInputSpot(value, name))
-  )}
+      dispatch(addInputSpot(value, name))
+    )
+  }
 
   useEffect(() => {
     dispatch(addInputSpot(locality.slug, 'type'));
   }, []);
 
-  function handleAddSpotSubmit (evt){
+  function handleAddSpotSubmit(evt) {
     evt.preventDefault()
     dispatch(addSpot())
+  }
+
+  function HandleClickMap() {
+    useMapEvents({
+      click(event) {
+        console.log(event.latlng);
+        // dispatch(recoverLatLng(event.latlng));
+      },
+    });
+    return null;
   }
 
   const rocks = [
@@ -47,27 +59,27 @@ function AddSpot() {
     'schiste',
   ];
 
-  
-    const cotations = [
-      '4',
-      '5a',
-      '5b',
-      '5c',
-      '6a',
-      '6b',
-      '6c',
-      '7a',
-      '7b',
-      '7c',
-      '8a',
-      '8b',
-      '8c',
-      '9a',
-      '9b',
-      '9c',
-    ];
 
-  
+  const cotations = [
+    '4',
+    '5a',
+    '5b',
+    '5c',
+    '6a',
+    '6b',
+    '6c',
+    '7a',
+    '7b',
+    '7c',
+    '8a',
+    '8b',
+    '8c',
+    '9a',
+    '9b',
+    '9c',
+  ];
+
+
   // controlled field in read from state
   const name = useSelector((state) => state.spots.addSpot.name);
   const number = useSelector((state) => state.spots.addSpot.number);
@@ -164,30 +176,22 @@ function AddSpot() {
             </span>
 
             <span className='form_flex-span flex-span-margin-right'>
-              {isOutdoor && (
-                <>
-                  <label htmlFor='longitude' className='info-form-long'>Longitude</label>
-                  <input
-                    type='text'
-                    name='longitude'
-                    value={longitude}
-                    onChange={(evt) => handleChangeInput(evt.target.value, 'longitude')}
-                  ></input>
-                </>
-              )}
+              <label htmlFor='longitude' className='info-form-long'>Longitude</label>
+              <input
+                type='text'
+                name='longitude'
+                value={longitude}
+                onChange={(evt) => handleChangeInput(evt.target.value, 'longitude')}
+              ></input>
             </span>
             <span className='form_flex-span'>
-              {isOutdoor && (
-                <>
-                  <label htmlFor='latitude' className='info-form-lat'>Latitude</label>
-                  <input
-                    type='text'
-                    name='latitude'
-                    value={latitude}
-                    onChange={(evt) => handleChangeInput(evt.target.value, 'latitude')}
-                  ></input>
-                </>
-              )}
+              <label htmlFor='latitude' className='info-form-lat'>Latitude</label>
+              <input
+                type='text'
+                name='latitude'
+                value={latitude}
+                onChange={(evt) => handleChangeInput(evt.target.value, 'latitude')}
+              ></input>
             </span>
 
           </div>
@@ -205,7 +209,7 @@ function AddSpot() {
             </select>
             <span className='form_flex-span'>
               <label htmlFor='type' >Type</label>
-              { isOutdoor && (
+              {isOutdoor && (
                 <input
                   type='text'
                   name='type'
@@ -214,7 +218,7 @@ function AddSpot() {
                 ></input>
 
               )}
-              { !isOutdoor && (
+              {!isOutdoor && (
                 <input
                   type='text'
                   name='type'
@@ -223,19 +227,24 @@ function AddSpot() {
                 ></input>
 
               )}
-              <label htmlFor='rock_type'>Type de roche</label>
-              <select
-                name='rock_type'
-                value={rock_type}
-                onChange={(evt) => handleChangeInput(evt.target.value, 'rock_type')}
-              >
-                <option value=""></option>
-                {
-                rocks.map((rock) => (
-                  <option key={rock} value={rock}>{rock}</option>
-                ))
-              }
-              </select>
+
+              {isOutdoor && (
+                <>
+                  <label htmlFor='rock_type'>Type de roche</label>
+                  <select
+                    name='rock_type'
+                    value={rock_type}
+                    onChange={(evt) => handleChangeInput(evt.target.value, 'rock_type')}
+                  >
+                    <option value=""></option>
+                    {
+                      rocks.map((rock) => (
+                        <option key={rock} value={rock}>{rock}</option>
+                      ))
+                    }
+                  </select>
+                </>
+              )}
             </span>
             <label htmlFor='reputation'>Le niveau global de la salle</label>
             <select
@@ -259,10 +268,10 @@ function AddSpot() {
               >
                 <option value=""></option>
                 {
-                cotations.map((cotation) => (
-                  <option key={cotation} value={cotation}>{cotation}</option>
-                ))
-              }
+                  cotations.map((cotation) => (
+                    <option key={cotation} value={cotation}>{cotation}</option>
+                  ))
+                }
               </select>
             </span>
             <span className='form_flex-span'>
@@ -274,13 +283,13 @@ function AddSpot() {
               >
                 <option value=""></option>
                 {
-                cotations.map((item, index) => {
-                  if (cotations.findIndex(value) <= index) {
-                    return <option key={item} value={item}>{item}</option>;
-                  }
-                  return null;
-                })
-              }
+                  cotations.map((item, index) => {
+                    if (cotations.findIndex(value) <= index) {
+                      return <option key={item} value={item}>{item}</option>;
+                    }
+                    return null;
+                  })
+                }
               </select>
             </span>
           </div>
@@ -311,11 +320,14 @@ function AddSpot() {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={[47, 2]}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
+          {/* <Marker position={[47, 2]}> */}
+          <HandleClickMap />
+          <Marker
+          position={[latitude, longitude]}
+          icon={ohisseIcon}
+        />
+        
+          {/* </Marker> */}
         </MapContainer>
 
       </section>

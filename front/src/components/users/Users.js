@@ -11,6 +11,7 @@ import search_symbol from '../../img/icons/search.png';
 import addUser from '../../img/icons/add-user.png';
 // style
 import './users.scss';
+import { NavLink } from 'react-router-dom';
 
 function Users()
 {
@@ -44,11 +45,13 @@ function Users()
         onChange={(evt)=> handleChangeField(evt.target.value, 'search.inputValue')}
         />
         </span>
-        <img
-        src={addUser}
-        alt='icone ajouter un nouvel utilisateur'
-        className='allUser-form_img add_user'
-        />
+        <NavLink to='/ajout-utilisateur'>
+          <img
+          src={addUser}
+          alt='icone ajouter un nouvel utilisateur'
+          className='allUser-form_img add_user'
+          />
+        </NavLink>
       </form>
       {userData.map((item) => {
         return (

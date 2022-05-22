@@ -138,10 +138,10 @@ const spotApiMiddleware = (store) => (next) => (action) => {
         },
       }
     } = store.getState();
-    console.log( name,
-      number, street, zipcode, city, country, type, rock_type, discipline,
-      latitude, longitude, min_difficulty, max_difficulty, various, reputation,
-      picture,);
+    // console.log( name,
+    //   number, street, zipcode, city, country, type, rock_type, discipline,
+    //   latitude, longitude, min_difficulty, max_difficulty, various, reputation,
+    //   picture,);
       axiosInstance
       .post(
         'api/admin/spots/create',
@@ -173,6 +173,8 @@ const spotApiMiddleware = (store) => (next) => (action) => {
         console.log(resp);
         window.alert(`Erreur : le spot n'a pas été ajouté`);
       })
+      next(action)
+      break
     }
     
       default:
