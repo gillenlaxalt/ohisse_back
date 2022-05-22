@@ -21,14 +21,13 @@ const spotApiMiddleware = (store) => (next) => (action) => {
       
   switch (action.type) {
 
-    case FETCH_SPOTS:
+    case FETCH_SPOTS:{
       console.log(token);
       axiosInstance
         .get('api/admin/spots')
         .then(
           (resp) => {
-            console.log(resp.data)
-            
+            // console.log(resp.data)
             store.dispatch(saveSpots(resp.data))
           }
         )
@@ -37,7 +36,7 @@ const spotApiMiddleware = (store) => (next) => (action) => {
         );
       next(action);
       break;
-
+}
     case UPDATE_SPOT:{
       const {
         spots: {

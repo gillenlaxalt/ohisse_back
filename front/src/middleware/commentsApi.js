@@ -1,7 +1,8 @@
 // == import
 
 // npm
-
+import axios from 'axios';
+import { FECTH_COMMENTS, saveComments } from '../actions/comments';
 // local
 
 const axiosInstance = axios.create({
@@ -15,6 +16,25 @@ const commentApiMiddleware = (store) => (next) => (action) => {
 
   axiosInstance.default.headers.common.Authorization = `Bearer ${token}`;
 
+  switch (action.type) {
+
+    case FECTH_COMMENTS:{
+      axiosInstance
+        .get('api/admin/comments',
+        )
+        .then((resp) => {
+          store.dispatch(saveComments(resp.data))
+        })
+        .catch((resp) => {
+          window.alert(`Erreur : connexion à l'API échouée`);
+        });
+        next(action);
+        break
+      }
+
+      default:
+        next(action);
+  }
 
 };
 
