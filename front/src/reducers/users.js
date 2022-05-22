@@ -29,7 +29,6 @@ export const initialState = {
   {
     inputValue: '',
   },
-
   inputCurrentUser: {
     id:'',
     firstname: '',
@@ -39,6 +38,15 @@ export const initialState = {
     description: '',
     role: '',
   },
+  addUser:{
+    firstname: '',
+    lastname: '',
+    pseudo: '',
+    mail: '',
+    password:'',
+    description: '',
+    role: '',
+  }
 };
 console.log(initialState);
 const usersReducer = (state = initialState, action = {}) => {

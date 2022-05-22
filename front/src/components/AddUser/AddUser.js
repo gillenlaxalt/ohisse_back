@@ -17,12 +17,13 @@ function AddUser() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const firstname= useSelector((state)=> state.users.inputCurrentUser.firstname );
-  // const lastname= useSelector((state)=> state.users.inputCurrentUser.lastname );
-  // const pseudo= useSelector((state)=> state.users.inputCurrentUser.pseudo );
-  // const mail= useSelector((state)=> state.users.inputCurrentUser.mail );
-  // const description= useSelector((state)=> state.users.inputCurrentUser.description );
-  // const role= useSelector((state)=> state.users.inputCurrentUser.role );
+  const firstname= useSelector((state)=> state.users.inputCurrentUser.firstname );
+  const lastname= useSelector((state)=> state.users.inputCurrentUser.lastname );
+  const pseudo= useSelector((state)=> state.users.inputCurrentUser.pseudo );
+  const mail= useSelector((state)=> state.users.inputCurrentUser.mail );
+  const password= useSelector((state)=> state.users.inputCurrentUser.password );
+  const description= useSelector((state)=> state.users.inputCurrentUser.description );
+  const role= useSelector((state)=> state.users.inputCurrentUser.role );
 
   // const handleChangeInput = (value, name) => (
   //   dispatch(changeInput(value, name))
@@ -40,7 +41,7 @@ function AddUser() {
       <section className='current-user'>
         <section className='current-user_profil'>
           <div className='current-user-profil_hello'>
-            <p>Quelque chose </p>
+            <p>Ajouter un utilisateur</p>
           </div>
           <form className='current-user-profil_form'>
             <div className='profil-form_identity'>
@@ -51,7 +52,7 @@ function AddUser() {
                 <input
                   type='text'
                   name='firstname'
-                  // value={ firstname }
+                  value={firstname}
                   // onChange={(evt) => handleChangeInput(evt.target.value, 'firstname')}
                 ></input>
 
@@ -60,7 +61,7 @@ function AddUser() {
                 <input
                   type='text'
                   name='lastname'
-                  // value={lastname}
+                  value={lastname}
                   // onChange={(evt) => handleChangeInput(evt.target.value, 'lastname')}
 
                 ></input>
@@ -71,7 +72,7 @@ function AddUser() {
                 <input
                   type='text'
                   name='pseudo'
-                  // value={pseudo}
+                  value={pseudo}
                   // onChange={(evt) => handleChangeInput(evt.target.value, 'pseudo')}
                 ></input>
 
@@ -79,12 +80,21 @@ function AddUser() {
                 <input
                   type='email'
                   name='descrip'
-                  // value={description}
+                  value={description}
                   // onChange={(evt) => handleChangeInput(evt.target.value, 'description')}
                 ></input>
 
-
               </span>
+            </div>
+              <label htmlFor='password'>Mot de passe</label>
+                  <input
+                    type='password'
+                    name='password'
+                    value={password}
+                    // onChange={(evt) => handleChangeInput(evt.target.value, 'pseudo')}
+                  ></input>
+            <div>
+
             </div>
             <div className='profil-form_info'>
 
@@ -93,7 +103,7 @@ function AddUser() {
                 <input
                   type='text'
                   name='city'
-                  // value={mail}
+                  value={mail}
                   // onChange={(evt) => handleChangeInput(evt.target.value, 'city')}
                 ></input>
               </span>
@@ -101,12 +111,10 @@ function AddUser() {
                 <label htmlFor='city'>Role</label>
                 <select
                   name='city'
-                  // value={role}
+                  value={role}
                   // onChange={(evt) => handleChangeInput(evt.target.value, 'role')}
                 >
-                  <option value="">
-                    {/* {userById.role} */}
-                  </option>
+                  <option value=""></option>
                   <option value='admin'>admin</option>
                   <option value='user'>user</option>
                 </select>
@@ -119,7 +127,7 @@ function AddUser() {
               <input
                 type='textarea'
                 name='descrip'
-                // value={description}
+                value={description}
                 // onChange={(evt) => handleChangeInput(evt.target.value, 'description')}
               ></input>
 

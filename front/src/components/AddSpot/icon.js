@@ -3,7 +3,7 @@ import L from 'leaflet';
 import iconUrl from '../../img/logo-simple-bleu.png'
 
 const ohisseIcon = new L.Icon({
-  iconUrl: require(iconUrl),
+  iconUrl: iconUrl,
   iconSize: [25],
   iconAnchor: [13, 30],
   popupAnchor: [0, -30],
