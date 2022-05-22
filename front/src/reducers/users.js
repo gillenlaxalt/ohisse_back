@@ -13,7 +13,8 @@ import {
   SAVE_USERS,
   FETCH_USER_BY_ID,
   EMPTY_AFTER_DELETE,
-  IS_EMPTY_IN_FALSE
+  IS_EMPTY_IN_FALSE,
+  ADD_INPUT_USER
 } from "../actions/users";
 
 import { LOGOUT } from '../actions/settings';
@@ -113,13 +114,22 @@ const usersReducer = (state = initialState, action = {}) => {
         ...state,
         isEmpty:false
       }
-      case LOGOUT:
-        return {
-          ...state,
-          tokenCurrentUser: "",        
+    case LOGOUT:
+      return {
+        ...state,
+        tokenCurrentUser: "",        
+      }
+    case ADD_INPUT_USER: 
+      return{
+        ...state,
+        addUser:{
+          ...state.addUser,
+          [action.name] : action.value,
         }
-          default:
-            return state;
+
+      }
+      default:
+        return state;
   }
 };
 
