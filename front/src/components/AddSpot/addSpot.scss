@@ -87,15 +87,19 @@
 
       .info-form_disc-type-rep{
 
-
+        
       }
-
+      
       .info-form_diffMin-diffMax{
-
+        
         .form_flex-span {
           display: flex;
           flex-direction: column;
           width: 100%;
+
+          // #capitalize-type{
+          //   text-transform: capitalize;
+          // }
         }
         .flex-span-margin-right{
           margin-right: 10px;

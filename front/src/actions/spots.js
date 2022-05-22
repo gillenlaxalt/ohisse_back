@@ -61,3 +61,10 @@ export const addInputSpot = (value, name) => ({
   value,
   name
 })
+
+// action type addSpot
+export const ADD_SPOT = 'ADD_SPOT';
+// actin creator addSpot
+export const addSpot = () => ({
+  type : ADD_SPOT,
+})
