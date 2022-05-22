@@ -96,4 +96,11 @@ export const addInputUser = (value, name) => ({
   name,
 })
 
+// action type addUser
+export const ADD_USER = 'ADD_USER';
+// action creator addUser
+export const addUser = () => ({
+  type : ADD_USER,
+})
+
 

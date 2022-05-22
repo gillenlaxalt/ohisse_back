@@ -15,7 +15,7 @@ function Login() {
 
   const dispatch = useDispatch();
 
-  const mail = useSelector((state) => state.settings.login.mail);
+  const mail = useSelector((state) => state.settings.login.email);
   const password = useSelector((state) => state.settings.login.password);
   console.log(mail, password)
 
@@ -46,7 +46,7 @@ function Login() {
         placeholder="Ton e-mail"
         className="login-form_input"
         value={mail}
-        onChange = {(evt) => handleChangeFieldLogin(evt.target.value, 'mail')}
+        onChange = {(evt) => handleChangeFieldLogin(evt.target.value, 'email')}
         />
         <label
         htmlFor="Password"

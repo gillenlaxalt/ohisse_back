@@ -3,7 +3,7 @@
 // npm
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
-import { addInputUser, changeInput, fetchUserById, updateUser } from '../../actions/users';
+import { addInputUser, addUser, changeInput, fetchUserById, updateUser } from '../../actions/users';
 import { useEffect } from 'react';
 // addUser
 // local
@@ -20,8 +20,10 @@ function AddUser() {
   const firstname= useSelector((state)=> state.users.addUser.firstname );
   const lastname= useSelector((state)=> state.users.addUser.lastname );
   const pseudo= useSelector((state)=> state.users.addUser.pseudo );
-  const mail= useSelector((state)=> state.users.addUser.mail );
+  const email= useSelector((state)=> state.users.addUser.email );
   const password= useSelector((state)=> state.users.addUser.password );
+  const city= useSelector((state)=> state.users.addUser.city );
+  const country= useSelector((state)=> state.users.addUser.country );
   const description= useSelector((state)=> state.users.addUser.description );
   const role= useSelector((state)=> state.users.addUser.role );
 
@@ -35,7 +37,7 @@ function AddUser() {
 
   function handleAddUserSubmit(evt) {
     evt.preventDefault();
-    // dispatch(addUser());
+    dispatch(addUser());
     console.log('click to add user');
   }
 
@@ -51,7 +53,6 @@ function AddUser() {
               <span className='form-identity_name span-identity'>
 
                 <label htmlFor='firstname'>Prénom</label>
-
                 <input
                   type='text'
                   name='firstname'
@@ -60,7 +61,6 @@ function AddUser() {
                 ></input>
 
                 <label htmlFor='lastname'>Nom</label>
-
                 <input
                   type='text'
                   name='lastname'
@@ -70,7 +70,6 @@ function AddUser() {
                 ></input>
               </span>
               <span className='form-identity_pseudo-mail span-identity'>
-
                 <label htmlFor='pseudo'>Pseudo</label>
                 <input
                   type='text'
@@ -78,13 +77,12 @@ function AddUser() {
                   value={pseudo}
                   onChange={(evt) => handleChangeInput(evt.target.value, 'pseudo')}
                 ></input>
-
                 <label htmlFor='email'>E-mail</label>
                 <input
                   type='email'
                   name='descrip'
-                  value={description}
-                  onChange={(evt) => handleChangeInput(evt.target.value, 'description')}
+                  value={email}
+                  onChange={(evt) => handleChangeInput(evt.target.value, 'email')}
                 ></input>
 
               </span>
@@ -106,8 +104,17 @@ function AddUser() {
                 <input
                   type='text'
                   name='city'
-                  value={mail}
+                  value={city}
                   onChange={(evt) => handleChangeInput(evt.target.value, 'city')}
+                ></input>
+              </span>
+              <span className='form_flex-span flex-span-margin-right'>
+                <label htmlFor='city'>Pays</label>
+                <input
+                  type='text'
+                  name='country'
+                  value={country}
+                  onChange={(evt) => handleChangeInput(evt.target.value, 'country')}
                 ></input>
               </span>
               <span className='form_flex-span flex-span-margin-right'>
