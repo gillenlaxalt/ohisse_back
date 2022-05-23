@@ -15,6 +15,7 @@
   padding: 10px;
   position: fixed;
   top:0px;
+  z-index: 2000;
   
 
   &_logo{
@@ -86,7 +87,7 @@
 
     }
     .header-menu_users{
-
+      margin-bottom: 10px;
     }
 
     .header-content-menu_dark-mode{
@@ -130,7 +131,7 @@
       }
       
       .menu-log_txt{
-        font-size: 1.4rem;
+        font-size: 1rem;
       }
     }
   }
@@ -183,6 +184,10 @@
     li.header-menu_spots.menu-txt{
       margin-bottom: 0px;
     }
+
+    li.header-menu_users.menu-txt{
+      margin-bottom: 0px;
+    }
   
     .header_content-menu{
   
@@ -205,9 +210,9 @@
       }
     
       .header-content-menu_log{
-        .menu-log_txt{
-          font-size: 1.5rem;
-        }
+        // .menu-log_txt{
+        //   font-size: 1.5rem;
+        // }
       
     
       }

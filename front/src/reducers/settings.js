@@ -18,7 +18,7 @@ export const initialState = {
   currentUser:[],
   login :
     {
-    mail:'',
+    email:'',
     password:'',
   },
 };

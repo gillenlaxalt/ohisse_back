@@ -189,6 +189,13 @@ Route::group(['middleware' => ['jwt.verify']], function () {
         ]
     );
 
+    Route::post(
+        'admin/register',
+        [
+            UserController::class, 'addUser'
+        ]
+    );
+
     Route::delete(
         '/admin/user/delete/{id}',
         [

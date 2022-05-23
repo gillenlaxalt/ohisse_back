@@ -13,7 +13,8 @@ import {
   SAVE_USERS,
   FETCH_USER_BY_ID,
   EMPTY_AFTER_DELETE,
-  IS_EMPTY_IN_FALSE
+  IS_EMPTY_IN_FALSE,
+  ADD_INPUT_USER
 } from "../actions/users";
 
 import { LOGOUT } from '../actions/settings';
@@ -29,16 +30,26 @@ export const initialState = {
   {
     inputValue: '',
   },
-
   inputCurrentUser: {
     id:'',
     firstname: '',
     lastname: '',
     pseudo: '',
-    mail: '',
+    email: '',
     description: '',
     role: '',
   },
+  addUser:{
+    firstname: '',
+    lastname: '',
+    pseudo: '',
+    email: '',
+    password:'',
+    city:'',
+    country:'',
+    description: '',
+    role: '',
+  }
 };
 console.log(initialState);
 const usersReducer = (state = initialState, action = {}) => {
@@ -72,7 +83,9 @@ const usersReducer = (state = initialState, action = {}) => {
             firstname: action.data.firstname,
             lastname: action.data.lastname,
             pseudo: action.data.pseudo,
-            mail: action.data.email,
+            email: action.data.email,
+            city: action.data.city,
+            country: action.data.country,
             description: action.data.description,
             role: action.data.role,
           } 
@@ -95,7 +108,7 @@ const usersReducer = (state = initialState, action = {}) => {
           firstname:'',
           lastname:'',
           pseudo:'',
-          mail:'',
+          email:'',
           description:'',
           role:'',
         } 
@@ -105,13 +118,22 @@ const usersReducer = (state = initialState, action = {}) => {
         ...state,
         isEmpty:false
       }
-      case LOGOUT:
-        return {
-          ...state,
-          tokenCurrentUser: "",        
+    case LOGOUT:
+      return {
+        ...state,
+        tokenCurrentUser: "",        
+      }
+    case ADD_INPUT_USER: 
+      return{
+        ...state,
+        addUser:{
+          ...state.addUser,
+          [action.name] : action.value,
         }
-          default:
-            return state;
+
+      }
+      default:
+        return state;
   }
 };
 
