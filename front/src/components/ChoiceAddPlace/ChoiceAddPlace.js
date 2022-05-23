@@ -19,13 +19,13 @@ function ChoiceAddPlace() {
         <NavLink to={`/ajout-spot/${Spot}`}>
           <span className='div-choice_exterieur'>
             <h2 className='div-choice-exterieur_h2'>Spot extérieur</h2>
-            <img src='' alt='' className='div-choice-exterieur_img' />
+            <img src='https://www.cimalp.fr/blog/wp-content/uploads/2016/03/Verdon-Photo-Jan-Novak.jpg' alt='' className='div-choice-exterieur_img' />
           </span>
         </NavLink>
         <NavLink to={`/ajout-spot/${Salle}`}>
           <span className='div-choice_interieur'>
             <h2 className='div-choice-interieur_h2'>Spot intérieur</h2>
-            <img src='' alt='' className='div-choice-interieur_img' />
+            <img src='https://lilleaddict.fr/wordpress/wp-content/uploads/2020/08/Arkose-salle-descalade-%C3%A0-Lille-centre-rue-des-postes.jpg' alt='' className='div-choice-interieur_img' />
           </span>
         </NavLink>
 
