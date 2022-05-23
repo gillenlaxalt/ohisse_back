@@ -15,9 +15,9 @@ function Login() {
 
   const dispatch = useDispatch();
 
-  const mail = useSelector((state) => state.settings.login.mail);
+  const email = useSelector((state) => state.settings.login.email);
   const password = useSelector((state) => state.settings.login.password);
-  console.log(mail, password)
+  console.log(email, password)
 
   const handleChangeFieldLogin = (value, name) => {
     console.log(value, name);
@@ -34,7 +34,7 @@ function Login() {
   return (
     <section className="login">
       <h2 className="login_h2">Bienvenue</h2>
-      <p className="login_txt">Bonjour, si tu es ici c’est que tu as le rôle d’admin sur O’hisee</p>
+      <p className="login_txt">Bonjour, si tu es ici c’est que tu as le rôle d’admin sur O’hisse</p>
       <form className="login_form" onSubmit={handleSubmitLogin}>
         <label
         htmlFor="email"
@@ -45,8 +45,8 @@ function Login() {
         type='email'
         placeholder="Ton e-mail"
         className="login-form_input"
-        value={mail}
-        onChange = {(evt) => handleChangeFieldLogin(evt.target.value, 'mail')}
+        value={email}
+        onChange = {(evt) => handleChangeFieldLogin(evt.target.value, 'email')}
         />
         <label
         htmlFor="Password"

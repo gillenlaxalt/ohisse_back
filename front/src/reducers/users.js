@@ -12,18 +12,21 @@ import {
   CHANGE_INPUT,
   SAVE_USERS,
   FETCH_USER_BY_ID,
-  EMPTY_FIELD_DELETE
+  EMPTY_AFTER_DELETE,
+  IS_EMPTY_IN_FALSE,
+  ADD_INPUT_USER
 } from "../actions/users";
+
+import { LOGOUT } from '../actions/settings';
 
 
 export const initialState = {
 
   currentUser: [],
   tokenCurrentUser: "",
-
+  isEmpty:false,
   usersList: [],
   search:
-
   {
     inputValue: '',
   },
@@ -32,10 +35,21 @@ export const initialState = {
     firstname: '',
     lastname: '',
     pseudo: '',
-    mail: '',
+    email: '',
     description: '',
     role: '',
   },
+  addUser:{
+    firstname: '',
+    lastname: '',
+    pseudo: '',
+    email: '',
+    password:'',
+    city:'',
+    country:'',
+    description: '',
+    role: '',
+  }
 };
 console.log(initialState);
 const usersReducer = (state = initialState, action = {}) => {
@@ -69,7 +83,9 @@ const usersReducer = (state = initialState, action = {}) => {
             firstname: action.data.firstname,
             lastname: action.data.lastname,
             pseudo: action.data.pseudo,
-            mail: action.data.email,
+            email: action.data.email,
+            city: action.data.city,
+            country: action.data.country,
             description: action.data.description,
             role: action.data.role,
           } 
@@ -82,22 +98,42 @@ const usersReducer = (state = initialState, action = {}) => {
               [action.name]: action.value
             }
           }
-    case EMPTY_FIELD_DELETE:
+    case EMPTY_AFTER_DELETE:
       return {
         ...state,
+        isEmpty: true,
         inputCurrentUser: {
           ...state.inputCurrentUser,
-            id:'',
-            firstname: '',
-            lastname: '',
-            pseudo: '',
-            mail: '',
-            description: '',
-            role: '',
-          }
+          id:'',
+          firstname:'',
+          lastname:'',
+          pseudo:'',
+          email:'',
+          description:'',
+          role:'',
+        } 
       }
-          default:
-            return state;
+    case IS_EMPTY_IN_FALSE:
+      return {
+        ...state,
+        isEmpty:false
+      }
+    case LOGOUT:
+      return {
+        ...state,
+        tokenCurrentUser: "",        
+      }
+    case ADD_INPUT_USER: 
+      return{
+        ...state,
+        addUser:{
+          ...state.addUser,
+          [action.name] : action.value,
+        }
+
+      }
+      default:
+        return state;
   }
 };
 

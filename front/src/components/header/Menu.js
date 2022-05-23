@@ -4,7 +4,7 @@
 
 // npm
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 // local
 import logo from '../../img/logo-complet-bleu.png';
@@ -28,15 +28,19 @@ function Menu() {
   const onDark = useSelector((state) => state.settings.darkMode);
   const isLogged = useSelector((state) => state.settings.isLogged);
   // console.log(isLogged);
-
+ 
   const handleLogout = () => {
     dispatch(logout());
-  };
+  }
 
   return (
     <section className={onDark ? 'header dark' : 'header'}>
-      <img src={logo} alt='logo' className='header_logo' />
+
+    
+    <Link to='/' >   <img src={logo} alt='logo' className='header_logo' /></Link>
+
       <p className='header_backOffice-txt'> Back office</p>
+
 
       <span
         className='header-burger'
@@ -65,12 +69,14 @@ function Menu() {
           </span>
           <span className='header-content-menu_log'>
           <NavLink to='/login' onClick={handleLogout}>
-            <img
-              src={LogoutLogo}
-              alt='déconnexion'
-              className='menu-log_img'
-            />
-            <p className='menu-log_txt menu-txt'> Déconnexion</p>
+            <span className='header-content-menu_log'>
+              <img
+                src={LogoutLogo}
+                alt='déconnexion'
+                className='menu-log_img'
+              />
+              <p className='menu-log_txt menu-txt'> Déconnexion</p>
+            </span>
           </NavLink>
           </span>
         </div>

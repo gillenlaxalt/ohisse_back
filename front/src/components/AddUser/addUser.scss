@@ -1,11 +1,9 @@
 @use '../../styles/vars';
 
 .current-user{
-  flex-wrap: nowrap;
-  height: 85vh;
+  height: auto;
 
   &_profil{
-    // height: 80vh;
     width: 100%;
 
     .current-user-profil_hello{
@@ -20,7 +18,7 @@
     align-items: center;
     width: 80%;
     height: max-content;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     background-color: vars.$second-bg-color;
     border-radius: 10px;
     box-shadow: 0px 0px 6px 1px;
@@ -128,7 +126,16 @@ input[type='text']{
   border: none;
   margin-bottom: 10px;
   padding-left: 10px;
-} 
+}
+
+input[type='password']{
+  height: 35px;
+  border-radius: 10px;
+  background-color: vars.$main-bg-btn-color;
+  border: none;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
 
 input[type='email']{
   height: 35px;
@@ -164,8 +171,7 @@ select{
     justify-content: space-between;
   
     &_profil{
-      // height: 80vh;
-      width: 60%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -181,9 +187,9 @@ select{
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 80%;
+      width: 700px;
       height: max-content;
-      margin: 0 auto;
+      margin: 5% auto;
       background-color: vars.$second-bg-color;
       border-radius: 10px;
       padding: 10px;
