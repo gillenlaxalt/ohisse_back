@@ -14,6 +14,7 @@ import Spots from "../components/spots/Spots";
 import ChoiceAddPlace from "../components/ChoiceAddPlace/ChoiceAddPlace";
 import CurrentUser from "../components/CurrentUser/CurrentUser";
 import CurrentSpot from "../components/CurrentSpot/CurrentSpot";
+import AddSpot from "../components/AddSpot/AddSpot";
 
 // style
 
@@ -40,6 +41,7 @@ function App() {
           <Route path="/choix-type-spot" element={<ChoiceAddPlace />} />
           <Route path="/utilisateur/:id" element={<CurrentUser />} />
           <Route path="/spot/:id" element={<CurrentSpot />} />
+          <Route path="/ajout-spot/:slug" element={<AddSpot />} />
 
         </Routes>        
         

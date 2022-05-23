@@ -52,3 +52,19 @@ export const deleteSpot = (id, city) => ({
   id : id,
   city : city
 })
+
+// action type addInputSpot
+export const ADD_INPUT_SPOT = 'ADD_INPUT_SPOT';
+// action creator addInputSpot
+export const addInputSpot = (value, name) => ({
+  type : ADD_INPUT_SPOT,
+  value,
+  name
+})
+
+// action type addSpot
+export const ADD_SPOT = 'ADD_SPOT';
+// actin creator addSpot
+export const addSpot = () => ({
+  type : ADD_SPOT,
+})

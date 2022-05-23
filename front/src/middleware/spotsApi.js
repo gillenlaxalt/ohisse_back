@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 
 // local
-import { DELETE_SPOT, fetchSpots, FETCH_SPOTS, saveSpots, UPDATE_SPOT } from '../actions/spots';
+import { ADD_SPOT, DELETE_SPOT, fetchSpots, FETCH_SPOTS, saveSpots, UPDATE_SPOT } from '../actions/spots';
 
 
 const axiosInstance = axios.create({
@@ -20,8 +20,8 @@ const spotApiMiddleware = (store) => (next) => (action) => {
   axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
       
   switch (action.type) {
+
     case FETCH_SPOTS:
-      
       console.log(token);
       axiosInstance
         .get('api/admin/spots')
@@ -113,6 +113,66 @@ const spotApiMiddleware = (store) => (next) => (action) => {
       })
       next(action)
       break
+    }
+
+    case ADD_SPOT: {
+      const { 
+        spots: {
+        addSpot: {
+          name,
+          number,
+          street,
+          zipcode,
+          city,
+          country,
+          type,
+          rock_type,
+          discipline,
+          latitude,
+          longitude,
+          min_difficulty,
+          max_difficulty,
+          various,
+          reputation,
+          picture,
+        },
+      }
+    } = store.getState();
+    console.log( name,
+      number, street, zipcode, city, country, type, rock_type, discipline,
+      latitude, longitude, min_difficulty, max_difficulty, various, reputation,
+      picture,);
+      axiosInstance
+      .post(
+        'api/admin/spots/create',
+        {
+          name,
+          number,
+          street,
+          zipcode,
+          city,
+          country,
+          type,
+          rock_type,
+          discipline,
+          latitude,
+          longitude,
+          min_difficulty,
+          max_difficulty,
+          various,
+          reputation,
+          picture,
+        }
+      )
+      .then((resp) => {
+        console.log(resp);
+        window.confirm(`Vous avez bien ajouté le spot ${name}`);
+        store.dispatch(fetchSpots());
+      })
+      .catch ((resp) => {
+        console.log(resp);
+        window.alert(`Erreur : le spot n'a pas été ajouté`);
+      })
     }
     
       default:

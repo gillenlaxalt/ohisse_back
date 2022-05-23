@@ -3,7 +3,12 @@
 // npm
 
 // local
-import { CHANGE_FIELD, CHANGE_INPUT_SPOT, FETCH_SPOT_BY_ID, SAVE_SPOTS } from "../actions/spots";
+import {
+  ADD_INPUT_SPOT,
+  CHANGE_FIELD,
+  CHANGE_INPUT_SPOT,
+  FETCH_SPOT_BY_ID,
+  SAVE_SPOTS } from "../actions/spots";
 
 export const initialState = {
   search: [
@@ -14,6 +19,24 @@ export const initialState = {
   spotsList: [],
   inputCurrentSpot:{
     id:'',
+    name:'',
+    number:'',
+    street:'',
+    zipcode:'',
+    city:'',
+    country:'',
+    type:'',
+    rock_type:'',
+    discipline:'',
+    latitude:'',
+    longitude:'',
+    min_difficulty:'',
+    max_difficulty:'',
+    various:'',
+    reputation:'',
+    picture:'',
+  },
+  addSpot:{
     name:'',
     number:'',
     street:'',
@@ -76,6 +99,14 @@ const spotsReducer = (state = initialState, action = {}) => {
         inputCurrentSpot:{
           ...state.inputCurrentSpot,
           [action.name]: action.value,
+        }
+      }
+    case ADD_INPUT_SPOT:
+      return{
+        ...state,
+        addSpot:{
+          ...state.addSpot,
+          [action.name] : action.value,
         }
       }
     default:
