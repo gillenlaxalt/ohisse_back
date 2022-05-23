@@ -11,29 +11,45 @@ import {
   SAVE_CURRENT_USER,
   CHANGE_INPUT,
   SAVE_USERS,
-  FETCH_USER_BY_ID
+  FETCH_USER_BY_ID,
+  EMPTY_AFTER_DELETE,
+  IS_EMPTY_IN_FALSE,
+  ADD_INPUT_USER
 } from "../actions/users";
+
+import { LOGOUT } from '../actions/settings';
 
 
 export const initialState = {
 
   currentUser: [],
   tokenCurrentUser: "",
-
+  isEmpty:false,
   usersList: [],
   search:
-
   {
     inputValue: '',
   },
   inputCurrentUser: {
+    id:'',
     firstname: '',
     lastname: '',
     pseudo: '',
-    mail: '',
+    email: '',
     description: '',
     role: '',
   },
+  addUser:{
+    firstname: '',
+    lastname: '',
+    pseudo: '',
+    email: '',
+    password:'',
+    city:'',
+    country:'',
+    description: '',
+    role: '',
+  }
 };
 console.log(initialState);
 const usersReducer = (state = initialState, action = {}) => {
@@ -43,17 +59,17 @@ const usersReducer = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
-    case SAVE_USERS:
-      return {
-        ...state,
-        usersList: action.data,
-      };
-    case SAVE_CURRENT_USER:
-      return {
-        ...state,
-        currentUser: action.data,
-      }
-    case SAVE_CURRENT_TOKEN:
+      case SAVE_USERS:
+          return {
+            ...state,
+            usersList: action.data,
+          };
+      case SAVE_CURRENT_USER:
+        return {
+          ...state,
+          currentUser: action.data,
+        }
+      case SAVE_CURRENT_TOKEN:
         return {
           ...state,
           tokenCurrentUser: action.data,
@@ -63,10 +79,13 @@ const usersReducer = (state = initialState, action = {}) => {
           ...state,
           inputCurrentUser: {
             ...state.inputCurrentUser,
+            id:action.data.id,
             firstname: action.data.firstname,
             lastname: action.data.lastname,
             pseudo: action.data.pseudo,
-            mail: action.data.email,
+            email: action.data.email,
+            city: action.data.city,
+            country: action.data.country,
             description: action.data.description,
             role: action.data.role,
           } 
@@ -79,8 +98,42 @@ const usersReducer = (state = initialState, action = {}) => {
               [action.name]: action.value
             }
           }
-          default:
-            return state;
+    case EMPTY_AFTER_DELETE:
+      return {
+        ...state,
+        isEmpty: true,
+        inputCurrentUser: {
+          ...state.inputCurrentUser,
+          id:'',
+          firstname:'',
+          lastname:'',
+          pseudo:'',
+          email:'',
+          description:'',
+          role:'',
+        } 
+      }
+    case IS_EMPTY_IN_FALSE:
+      return {
+        ...state,
+        isEmpty:false
+      }
+    case LOGOUT:
+      return {
+        ...state,
+        tokenCurrentUser: "",        
+      }
+    case ADD_INPUT_USER: 
+      return{
+        ...state,
+        addUser:{
+          ...state.addUser,
+          [action.name] : action.value,
+        }
+
+      }
+      default:
+        return state;
   }
 };
 

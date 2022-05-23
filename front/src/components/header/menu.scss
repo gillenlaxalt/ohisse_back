@@ -67,7 +67,7 @@
     border-bottom-left-radius:10px;
     position: absolute;
     top: 50px;
-    right: -400px;
+    right: -600px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -86,7 +86,7 @@
 
     }
     .header-menu_users{
-
+      margin-bottom: 10px;
     }
 
     .header-content-menu_dark-mode{
@@ -125,12 +125,12 @@
       align-items:center ;
       
       .menu-log_img{
-        width: 35px;
-        height: 50px;
+        width: 20px;
+        height: 20px;
       }
       
       .menu-log_txt{
-        font-size: 1.4rem;
+        font-size: 1rem;
       }
     }
   }
@@ -183,6 +183,10 @@
     li.header-menu_spots.menu-txt{
       margin-bottom: 0px;
     }
+
+    li.header-menu_users.menu-txt{
+      margin-bottom: 0px;
+    }
   
     .header_content-menu{
   
@@ -205,14 +209,10 @@
       }
     
       .header-content-menu_log{
-        .menu-log_txt{
-          font-size: 1.5rem;
-        }
+        // .menu-log_txt{
+        //   font-size: 1.5rem;
+        // }
       
-        .menu-log_img{
-          width: 25px;
-          height: 40px;
-        }
     
       }
     }

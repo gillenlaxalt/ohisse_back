@@ -15,7 +15,6 @@ export const changeInput = (value, name) => ({
 // action type FETCH_USERS
 // call FETCH_USERS in axios that saveUsers if return ok
 export const FETCH_USERS = 'FETCH_USERS';
-
 // action creator : call FETCH_USER to usersAPI
 export const fetchUsers = () => ({
   type: FETCH_USERS,
@@ -23,7 +22,6 @@ export const fetchUsers = () => ({
 
 // action type SAVE_USERS
 export const SAVE_USERS = 'SAVE_USERS';
-
 // action creator call in axios to received user list. In store users
 export const saveUsers = (data) => ({
   type : SAVE_USERS,
@@ -32,7 +30,6 @@ export const saveUsers = (data) => ({
 
 // action type login
 export const LOGIN = 'LOGIN';
-
 export const login = () => ({
   type: LOGIN,
 })
@@ -65,3 +62,45 @@ export const UPDATE_USER ='UPDATE_USER';
 export const updateUser = () => ({
   type: UPDATE_USER,
 })
+
+// action type updateUser 
+export const DELETE_USER ='DELETE_USER';
+// action creator updateUser
+export const deleteUser = (id, firstname, lastname) => ({
+  type: DELETE_USER,
+  id,
+  firstname,
+  lastname
+})
+
+// action type emptyAfterDelete
+export const EMPTY_AFTER_DELETE = 'EMPTY_AFTER_DELETE';
+// action creator emptyAfterDelete
+export const emptyAfterDelete = () => ({
+  type: EMPTY_AFTER_DELETE,
+})
+
+// action type isEmptyInFalse
+export const IS_EMPTY_IN_FALSE = 'IS_EMPTY_IN_FALSE';
+// action creator isEmptyInFalse
+export const isEmptyInFalse = () => ({
+  type: IS_EMPTY_IN_FALSE,
+})
+
+// action type addInputUser
+export const ADD_INPUT_USER = 'ADD_INPUT_USER';
+// action creator addInputUser
+export const addInputUser = (value, name) => ({
+  type: ADD_INPUT_USER,
+  value,
+  name,
+})
+
+// action type addUser
+export const ADD_USER = 'ADD_USER';
+// action creator addUser
+export const addUser = () => ({
+  type : ADD_USER,
+})
+
+
