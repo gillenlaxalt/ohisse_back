@@ -1,0 +1,99 @@
+@use '../../../styles/vars';
+
+.commentCard {
+  margin-top: 20px;
+  background-color: #fca311;
+  border-radius: 10px;
+  padding: 15px 5px 5px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  &_comments {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+
+    .commentCard-comments_span{
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .commentCard-comments_comment {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin: 10px auto;
+      background-color: vars.$main-bg-btn-color;
+      padding: 15px;
+    }
+
+    .spotCard-identity_name {
+      width: 100%;
+      height: 35px;
+      margin: 0;
+      padding: 10px;
+      background-color: #f2f4f3;
+      border: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+
+  }
+
+  &-config-btn {
+    display: flex;
+    /* flex-direction: row; */
+    margin-top: 5px;
+    /* justify-content: end; */
+    flex-direction: column;
+    align-items: center;
+
+    .commentCard-config_delete {
+      background-color: vars.$bg-color-btn-delete;
+      color: vars.$main-bg-color;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .commentCard-config_btn {
+      margin-left: 10px;
+      height: 30px;
+      border-radius: 10px;
+      border: none;
+      width: 90px;
+    }
+
+    .spotCard-config_btn:hover {
+      transform: scale(1.1);
+    }
+  }
+
+
+}
+
+@media screen and (min-width: 768px) {
+
+  .commentCard {
+    padding: 15px 5px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &_comments {
+      width: 500px;
+      flex-direction: row;
+
+      .commentCard-pseudo_name{
+        margin: 10px auto;
+        padding: 15px;
+      }
+  }
+}
+
+}

@@ -1,0 +1,416 @@
+@use '../../styles/vars';
+
+.currentSpot{
+    display: flex;
+    flex-wrap: wrap;
+  
+  &_info{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    .currentSpot-info_h1{
+      text-align: center;
+      margin: 15px auto;
+      font-size: 1.5rem;
+    }
+
+    .currentSpot-info_form{
+    width: 80%;
+    height: max-content;
+    margin: auto;
+    background-color: vars.$second-bg-color;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px 1px;
+    padding: 10px;
+
+      .form_flex-div{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin: auto;  
+      }
+  
+      .info-form_img-url{
+  
+        .info-form-img{
+          width: 350px;
+          width: 200px;
+          height: auto;
+          border-radius: 10px;
+          margin: 0 auto;
+          object-fit: cover;
+          margin-bottom: 15px;
+        }
+  
+        .info-form-url{
+  
+        }
+      }
+
+      .info-form_num-street{
+
+        .info-form-num{
+
+        }
+
+        .info-form-street{
+
+        }
+      }
+
+      .info-form_zip-city{
+
+        .info-form-zip{
+
+        }
+
+        .info-form-city{
+
+        }
+      }
+
+      .info-form_country-long-lat{
+
+        .info-form-country{
+
+        }
+
+        .info-form-long{
+
+        }
+
+        .info-form-lat{
+
+        }
+      }
+
+      .info-form_disc-type-rep{
+
+
+      }
+
+      .info-form_diffMin-diffMax{
+
+        .form_flex-span {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+        }
+        .flex-span-margin-right{
+          margin-right: 10px;
+        }
+
+      }
+      .spot-form_descrip{
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      margin-top: 5px;
+      align-items: center;
+      margin: 0 auto;
+      }
+
+      .spot-form_btn{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        .spot-form-btn{
+          margin-left: 10px;
+          height: 30px;
+          border-radius: 10px;
+          border: none;
+          width: 90px;
+        }
+        .spot-form-btn:hover{
+          transform: scale(1.1);
+         }
+
+        .spot-form_update{
+          background-color: vars.$bg-color-btn-update;
+          color:vars.$main-bg-color;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+
+        .spot-form_delete{
+          background-color:vars.$bg-color-btn-delete;
+          color:vars.$main-bg-color;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+
+  }
+
+
+  label{
+    margin: 5px 0;
+  }
+
+  #label-descrip{
+    align-self: baseline;
+    margin: 10px 0 0 0;
+  }
+  
+  input[type='text']{
+    height: 35px;
+    border-radius: 10px;
+    background-color: vars.$main-bg-btn-color;
+    border: none;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    width:100%;
+  } 
+
+  input[type='url']{
+    height: 35px;
+    border-radius: 10px;
+    background-color: vars.$main-bg-btn-color;
+    border: none;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    width:100%;
+  } 
+  
+  input[type='email']{
+    height: 35px;
+    border-radius: 10px;
+    background-color: vars.$main-bg-btn-color;
+    border: none;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    width:100%;
+  }
+
+  input[type='number']{
+    height: 35px;
+    border-radius: 10px;
+    background-color: vars.$main-bg-btn-color;
+    border: none;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    width:100%;
+  }
+  
+  input[type='textarea']{
+    height: 100px;
+    border-radius: 10px;
+    background-color: vars.$main-bg-btn-color;
+    border: none;
+    margin: 15px 0;
+    padding-left: 10px;
+    width: 100%;
+  }
+
+  select{
+    height: 35px;
+    border-radius: 10px;
+    background-color: vars.$main-bg-btn-color;
+    border: none;
+    margin-bottom: 10px;
+    padding-left: 10px;
+  }
+
+  focus{
+    color:vars.$color-decoration;
+  }
+
+  &_map{
+    width: 100%;
+    height: 150px;
+    margin: 20px auto 0;
+
+    .leaflet-container {
+      height: 100%;
+      width: 100%;
+  }
+  }
+}
+
+
+
+@media screen and (min-width:768px){
+  .currentSpot{
+    flex-wrap: nowrap;
+    &_info{
+      width: 60%;
+  
+      .currentSpot-info_h1{
+        font-size: 3rem;
+      }
+  
+      .currentSpot-info_form{
+        margin-bottom:20px;
+  
+        .form_flex-div{
+
+        }
+    
+        .info-form_img-url{
+          flex-direction: row;
+          justify-content: flex-start;
+    
+          .info-form-img{
+            margin: 0 10px 0 0;
+            width: 50%;
+    
+          }
+    
+          .info-form-url{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+          }
+        }
+  
+        .info-form_num-street{
+          flex-direction: row;
+
+          .form_flex-span {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+          }
+          .flex-span-margin-right{
+            margin-right: 10px;
+          }
+
+  
+          .info-form-num{
+            
+          }
+  
+          .info-form-street{
+  
+          }
+        }
+  
+        .info-form_zip-city{
+          flex-direction: row;
+
+          .form_flex-span {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+          }
+          .flex-span-margin-right{
+            margin-right: 10px;
+          }
+  
+          .info-form-zip{
+            margin-right: 10px;
+          }
+  
+          .info-form-city{
+  
+          }
+        }
+  
+        .info-form_country-long-lat{
+          flex-direction: row;
+
+          .form_flex-span {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+          }
+          .flex-span-margin-right{
+            margin-right: 10px;
+          }
+  
+          .info-form-country{
+  
+          }
+  
+          .info-form-long{
+  
+          }
+  
+          .info-form-lat{
+  
+          }
+        }
+  
+        .info-form_disc-type-rep{
+          
+          .form_flex-span {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+          }
+          .flex-span-margin-right{
+            margin-right: 10px;
+          }
+  
+        }
+  
+        .info-form_diffMin-diffMax{
+          flex-direction: row;
+  
+        }
+  
+        .spot-form_btn{
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+  
+          .spot-form-btn{
+            margin-left: 10px;
+            height: 30px;
+            border-radius: 10px;
+            border: none;
+            width: 90px;
+          }
+          .spot-form-btn:hover{
+            transform: scale(1.1);
+           }
+  
+          .spot-form_update{
+            background-color: vars.$bg-color-btn-update;
+            color:vars.$main-bg-color;
+            font-weight: bold;
+            text-transform: uppercase;
+          }
+  
+          .spot-form_delete{
+            background-color:vars.$bg-color-btn-delete;
+            color:vars.$main-bg-color;
+            font-weight: bold;
+            text-transform: uppercase;
+          }
+        }
+      }
+  
+  
+    }
+    
+    label{
+      margin: 10px 0;
+      font-size: 1.4rem;
+    }
+
+
+    input[type='text']{
+      width: 100%;
+    } 
+  
+    input[type='url']{
+      width: 100%;
+    }
+
+    &_map{
+      width: 40%;
+      height: auto;
+      margin: 0 auto;
+    }
+  }
+
+}

@@ -1,0 +1,14 @@
+.footer-div{
+  content:"";
+  height: 70px;
+  width: 100%;
+  z-index: 1999;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-div{
+    
+    height: 70px;
+    
+  }
+}
