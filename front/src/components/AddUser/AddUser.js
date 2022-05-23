@@ -84,18 +84,15 @@ function AddUser() {
                   value={email}
                   onChange={(evt) => handleChangeInput(evt.target.value, 'email')}
                 ></input>
+                <label htmlFor='password'>Mot de passe</label>
+                    <input
+                      type='password'
+                      name='password'
+                      value={password}
+                      onChange={(evt) => handleChangeInput(evt.target.value, 'password')}
+                    ></input>
 
               </span>
-            </div>
-              <label htmlFor='password'>Mot de passe</label>
-                  <input
-                    type='password'
-                    name='password'
-                    value={password}
-                    onChange={(evt) => handleChangeInput(evt.target.value, 'password')}
-                  ></input>
-            <div>
-
             </div>
             <div className='profil-form_info'>
 

@@ -135,6 +135,7 @@ input[type='password']{
   border: none;
   margin-bottom: 10px;
   padding-left: 10px;
+  width: 250px;
 }
 
 input[type='email']{
@@ -217,6 +218,9 @@ select{
         display: flex;
         flex-direction: column;
         width: 250px;
+      }
+      .flex-span-margin-right{
+        margin-right: 10px;
       }
       .profil-form_descrip{
         margin: 20px auto;
