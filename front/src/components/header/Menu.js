@@ -4,7 +4,7 @@
 
 // npm
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 // local
 import logo from '../../img/logo-complet-bleu.png';
@@ -35,8 +35,12 @@ function Menu() {
 
   return (
     <section className={onDark ? 'header dark' : 'header'}>
-      <img src={logo} alt='logo' className='header_logo' />
-      <h1 className='header_backOffice-txt'> Back office</h1>
+
+    
+    <Link to='/' >   <img src={logo} alt='logo' className='header_logo' /></Link>
+
+      <p className='header_backOffice-txt'> Back office</p>
+
 
       <span
         className='header-burger'
