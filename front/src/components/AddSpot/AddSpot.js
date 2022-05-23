@@ -18,7 +18,7 @@ function AddSpot() {
   console.log((locality));
   // const types =locality.slug;
   // console.log(types);
-  const isOutdoor = locality.slug === 'exterieur';
+  const isOutdoor = locality.slug === 'Spot';
   console.log(isOutdoor);
   // this way allow to use a console.log
   const handleChangeInput = (value, name) => {
@@ -209,8 +209,8 @@ function AddSpot() {
                 <input
                   type='text'
                   name='type'
-                  value='Exterieur'
-                  onChange={(evt) => handleChangeInput('Exterieur', 'type')}
+                  value='Spot'
+                  onChange={(evt) => handleChangeInput('Spot', 'type')}
                 ></input>
 
               )}
@@ -218,8 +218,8 @@ function AddSpot() {
                 <input
                   type='text'
                   name='type'
-                  value='Interieur'
-                  onChange={(evt) => handleChangeInput('Interieur', 'type')}
+                  value='Salle'
+                  onChange={(evt) => handleChangeInput('Salle', 'type')}
                 ></input>
 
               )}

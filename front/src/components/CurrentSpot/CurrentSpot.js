@@ -45,6 +45,39 @@ function CurrentSpot() {
       }, [],  
   );
 
+  const rocks = [
+    'calcaire',
+    'calcaire dolomite',
+    'conglomérat',
+    'gneiss',
+    'granite',
+    'grès',
+    'volcanique',
+    'schiste',
+  ];
+
+  
+    const cotations = [
+      '4',
+      '5a',
+      '5b',
+      '5c',
+      '6a',
+      '6b',
+      '6c',
+      '7a',
+      '7b',
+      '7c',
+      '8a',
+      '8b',
+      '8c',
+      '9a',
+      '9b',
+      '9c',
+    ];
+    const min_difficulty = useSelector((state) => state.spots.addSpot.min_difficulty)
+    const value = (element) => element === min_difficulty;
+
   if (spotById == undefined) {
     return (
       navigate('/tous-les-spots', { replace :true }),
@@ -146,15 +179,15 @@ function CurrentSpot() {
               </span>
             </div>
             <div className='info-form_disc-type-rep form_flex-div'>
-              <label htmlFor='discipline'>Discipline</label>
+            <label htmlFor='discipline'>Quelle(s) discipline(s) dans cette salle</label>
               <select
               name='discipline'
               onChange = {(evt) => handleChangeInput(evt.target.value, 'discipline')}
               >
                 <option value="">{spotById.discipline}</option>
-                <option value='d1'>d1</option>
-                <option value='d2'>d2</option>
-                <option value='d3'>d3</option>
+                <option value='Bloc'>Bloc</option>
+                <option value='Voie'>Voie</option>
+                <option value='Bloc/Voie'>Les deux</option>
               </select>
               <span className='form_flex-span'>
                 <label htmlFor='type'>Type</label>
@@ -163,9 +196,8 @@ function CurrentSpot() {
                 onChange = {(evt) => handleChangeInput(evt.target.value, 'type')}
                 >
                   <option value="">{spotById.type}</option>
-                  <option value='t1'>t1</option>
-                  <option value='t2'>t2</option>
-                  <option value='t3'>t3</option>
+                  <option value='t1'>Salle</option>
+                  <option value='t2'>Spot</option>
                 </select>
                 <label htmlFor='type'>Type de roche</label>
                 <select
@@ -173,9 +205,11 @@ function CurrentSpot() {
                 onChange = {(evt) => handleChangeInput(evt.target.value, 'rock_type')}
                 >
                   <option value="">{spotById.rock_type}</option>
-                  <option value='t1'>t1</option>
-                  <option value='t2'>t2</option>
-                  <option value='t3'>t3</option>
+                  {
+                rocks.map((rock) => (
+                  <option key={rock} value={rock}>{rock}</option>
+                ))
+              }
                 </select>
               </span>
               <label htmlFor='reputation'>Réputation</label>
@@ -184,9 +218,9 @@ function CurrentSpot() {
               onChange = {(evt) => handleChangeInput(evt.target.value, 'reputation')}
               >
                 <option value="">{spotById.reputation}</option>
-                <option value='r1'>r1</option>
-                <option value='r2'>r2</option>
-                <option value='r3'>r3</option>
+                <option value='easy'>Plutôt facile</option>
+              <option value='medium'>D'un niveau moyen</option>
+              <option value='hard'>Putôt costaud</option>
               </select>
             </div>
             <div className='info-form_diffMin-diffMax form_flex-div'>
@@ -197,9 +231,11 @@ function CurrentSpot() {
                   onChange = {(evt) => handleChangeInput(evt.target.value, 'min_difficulty')}
                   >
                     <option value="">{spotById.min_difficulty}</option>
-                    <option value='mid1'>mid1</option>
-                    <option value='mid2'>mid2</option>
-                    <option value='mid3'>mid3</option>
+                    {
+                cotations.map((cotation) => (
+                  <option key={cotation} value={cotation}>{cotation}</option>
+                ))
+              }
                   </select>
               </span>
               <span className='form_flex-span'>
@@ -209,9 +245,14 @@ function CurrentSpot() {
                 onChange = {(evt) => handleChangeInput(evt.target.value, 'max_difficulty')}
                 >
                   <option value="">{spotById.max_difficulty}</option>
-                  <option value='mad1'>mad1</option>
-                  <option value='mad2'>mad2</option>
-                  <option value='mad3'>mad3</option>
+                  {
+                cotations.map((item, index) => {
+                  if (cotations.findIndex(value) <= index) {
+                    return <option key={item} value={item}>{item}</option>;
+                  }
+                  return null;
+                })
+              }
                 </select>
               </span>
             </div>
