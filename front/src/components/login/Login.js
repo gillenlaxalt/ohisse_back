@@ -34,7 +34,7 @@ function Login() {
   return (
     <section className="login">
       <h2 className="login_h2">Bienvenue</h2>
-      <p className="login_txt">Bonjour, si tu es ici c’est que tu as le rôle d’admin sur O’hisee</p>
+      <p className="login_txt">Bonjour, si tu es ici c’est que tu as le rôle d’admin sur O’hisse</p>
       <form className="login_form" onSubmit={handleSubmitLogin}>
         <label
         htmlFor="email"
