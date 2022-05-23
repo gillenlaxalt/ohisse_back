@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, useMapEvents, Popup } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { addInputSpot, addSpot } from '../../actions/spots';
+import { addInputSpot, addSpot, recoverLatLng } from '../../actions/spots';
 
 // local
 import ohisseIcon from './icon';
@@ -42,11 +42,14 @@ function AddSpot() {
     useMapEvents({
       click(event) {
         console.log(event.latlng);
-        // dispatch(recoverLatLng(event.latlng));
+        dispatch(recoverLatLng(event.latlng));
+        
       },
     });
     return null;
   }
+
+  
 
   const rocks = [
     'calcaire',
@@ -181,7 +184,9 @@ function AddSpot() {
                 type='text'
                 name='longitude'
                 value={longitude}
-                onChange={(evt) => handleChangeInput(evt.target.value, 'longitude')}
+                readOnly
+                // onChange={(evt) => handleChangeInput(evt.target.value, 'longitude')}
+                placeholder='cliquez sur la map'
               ></input>
             </span>
             <span className='form_flex-span'>
@@ -190,7 +195,9 @@ function AddSpot() {
                 type='text'
                 name='latitude'
                 value={latitude}
-                onChange={(evt) => handleChangeInput(evt.target.value, 'latitude')}
+                readOnly
+                // onChange={(evt) => handleChangeInput(evt.target.value, 'latitude')}
+                placeholder='cliquez sur la map'
               ></input>
             </span>
 
