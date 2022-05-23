@@ -146,5 +146,8 @@
     ]
   },
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/leaflet": "^1.7.10"
+  }
 }

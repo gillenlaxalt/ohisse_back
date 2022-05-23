@@ -1,5 +1,8 @@
 //== import
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { Link } from "react-router-dom";
+import { deleteUser } from '../../../actions/users';
 
 // npm
 
@@ -10,6 +13,13 @@ import './user.scss';
 
 function User({id, firstname, lastname, role}) {
   // console.log(firstname);
+  const dispatch = useDispatch()
+
+  function handleDeleteSubmit(evt){
+    evt.preventDefault();
+    dispatch(deleteUser(id, firstname, lastname));
+    console.log('click to delete user');
+  }
   return (
     <div className="userCard" key={id}>
       <div className="userCard_identity">
@@ -19,8 +29,14 @@ function User({id, firstname, lastname, role}) {
       <div className="userCard_config">
         <p className="userCard-config_role">{role}</p>
         <div className="userCard-config-btn" >
-          <button className="userCard-config_update userCard-config_btn">Afficher</button>
-          <button className="userCard-config_delete userCard-config_btn">Supprimer</button>
+          <Link to={`/utilisateur/${id}`}>
+            <button 
+            className="userCard-config_update userCard-config_btn"
+            > Afficher</button></Link>
+          <button
+          className="userCard-config_delete userCard-config_btn"
+          onClick={handleDeleteSubmit}
+          >Supprimer</button>
         </div>
       </div>
     </div>

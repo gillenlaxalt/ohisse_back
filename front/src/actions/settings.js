@@ -9,15 +9,24 @@ export const handleDark = () => ({
 });
 
 export const CHANGE_LOGIN_FIELD = 'CHANGE_LOGIN_FIELD';
-export const changeLoginField = (value, name) => ({
+export const changeLoginField = (value, name) => {
+  console.log(value,name);
+  return  ({
   type: CHANGE_LOGIN_FIELD,
   value,
   name
-});
+});}
+
 
 // action type isLogged
 export const IS_LOGGED = 'IS_LOGGED'; 
 export const isLogged = () => ({
   type: IS_LOGGED,
-})
+});
+
+// action type logout
+export const LOGOUT = 'LOGOUT'; 
+export const logout = () => ({
+  type: LOGOUT,
+});
 
