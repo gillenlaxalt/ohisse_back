@@ -1,5 +1,6 @@
 // import
 import { Link } from 'react-router-dom';
+import {useSelector} from 'react-redux'
 // npm
 
 // local
@@ -10,23 +11,28 @@ import logocomment from '../../img/icons/comment.png';
 import './home.scss'
 
 function Home() {
+  const nameAdmin = useSelector((state) => state.users.currentUser.firstname);
+  console.log(nameAdmin);
   return (
     <section className='home' >
-      <Link to='/tous-les-utilisateurs'>
-        <div className='home_user'>
-          <img src={logoUser} alt='' className='home-img'/>
-        </div>
-      </Link>
-      <Link to='/tous-les-spots'>
-        <div className='home_spot'>
-          <img src={logoSpot} alt='' className='home-img'/>
-        </div>
-      </Link>
-      <Link to='/tous-les-commentaires'>
-        <div className='home_comment'>
-          <img src={logocomment} alt='' className='home-img'/>
-        </div>
-      </Link>
+      <p className='home_welcome'>{`Bienvenue ${nameAdmin}` }</p>
+      <div className='home_div-link'>
+        <Link to='/tous-les-utilisateurs'>
+          <div className='home_user'>
+            <img src={logoUser} alt='' className='home-img'/>
+          </div>
+        </Link>
+        <Link to='/tous-les-spots'>
+          <div className='home_spot'>
+            <img src={logoSpot} alt='' className='home-img'/>
+          </div>
+        </Link>
+        <Link to='/tous-les-commentaires'>
+          <div className='home_comment'>
+            <img src={logocomment} alt='' className='home-img'/>
+          </div>
+        </Link>
+      </div>
     </section>
 
   );
