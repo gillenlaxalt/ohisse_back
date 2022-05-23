@@ -1,0 +1,66 @@
+@use '../../styles/vars';
+
+.home{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+
+  &_user{
+   
+  }
+  
+  &_spot{
+    
+  }
+  
+  &_comment{
+    
+  }
+  
+  .home-img{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px vars.$border-btn-color;
+    margin: 20px;
+    cursor: pointer;
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .home{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10% auto;
+  
+    &_user{
+     
+    }
+    
+    &_spot{
+      
+    }
+    
+    &_comment{
+      
+    }
+    
+    .home-img{
+      width: 250px;
+      height: 250px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px vars.$border-btn-color;
+      margin: 20px;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .home-img:hover{
+      transform: scale(1.2);
+    }
+  }
+}
