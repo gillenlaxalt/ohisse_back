@@ -6,6 +6,7 @@ import axios from 'axios';
 
 
 import { 
+  ADD_USER,
   DELETE_USER,
   fetchUsers,
   FETCH_USERS,
@@ -31,7 +32,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
         .get('api/admin/users')
         .then(
           (resp) => {
-            console.log(resp.data)
+            // console.log(resp.data)
             store.dispatch(saveUsers(resp.data))
           }
         )
@@ -44,22 +45,22 @@ const userApiMiddleware = (store) => (next) => (action) => {
       
     case LOGIN: {
       const state = store.getState();
-      const {mail, password } = state.settings.login;
-      console.log(mail, password);
+      const {email, password } = state.settings.login;
+      // console.log(email, password);
       // we send to API password and email
       axiosInstance
         .post(
           '/api/login',
           {
-            email: mail,
+            email: email,
             password: password
           },
           )
           // we recive information about user and token
           .then((response) => {
           // const { data: accès_token } = response;
-          console.log(response.data.user);
-          console.log(response.data.token.original.access_token);
+          // console.log(response.data.user);
+          // console.log(response.data.token.original.access_token);
           const token = response.data.token.original.access_token;
           const { user } = response.data;
 
@@ -97,13 +98,13 @@ const userApiMiddleware = (store) => (next) => (action) => {
             firstname,
             lastname,
             pseudo,
-            mail,
+            email,
             description,
             role,
           },
         }
     } = store.getState();
-    console.log(id, firstname, lastname);
+    // console.log(id, firstname, lastname);
       axiosInstance
         .patch(
           `/api/admin/user/edit/${id}`,
@@ -111,7 +112,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
           firstname,
           lastname,
           pseudo,
-          mail,
+          email,
           description,
           role,
           }
@@ -147,6 +148,48 @@ const userApiMiddleware = (store) => (next) => (action) => {
         })
         next(action);
         break;
+      }
+      case ADD_USER: {
+        const { 
+          users : {
+            addUser :{
+              firstname,
+              lastname,
+              pseudo,
+              email,
+              password,
+              description,
+              role,
+              city,
+              country
+            },
+        }
+      }= store.getState();
+      axiosInstance
+      .post(
+        'admin/register',
+        {
+          firstname,
+          lastname,
+          pseudo,
+          email,
+          password,
+          description,
+          role,
+          city,
+          country
+        }
+      )
+      .then((resp) => {
+        // console.log(resp)
+        window.confirm(` ${firstname} ${lastname} a été ajouté(e)`);
+      })
+      .catch((resp) => {
+        // console.log(resp, 'error');
+        window.alert('Erreur : l\'utilisateur n\'a pas été ajouté');
+      })
+      next(action);
+      break
       }
       default:
       next(action);

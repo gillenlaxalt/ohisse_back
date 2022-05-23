@@ -87,4 +87,20 @@ export const isEmptyInFalse = () => ({
   type: IS_EMPTY_IN_FALSE,
 })
 
+// action type addInputUser
+export const ADD_INPUT_USER = 'ADD_INPUT_USER';
+// action creator addInputUser
+export const addInputUser = (value, name) => ({
+  type: ADD_INPUT_USER,
+  value,
+  name,
+})
+
+// action type addUser
+export const ADD_USER = 'ADD_USER';
+// action creator addUser
+export const addUser = () => ({
+  type : ADD_USER,
+})
+
 
