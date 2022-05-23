@@ -54,17 +54,18 @@ function Menu() {
             <nav>
               <ul className='header_menu'>
                 <li className='header-menu_spots menu-txt'><NavLink to='/tous-les-spots'>Spots</NavLink></li>
-                <li className='header-menu_users menu-txt'><NavLink to='/tous-les-utilisateurs'>Users</NavLink></li>
+                <li className='header-menu_users menu-txt'><NavLink to='/tous-les-utilisateurs'>Utilisateurs</NavLink></li>
+                <li className='header-menu_comments menu-txt'><NavLink to='/tous-les-commentaires'>Commentaires</NavLink></li>
               </ul>
             </nav>
-            <span className='header-content-menu_dark-mode'>
+            {/* <span className='header-content-menu_dark-mode'>
               <button
                 className={onDark ? 'header-burger_btn dark-actif' : 'header-burger_btn'}
                 onClick={handleDarkActiv}
               >
 
               </button>
-            </span>
+            </span> */}
 
           </span>
           <span className='header-content-menu_log'>
@@ -75,7 +76,7 @@ function Menu() {
                 alt='déconnexion'
                 className='menu-log_img'
               />
-              <p className='menu-log_txt menu-txt'> Déconnexion</p>
+              <p className='menu-log_txt menu-txt'>Déconnexion</p>
             </span>
           </NavLink>
           </span>

@@ -167,7 +167,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
       }= store.getState();
       axiosInstance
       .post(
-        'admin/register',
+        'api/admin/register',
         {
           firstname,
           lastname,
