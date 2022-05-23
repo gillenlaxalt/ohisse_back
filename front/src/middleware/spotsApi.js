@@ -16,13 +16,13 @@ const axiosInstance = axios.create({
 const spotApiMiddleware = (store) => (next) => (action) => {
   const state = store.getState();
   const token =  state.users.tokenCurrentUser;
-  console.log(token);
+  // console.log(token);
   axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
       
   switch (action.type) {
 
     case FETCH_SPOTS:{
-      console.log(token);
+      // console.log(token);
       axiosInstance
         .get('api/admin/spots')
         .then(
@@ -61,7 +61,7 @@ const spotApiMiddleware = (store) => (next) => (action) => {
           },
         }
     } =store.getState();
-      console.log(id, name);
+      // console.log(id, name);
         axiosInstance
           .patch(
             `/api/admin/spots/edit/${id}`,
@@ -102,12 +102,12 @@ const spotApiMiddleware = (store) => (next) => (action) => {
         `api/admin/spots/delete/${action.id}`
       )
       .then((resp) => {
-        console.log(resp);
+        // console.log(resp);
         window.confirm(`Vous avez bien supprimé le spot`);
         store.dispatch(fetchSpots());
       })
       .catch((resp) => {
-        console.log(resp);
+        // console.log(resp);
         window.alert(`${action.city} n'a pas été supprimé`);
       })
       next(action)
@@ -164,12 +164,12 @@ const spotApiMiddleware = (store) => (next) => (action) => {
         }
       )
       .then((resp) => {
-        console.log(resp);
+        // console.log(resp);
         window.confirm(`Vous avez bien ajouté le spot ${name}`);
         store.dispatch(fetchSpots());
       })
       .catch ((resp) => {
-        console.log(resp);
+        // console.log(resp);
         window.alert(`Erreur : le spot n'a pas été ajouté`);
       })
       next(action)

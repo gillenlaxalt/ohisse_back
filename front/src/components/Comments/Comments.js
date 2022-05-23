@@ -9,13 +9,15 @@ import { fetchComments } from "../../actions/comments";
 import Comment from "./Comment/Comment";
 // style
 
-function Comments (id, content, id_user) {
-
+function Comments () {
+  // id, content, id_user
   const dispatch = useDispatch();
   const commentsData = useSelector((state) => state.comments.commentList)
   useEffect(() => {
     dispatch(fetchComments())
-  })
+  },[])
+
+  console.log(commentsData);
 
   return(
     <section className='allUser'>

@@ -32,7 +32,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
         .get('api/admin/users')
         .then(
           (resp) => {
-            console.log(resp.data)
+            // console.log(resp.data)
             store.dispatch(saveUsers(resp.data))
           }
         )
@@ -46,7 +46,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
     case LOGIN: {
       const state = store.getState();
       const {email, password } = state.settings.login;
-      console.log(email, password);
+      // console.log(email, password);
       // we send to API password and email
       axiosInstance
         .post(
@@ -59,8 +59,8 @@ const userApiMiddleware = (store) => (next) => (action) => {
           // we recive information about user and token
           .then((response) => {
           // const { data: accès_token } = response;
-          console.log(response.data.user);
-          console.log(response.data.token.original.access_token);
+          // console.log(response.data.user);
+          // console.log(response.data.token.original.access_token);
           const token = response.data.token.original.access_token;
           const { user } = response.data;
 

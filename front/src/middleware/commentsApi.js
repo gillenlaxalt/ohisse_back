@@ -13,7 +13,7 @@ const axiosInstance = axios.create({
 const commentApiMiddleware = (store) => (next) => (action) => {
   const state = store.getState();
   const token = state.users.tokenCurrentUser;
-
+  console.log(token);
   axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
 
   switch (action.type) {
