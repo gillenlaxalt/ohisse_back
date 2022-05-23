@@ -1,4 +1,6 @@
 // == import 
+import { useDispatch } from 'react-redux';
+import { deleteComment } from '../../../actions/comments';
 
 // npm
 
@@ -8,6 +10,13 @@
 import './comment.scss'
 
 function Comment( {id, content, pseudo} ) {
+
+  const dispatch = useDispatch();
+  function handleDeleteSubmit (evt) {
+    evt.preventDefault();
+    dispatch(deleteComment(id));
+  }
+
   return(
     <div className="commentCard" key={id}>
       <div className="commentCard_comments">
@@ -23,7 +32,7 @@ function Comment( {id, content, pseudo} ) {
         <div className="commentCard-config-btn" >
           <button
           className="commentCard-config_delete commentCard-config_btn"
-          // onClick = {handleDeleteSubmit}
+          onClick = {handleDeleteSubmit}
           >Supprimer</button>
         </div>
     </div>

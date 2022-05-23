@@ -3,7 +3,7 @@
 // npm
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchComments } from "../../actions/comments";
+import { fetchComments } from "../../actions/comments"
 
 // local
 import Comment from "./Comment/Comment";

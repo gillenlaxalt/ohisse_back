@@ -12,3 +12,11 @@ export const saveComments = (data) => ({
   type: SAVE_COMMENTS,
   data
 })
+
+//action type deleteComment
+export const DELETE_COMMENT = 'DELETE_COMMENT';
+//action creator deleteComment
+export const deleteComment = (commentById) => ({
+  type: DELETE_COMMENT,
+  id: commentById
+})

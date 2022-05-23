@@ -2,7 +2,7 @@
 
 // npm
 import axios from 'axios';
-import { FETCH_COMMENTS, saveComments } from '../actions/comments';
+import { DELETE_COMMENT, FETCH_COMMENTS, saveComments, fetchComments } from '../actions/comments';
 // local
 
 const axiosInstance = axios.create({
@@ -31,7 +31,20 @@ const commentApiMiddleware = (store) => (next) => (action) => {
         next(action);
         break
       }
-
+    case DELETE_COMMENT:{
+      axiosInstance
+        .delete(`api/admin/comments/delete/${action.id}`
+        )
+        .then((resp) => {
+          window.confirm(`Vous avez bien supprimé le commentaire`);
+          store.dispatch(fetchComments());
+        })
+        .catch((resp) => {
+          window.alert(`Erreur : le commentaire n'a pas été supprimé`);
+        });
+        next(action);
+        break
+    }
       default:
         next(action);
   }
