@@ -1,8 +1,8 @@
 // action type fetchComments
-export const FECTH_COMMENTS = 'FECTH_COMMENTS';
+export const FETCH_COMMENTS = 'FETCH_COMMENTS';
 // action creator fetchComments
 export const fetchComments = () => ({
-  type : FECTH_COMMENTS,
+  type : FETCH_COMMENTS,
 })
 
 //action type saveComments

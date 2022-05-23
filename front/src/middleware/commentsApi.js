@@ -2,7 +2,7 @@
 
 // npm
 import axios from 'axios';
-import { FECTH_COMMENTS, saveComments } from '../actions/comments';
+import { FETCH_COMMENTS, saveComments } from '../actions/comments';
 // local
 
 const axiosInstance = axios.create({
@@ -14,11 +14,11 @@ const commentApiMiddleware = (store) => (next) => (action) => {
   const state = store.getState();
   const token = state.users.tokenCurrentUser;
 
-  axiosInstance.default.headers.common.Authorization = `Bearer ${token}`;
+  axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
 
   switch (action.type) {
 
-    case FECTH_COMMENTS:{
+    case FETCH_COMMENTS:{
       axiosInstance
         .get('api/admin/comments',
         )
