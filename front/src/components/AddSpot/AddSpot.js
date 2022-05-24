@@ -321,7 +321,7 @@ function AddSpot() {
         </form>
 
       </section>
-      <section className='currentSpot_map'>
+      <section className='currentSpot_map' >
         <MapContainer center={[47, 2]} zoom={5} scrollWheelZoom>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -332,6 +332,7 @@ function AddSpot() {
           <Marker
           position={[latitude, longitude]}
           icon={ohisseIcon}
+          
         />
         
           {/* </Marker> */}
