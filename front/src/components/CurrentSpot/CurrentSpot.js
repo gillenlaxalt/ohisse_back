@@ -306,7 +306,7 @@ function CurrentSpot() {
           {/* <Marker position={[47, 2]}> */}
           <HandleClickMap />
           <Marker
-          position={[latitude, longitude]}
+          position={[longitude, latitude]}
           icon={ohisseIcon}
           
         />
