@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 
 // local
-import { ADD_SPOT, DELETE_SPOT, fetchSpots, FETCH_SPOTS, saveSpots, UPDATE_SPOT } from '../actions/spots';
+import { ADD_SPOT, DELETE_SPOT, emptyfield, fetchSpots, FETCH_SPOTS, saveSpots, UPDATE_SPOT } from '../actions/spots';
 
 
 const axiosInstance = axios.create({
@@ -167,6 +167,7 @@ const spotApiMiddleware = (store) => (next) => (action) => {
         // console.log(resp);
         window.confirm(`Vous avez bien ajouté le spot ${name}`);
         store.dispatch(fetchSpots());
+        store.dispatch(emptyfield())
       })
       .catch ((resp) => {
         // console.log(resp);
