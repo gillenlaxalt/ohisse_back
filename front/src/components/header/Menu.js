@@ -37,7 +37,7 @@ function Menu() {
 
     <section className='header'>    
     <Link to='/' >   <img src={logo} alt='logo' className='header_logo' /></Link>
-      <p className='header_backOffice-txt'> Back office</p>
+      <h1 className='header_backOffice-txt'> Back office</h1>
       <span
         className='header-burger'
         onClick={handleMenuActif}
@@ -46,7 +46,7 @@ function Menu() {
       {isLogged && (
 
         <div className={onMenu ? 'header_content-menu menu-actif' : 'header_content-menu'}>
-          <span className='header-menu-darkMode'>
+          <span className='header-menu'>
             <nav>
               <ul className='header_menu'>
                 <li className='header-menu_spots menu-txt'><NavLink to='/tous-les-spots'>Spots</NavLink></li>
@@ -65,14 +65,14 @@ function Menu() {
 
           </span>
           <span className='header-content-menu_log'>
-          <NavLink to='/' onClick={handleLogout}>
+          <NavLink to='/' onClick={handleLogout} className='header-content-menu_a'>
             <span className='header-content-menu_log'>
               <img
                 src={LogoutLogo}
                 alt='déconnexion'
                 className='menu-log_img'
               />
-              <p className='menu-log_txt menu-txt'>Déconnexion</p>
+              {/* <p className='menu-log_txt menu-txt'>Déconnexion</p> */}
             </span>
           </NavLink>
           </span>
