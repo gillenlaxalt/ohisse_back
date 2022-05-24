@@ -80,7 +80,7 @@
       font-size: 1.5rem;
     }
     .header-menu{
-      align-self: center;
+      align-self: start;
     }
 
     .header-menu_spots{
@@ -205,7 +205,7 @@
       margin-bottom: 0px;
     }
   
-    .header_content-menu{
+    &_content-menu{
   
       li.menu-txt{
         font-size:1.5rem;
@@ -218,12 +218,16 @@
       li.menu-txt:hover{
         transform: scale(1.1);
       }
+
+      span.header-menu{
+        align-self: center;
+      }
   
       .header-content-menu_dark-mode{
-        width:40px;
-        height:15px;
-        margin: 0px;
-        margin-left: 10px;
+        // width:40px;
+        // height:15px;
+        // margin: 0px;
+        // margin-left: 10px;
         
   
         .header-burger_btn{
