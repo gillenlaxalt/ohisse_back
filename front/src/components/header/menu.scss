@@ -75,11 +75,12 @@
     justify-content: space-between;
     transition: right 0.5s ease-out;
 
+
     .menu-txt{
       font-size: 1.5rem;
     }
-    .header_menu{
-
+    .header-menu{
+      align-self: start;
     }
 
     .header-menu_spots{
@@ -90,7 +91,7 @@
       margin-bottom: 10px;
     }
 
-    .header-content-menu_dark-mode{
+    .header-content-menu{
       width: 50px;
       height: 20px;
       border-radius: 500px;
@@ -124,10 +125,24 @@
       display: flex;
       flex-direction: row;
       align-items:center ;
+
+      .header-content-menu_a{
+        width: 40px;
+        height: 40px;
+        background-color: vars.$main-bg-btn-color;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        box-shadow: 0 0 5px 1px;
+      }
+
+      .header-content-menu_a:hover{
+        transform: scale(1.1);
+      }
       
       .menu-log_img{
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
       }
       
       .menu-log_txt{
@@ -149,6 +164,7 @@
 
     &_backOffice-txt{
       font-size: 2rem;
+      transform: translateX(110%);
     }
 
     &_logo{
@@ -167,19 +183,19 @@
       padding: 0px;
       flex-direction: row;
       
+      .header-menu-darkMode{
+        display: flex;
+        margin: 0 10px;
+        align-items: center;
+      }
+    
+      .header_menu{
+        display: flex;
+        flex-direction: row;
+        align-self: baseline;
+      }
     }
   
-    .header-menu-darkMode{
-      display: flex;
-      margin: 0 10px;
-      align-items: center;
-    }
-  
-    .header_menu{
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
   
     li.header-menu_spots.menu-txt{
       margin-bottom: 0px;
@@ -189,18 +205,29 @@
       margin-bottom: 0px;
     }
   
-    .header_content-menu{
+    &_content-menu{
   
       li.menu-txt{
         font-size:1.5rem;
         margin-left: 10px;
+        border-right: 5px solid vars.$main-bg-btn-color;
+        padding-right: 5px;
+        margin: 0 15px;
+      }
+
+      li.menu-txt:hover{
+        transform: scale(1.1);
+      }
+
+      span.header-menu{
+        align-self: center;
       }
   
       .header-content-menu_dark-mode{
-        width:40px;
-        height:15px;
-        margin: 0px;
-        margin-left: 10px;
+        // width:40px;
+        // height:15px;
+        // margin: 0px;
+        // margin-left: 10px;
         
   
         .header-burger_btn{
@@ -210,6 +237,7 @@
       }
     
       .header-content-menu_log{
+        // margin-right: 10px;
         // .menu-log_txt{
         //   font-size: 1.5rem;
         // }

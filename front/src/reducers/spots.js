@@ -10,7 +10,8 @@ import {
   EMPTY_FIELD,
   FETCH_SPOT_BY_ID,
   RECOVER_LATLNG,
-  SAVE_SPOTS } from "../actions/spots";
+  SAVE_SPOTS, 
+  UPDATE_RECOVERT_LAT_LNG} from "../actions/spots";
 
 export const initialState = {
   search: [
@@ -103,6 +104,15 @@ const spotsReducer = (state = initialState, action = {}) => {
           [action.name]: action.value,
         }
       }
+      case UPDATE_RECOVERT_LAT_LNG:
+        return {
+          ...state,
+          inputCurrentSpot:{
+            ...state.inputCurrentSpot,
+            latitude:action.data.lat,
+            longitude:action.data.lng,
+          }
+        }
     case ADD_INPUT_SPOT:
       return{
         ...state,

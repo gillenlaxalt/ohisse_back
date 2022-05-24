@@ -37,6 +37,14 @@ export const changeInputSpot = (value, name) => ({
   name,
 })
 
+// action type updateRecoverLatLng
+export const UPDATE_RECOVERT_LAT_LNG = 'UPDATE_RECOVERT_LAT_LNG';
+// action creator updateRecoverLatLng
+export const updateRecoverLatLng = (data) => ({
+  type: UPDATE_RECOVERT_LAT_LNG,
+  data
+})
+
 //action type updateSpot
 export const UPDATE_SPOT = 'UPDATE_SPOT';
 //action creator updateSpot

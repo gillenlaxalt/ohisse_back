@@ -15,7 +15,7 @@ function Home() {
   console.log(nameAdmin);
   return (
     <section className='home' >
-      <p className='home_welcome'>{`Bienvenue ${nameAdmin}` }</p>
+      <h2 className='home_welcome'>{`Bienvenue ${nameAdmin}` }</h2>
       <div className='home_div-link'>
         <Link to='/tous-les-utilisateurs'>
           <div className='home_user'>
