@@ -263,7 +263,7 @@ function CurrentSpot() {
                   type='textarea'
                   name='descrip'
                   defaultValue={spotById.various}
-                  onChange = {(evt) => handleChangeInput(evt.target.value, 'description')}
+                  onChange = {(evt) => handleChangeInput(evt.target.value, 'various')}
                 ></input>
   
               </div>
