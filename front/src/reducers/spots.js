@@ -7,7 +7,9 @@ import {
   ADD_INPUT_SPOT,
   CHANGE_FIELD,
   CHANGE_INPUT_SPOT,
+  EMPTY_FIELD,
   FETCH_SPOT_BY_ID,
+  RECOVER_LATLNG,
   SAVE_SPOTS } from "../actions/spots";
 
 export const initialState = {
@@ -107,6 +109,38 @@ const spotsReducer = (state = initialState, action = {}) => {
         addSpot:{
           ...state.addSpot,
           [action.name] : action.value,
+        }
+      }
+    case RECOVER_LATLNG:
+      return{
+        ...state,
+        addSpot:{
+          ...state.addSpot,
+          latitude:action.data.lat,
+          longitude:action.data.lng,
+        }
+      }
+    case EMPTY_FIELD:
+      return{
+        ...state,
+        addSpot:{
+          ...state.addSpot,
+          name:'',
+          number:'',
+          street:'',
+          zipcode:'',
+          city:'',
+          country:'',
+          type:'',
+          rock_type:'',
+          discipline:'',
+          latitude:'',
+          longitude:'',
+          min_difficulty:'',
+          max_difficulty:'',
+          various:'',
+          reputation:'',
+          picture:'',
         }
       }
     default:

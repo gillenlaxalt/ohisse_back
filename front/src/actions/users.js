@@ -103,4 +103,11 @@ export const addUser = () => ({
   type : ADD_USER,
 })
 
+// action type emptyUserFields
+export const EMPTY_USER_FIELDS = 'EMPTY_USER_FIELDS';
+// action creator emptyUserFields
+export const emptyUserFields = () => ({
+  type: EMPTY_USER_FIELDS,
+})
+
 

@@ -8,6 +8,7 @@ import axios from 'axios';
 import { 
   ADD_USER,
   DELETE_USER,
+  emptyUserFields,
   fetchUsers,
   FETCH_USERS,
   LOGIN,
@@ -183,6 +184,7 @@ const userApiMiddleware = (store) => (next) => (action) => {
       .then((resp) => {
         // console.log(resp)
         window.confirm(` ${firstname} ${lastname} a été ajouté(e)`);
+        store.dispatch(emptyUserFields())
       })
       .catch((resp) => {
         // console.log(resp, 'error');

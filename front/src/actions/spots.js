@@ -68,3 +68,17 @@ export const ADD_SPOT = 'ADD_SPOT';
 export const addSpot = () => ({
   type : ADD_SPOT,
 })
+
+// action type recoverLatLng
+export const RECOVER_LATLNG = 'RECOVER_LATLNG';
+// action creator recoverLatLng
+export const recoverLatLng = (data) => ({
+  type : RECOVER_LATLNG,
+  data,
+})
+
+// action type emptyfield
+export const EMPTY_FIELD = 'EMPTY_FIELD';
+export const emptyfield = () => ({
+  type: EMPTY_FIELD
+})

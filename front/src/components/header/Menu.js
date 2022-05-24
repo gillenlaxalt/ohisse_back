@@ -25,7 +25,7 @@ function Menu() {
     dispatch(handleDark());
   };
   const onMenu = useSelector((state) => state.settings.burgerMenu);
-  const onDark = useSelector((state) => state.settings.darkMode);
+  // const onDark = useSelector((state) => state.settings.darkMode);
   const isLogged = useSelector((state) => state.settings.isLogged);
   // console.log(isLogged);
  
@@ -34,14 +34,10 @@ function Menu() {
   }
 
   return (
-    <section className={onDark ? 'header dark' : 'header'}>
 
-    
+    <section className='header'>    
     <Link to='/' >   <img src={logo} alt='logo' className='header_logo' /></Link>
-
       <p className='header_backOffice-txt'> Back office</p>
-
-
       <span
         className='header-burger'
         onClick={handleMenuActif}
@@ -60,7 +56,7 @@ function Menu() {
             </nav>
             {/* <span className='header-content-menu_dark-mode'>
               <button
-                className={onDark ? 'header-burger_btn dark-actif' : 'header-burger_btn'}
+                className='header-burger_btn'
                 onClick={handleDarkActiv}
               >
 
