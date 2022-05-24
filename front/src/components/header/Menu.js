@@ -65,7 +65,7 @@ function Menu() {
 
           </span>
           <span className='header-content-menu_log'>
-          <NavLink to='/login' onClick={handleLogout}>
+          <NavLink to='/' onClick={handleLogout}>
             <span className='header-content-menu_log'>
               <img
                 src={LogoutLogo}
