@@ -2,7 +2,7 @@
 
 // npm
 import { useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, useMapEvents, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addInputSpot, addSpot, recoverLatLng } from '../../actions/spots';
@@ -11,6 +11,7 @@ import { addInputSpot, addSpot, recoverLatLng } from '../../actions/spots';
 import ohisseIcon from './icon';
 
 // style
+import './addSpot.scss'
 
 function AddSpot() {
 

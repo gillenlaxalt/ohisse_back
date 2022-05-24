@@ -1,13 +1,13 @@
 //= import
 
 //npm
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { changeInputSpot, deleteSpot, fetchSpotById, updateSpot } from '../../actions/spots';
+import { changeInputSpot, deleteSpot, fetchSpotById, updateRecoverLatLng, updateSpot } from '../../actions/spots';
 // local
-
+import ohisseIcon from './icon.js';
 // style
 import './currentSpot.scss'
 
@@ -21,6 +21,9 @@ function CurrentSpot() {
   // console.log(id);
   const spotById = spotsListData.find((spot) => spot.id == id);
   // console.log(spotById);
+
+  const latitude = useSelector((state) => state.spots.inputCurrentSpot.latitude)
+  const longitude = useSelector((state) => state.spots.inputCurrentSpot.longitude)
 
   const handleChangeInput = (value, name) => (
     dispatch(changeInputSpot(value, name))
@@ -36,6 +39,16 @@ function CurrentSpot() {
     dispatch(updateSpot());
     console.log('submit update');
   }
+
+  function HandleClickMap() {
+    useMapEvents({
+      click(event) {
+        console.log(event.latlng);
+        dispatch(updateRecoverLatLng(event.latlng));
+      },
+      });
+      return null;
+    };
 
   useEffect(
       () => {
@@ -164,8 +177,9 @@ function CurrentSpot() {
                 <input
                 type='text'
                 name='longitude'
-                defaultValue={spotById.longitude}
-                onChange = {(evt) => handleChangeInput(evt.target.value, 'longitude')}
+                value={longitude}
+                readOnly
+                // onChange = {(evt) => handleChangeInput(evt.target.value, 'longitude')}
                 ></input>
               </span>
               <span className='form_flex-span'>
@@ -173,8 +187,9 @@ function CurrentSpot() {
                 <input
                 type='text'
                 name='latitude'
-                defaultValue={spotById.latitude}
-                onChange = {(evt) => handleChangeInput(evt.target.value, 'latitude')}
+                value={latitude}
+                readOnly
+                // onChange = {(evt) => handleChangeInput(evt.target.value, 'latitude')}
                 ></input>
               </span>
             </div>
@@ -284,16 +299,20 @@ function CurrentSpot() {
         </section>
         <section className='currentSpot_map'>
         <MapContainer center={[47, 2]} zoom={5} scrollWheelZoom>
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              <Marker position={[47, 2]}>
-                <Popup>
-                  A pretty CSS3 popup. <br /> Easily customizable.
-                </Popup>
-              </Marker>
-            </MapContainer>
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {/* <Marker position={[47, 2]}> */}
+          <HandleClickMap />
+          <Marker
+          position={[latitude, longitude]}
+          icon={ohisseIcon}
+          
+        />
+        
+          {/* </Marker> */}
+        </MapContainer>
           
         </section>
   
