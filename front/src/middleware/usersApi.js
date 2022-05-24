@@ -64,6 +64,13 @@ const userApiMiddleware = (store) => (next) => (action) => {
           // console.log(response.data.token.original.access_token);
           const token = response.data.token.original.access_token;
           const { user } = response.data;
+          console.log(user);
+
+          if(user.role == 'user'){
+            window.alert('Il semblerait que vous ne soyez pas administrateur sur le site');
+            delete axiosInstance.defaults.headers.common.Authorization;
+            return
+          }
 
           // we save token to axios
           axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
