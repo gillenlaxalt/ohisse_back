@@ -120,7 +120,7 @@ class SpotController extends CoreController
                 $oneDataAtLeast=true;
             }
             if($request->filled('min_difficulty')) {
-                $editToSpot->reputation = $request->input('min_difficulty');
+                $editToSpot->min_difficulty = $request->input('min_difficulty');
                 $oneDataAtLeast=true;
             }
             if($request->filled('max_difficulty')) {
